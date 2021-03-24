@@ -1,52 +1,61 @@
-#+TITLE: Mijn ft_printf
+#+TITLE: ft_printf
 
-* TODO conv_c en conv_s maken
-* TODO conv_num
+* agenda
+** TODO org en remarkable en de projectbestanden synchronizeren
+   ik wil graag dat ik in mijn org file en op mijn printf bijna altijd een actueel overzicht heb van mijn project en van al de functies in mijn project.
+   Zodat ik daarin een groot deel van het werk kan doen.
+** TODO put_c en put_s maken
+   ik denk nu dat ik de functies gewoon put c en put s enzovoort noem en daarin alleen maar het argument ga printen met een eventuele precision. Dan ga ik in de ft_putconversion eigenlijk de width en de 0 en de min afhandelen
+** TODO conv_num
 
-* projectfolders and files
+
+* directories/files/functions
 ** [[../dev/]]
-  [[../dev/main.c]]
-
-  [[../dev/Makefile]]
-
+*** [[../dev/main.c]]
+*** [[../dev/Makefile]]
 ** [[../dev/includes]]
-   [[../dev/includes/ft_printf.h]]
+**** [[../dev/includes/ft_printf.h]]
+***** de t_convert struct
+	typedef struct s_convert
+	{
+		va_list	ap;
+		int		printcounter;
+		int		width;
+		int		precision;
+		bool	minus;
+		bool	zero;
+		char	type;
+	}	t_convert;
 ** [[../dev/srcs]]
-  [[../dev/srcs/ft_printf.c]]
-  [[../dev/srcs/helperfunctions.c]]
-  [[../dev/srcs/ft_conv_c.c]]
-
-** [[../printf_org/]]
-   [[../printf_org/main.c]]
-
-* functies
-** ft_print
-   deze functie opent de va_list en roept ft_parse aan
-** ft_parse
-   inputstring doorloopen
+*** [[../dev/srcs/ft_printf.c]]
+**** int	ft_init_convspecs
+**** char	*ft_putconversions(t_convert *conv_specs)
+**** int	ft_check_conversion(char *format, t_convert *conv_specs)
+**** int	ft_parse(char *format, va_list ap)
+	    inputstring doorloopen
    als % gevonden is roepen we ft_check_conversion aan die de conversie gaat analyzeren
-** ft_check_conversion
+
    deze functie gaat de format vanaf een % analyzeren
    dat doet ie door karakter voor karakter te kijken of het een geldige conversiespecifier is
    en alle flags en relevante info in de struct te stoppen.
    Wanneer de type specificatie gevonden is wordt het aantal verwerkte karakters (i) gereturnt.
-** ft_checktype
-** ft_checkflag
-** ft_checkprecision
-** ft_checkwidth
-** conversiefuncties
-*** ft_conv_c
-    als de conv_type een character is gaat deze functie de character combineren met de conv_specs en daarmee converteren naar een printbare string
-*** ft_conv_num
-*** ft_conv_p
-*** ft_conv_o
-*** ft_conv_x
-*** ft_conv_X
-*** ft_conv_u
+**** int	ft_printf
+	deze functie opent de va_list en roept ft_parse aan
+*** [[../dev/srcs/helperfunctions.c]]
+**** int	ft_checkflag(char *format, t_convert *conv_specs)
+**** int	ft_checkprecision(char *format, t_convert *conv_specs)
+**** int	ft_checkasterisk(char *format, t_convert *conv_specs)
+**** int	ft_checkwidthdigit(char *format, t_convert *conv_specs)
+**** int	ft_checktype(char *format, t_convert *conv_specs)
+*** [[../dev/srcs/ft_put_c.c]]
+*** [[../dev/srcs/ft_put_s.c]]
+*** [[../dev/srcs/ft_put_d.c]]
+** [[../printf_org/]]
+*** [[../printf_org/main.c]]
+*** [[../printf_org/printf.org]]
 
 
-
-* Beschrijving van de printf functie.
+* omschrijving van de printf functie.
 ** eerst optioneel een - en/of 0
 *** minus - left-justify
     the result of the conversion is left-justified within the field (right-justified if not specified)
@@ -76,8 +85,12 @@
     hetzelfde maar dan in hoofdletters
  Een overzicht maken van de verschillende manieren waarop je printf kunt gebruiken zodat je de betekenis leert kennen van alle verschillende soorten valide (en invalide) invoer.
 
+
 * oefenen met de originele printf
 ** met BABEL in deze org buffer
+   :PROPERTIES:
+   :ORDERED:  t
+   :END:
 
  #+begin_src C :results value code :includes <stdio.h> <unistd.h>
 int a = 100;
@@ -90,14 +103,20 @@ char *pointer = string;
 char **ppointer = pointer;
 
 /* 1 min of nul */
-printf("%s, |%90c|", string, c);
+printf("%s, |%9c|\n", string, c);
+printf("|%02c|\n", c);
+printf("|%.-3s|\n", string);
 
- #+end_src
+#+end_src
 
  #+RESULTS:
  #+begin_src C
- hello world, |                                                                                         c|
+ hello world, |        c|
+ |0c|
+ |hel|
  #+end_src
+
+ #+RESULTS:
 
 ** in een aparte file en compileren via een shell
    [[./printfpractice.c]]

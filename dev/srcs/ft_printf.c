@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/03/22 17:01:49 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/03/24 16:26:44 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+/* temporary function only for testing purposes */
 int	printspecs(t_convert conv_specs)
 {
 	printf("width: _%d_\n", conv_specs.width);
@@ -31,7 +32,6 @@ int	init_convspecs(t_convert *conv_specs)
 {
 	conv_specs->width = 0;
 	conv_specs->precision = -1; /* precision 0 is anders dan geen precision voor strings bijvoorbeeld */
-	conv_specs->precision_asterisk = 0;
 	conv_specs->minus = 0;
 	conv_specs->zero = 0;
 	conv_specs->type = 'z';
@@ -39,7 +39,7 @@ int	init_convspecs(t_convert *conv_specs)
 }
 
 /* voor iedere conversie type wordt er een individuele conversiefunctie die stuk voor stuk de conv_specs om gaan zetten naar de te printen string en deze functies geven een gealloceerde string terug. */
-char	*ft_convtostring(t_convert conv_specs)
+char	*ft_putconversions(t_convert *conv_specs)
 {
 	char *string;
 

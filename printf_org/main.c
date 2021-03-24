@@ -8,17 +8,12 @@ int main()
 	char d = 'd';
 
 	char *string = "hello world";
-	char *pointer = string;
-	char **ppointer = &pointer;
-
-	char *string = "hello world";
 	char *string2 = "bye world";
 	char *pointer = string;
 	char **ppointer = &pointer;
 
-	printf("|%0--034s|, |%c|", string, a);
     /* character conversions */
-    printf("1: width van 10 op een char(%%10c) >%10c<\n", c );
+    printf("1: width van 10 op een char(%%.-3s) >%.-3s<\n", string);
 
 /*    printf("2: precision van 3 op een char(%%.3c) >%.3c<\n", c); */
 /*********************************************************************************************************************************/

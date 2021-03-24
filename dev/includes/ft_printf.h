@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/03/22 13:57:11 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/03/24 13:39:50 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ typedef struct s_convert
 {
 	va_list	ap;
 	int		printcounter;
-	int		width_asterisk;
-	int		width_digit;
+	int		width;
 	int		precision;
-	int		precision_asterisk;
 	bool	minus;
 	bool	zero;
 	char	type;
@@ -33,16 +31,19 @@ typedef struct s_convert
 /* hou in je struct bij hoe lang het te printen stukje tekst uiteindelijk wordt */
 
 int	ft_printf(const char*, ...);
+
 int	ft_checkflag(char *format, t_convert *conv_specs);
 int	ft_checkprecision(char *format, t_convert *conv_specs, va_list ap);
 int	ft_checkasterisk(char *format, t_convert *conv_specs, va_list ap);
 int	ft_checkwidthdigit(char *format, t_convert *conv_specs);
 int	ft_checktype(char *format, t_convert *conv_specs);
+
 int	init_convspecs(t_convert *conv_specs);
 int ft_putconvstring(char *string);
+
 int	check_conversion(char *format, va_list ap, t_convert *conv_specs);
 int	ft_spectostruct(char *format, t_convert *conv_specs, va_list ap);
-int	ft_checkspec(char *format, int i, t_convert *conv_specs, va_list ap);
+/* int	ft_checkspec(char *format, int i, t_convert *conv_specs, va_list ap);*/
 int	isconvspecifier(char *format, t_convert *conv_specs);
 int	put_conversion(t_convert conv_specs);
 
