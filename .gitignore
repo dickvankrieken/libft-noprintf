@@ -1,0 +1,16 @@
+/eval
+*~
+.DS_Store
+\#*#
+*.dSYM
+
+*.swp
+*~.nib
+
+build/
+
+*.pbxuser
+*.perspective
+*.perspectivev3
+
+printf_evalsheet.png
