@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/03/24 16:26:44 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/03/25 11:26:57 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	printspecs(t_convert conv_specs)
 	return (0);
 }
 
+/* zet de conv_specs naar initiele waardes want dat is handig als ze geen waarde toegewezen krijgen */
 int	init_convspecs(t_convert *conv_specs)
 {
 	conv_specs->width = 0;
@@ -35,32 +36,38 @@ int	init_convspecs(t_convert *conv_specs)
 	conv_specs->minus = 0;
 	conv_specs->zero = 0;
 	conv_specs->type = 'z';
+	/* conv_specs->c; */
+	/* conv_specs->s; */
+	/* conv_specs->p; */
+	/* conv_specs->d; */
+	/* conv_specs->i; */
+	/* conv_specs->u; */
+	/* conv_specs->*x; */
+	/* conv_specs->*X; */
 	return (0);
 }
 
-/* voor iedere conversie type wordt er een individuele conversiefunctie die stuk voor stuk de conv_specs om gaan zetten naar de te printen string en deze functies geven een gealloceerde string terug. */
-char	*ft_putconversions(t_convert *conv_specs)
-{
-	char *string;
 
+void	ft_argtostruct(t_convert *conv_specs)
+{
 	if (conv_specs->type == 'c')
-		string = ft_conv_c(conv_specs);
+		conv_specs->c = va_arg(conv_specs->ap, char);
 	if (conv_specs->type == 's')
-		string = ft_conv_s(conv_specs);
+		conv_specs->s = va_arg(conv_specs->ap, char *);
 	if (conv_specs->type == 'p')
-		string = ft_conv_p(conv_specs);
-	if (conv_specs->type == 'd' || conv_specs->type == 'i')
-		string = ft_conv_d(conv_specs);
+		conv_specs->p = va_arg(conv_specs->ap, int);
+	if (conv_specs->type == 'd')
+		conv_specs->d = va_arg(conv_specs->ap, int);
+	if (conv_specs->type == 'i')
+		conv_specs->i = va_arg(conv_specs->ap, int);
 	if (conv_specs->type == 'u')
-		string = ft_conv_u(conv_specs);
+		conv_specs->u = va_arg(c, conv_specs->ap, unsigned int);
 	/* if x || of X */
-	return (string);
 }
 
 /* deze functie wordt aangeroepen als er een procent teken gevonden is in de format string.
 De functie gaat de conversie specificatie analyzeren, de gegevens in de t_convert struct zetten en ten slotte de conversie maken.
 De functie returnt het aantal karakters van de format string dat verwerkt is, zodat de parse functie verder kan gaan met de format string controleren na de conversie specificatie. */
-
 int	check_conversion(char *format, t_convert *conv_specs)
 {
 	int i;

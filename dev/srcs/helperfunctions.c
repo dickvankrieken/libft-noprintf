@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 19:08:34 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/03/24 10:18:42 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/03/24 21:34:50 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #include <stdio.h> /* dit is alleen voor de originele printf verwijder later */
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
-
-
 
 int	ft_checkflag(char *format, t_convert *conv_specs)
 {

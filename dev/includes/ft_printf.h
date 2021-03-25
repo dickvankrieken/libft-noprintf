@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/03/24 13:39:50 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/03/25 11:08:23 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,17 @@ typedef struct s_convert
 	int		printcounter;
 	int		width;
 	int		precision;
-	bool	minus;
-	bool	zero;
-	char	type;
+	bool		minus;
+	bool		zero;
+	char		type;
+	char		c;
+	char		*s;
+	char		*p;
+	int		d;
+	int		i;
+	unsigned int	u;
+	char		*x;
+	char		*X;
 }	t_convert;
 
 /* hou in je struct bij hoe lang het te printen stukje tekst uiteindelijk wordt */
@@ -39,7 +47,7 @@ int	ft_checkwidthdigit(char *format, t_convert *conv_specs);
 int	ft_checktype(char *format, t_convert *conv_specs);
 
 int	init_convspecs(t_convert *conv_specs);
-int ft_putconvstring(char *string);
+int	ft_putconvstring(char *string);
 
 int	check_conversion(char *format, va_list ap, t_convert *conv_specs);
 int	ft_spectostruct(char *format, t_convert *conv_specs, va_list ap);
