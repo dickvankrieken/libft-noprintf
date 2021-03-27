@@ -5,7 +5,7 @@ OBJ_FILES = ft_printf.o
 HEADER_FILES = includes/ft_printf.h
 
 all:
-	$(CC) -g main.c srcs/ft_printf.c srcs/helperfunctions.c libft/libft.a
+	$(CC) -g main.c srcs/ft_printf.c srcs/checkfunctions.c srcs/putfunctions.c srcs/printspecs.c libft/libft.a
 	./a.out
 
 $(NAME):

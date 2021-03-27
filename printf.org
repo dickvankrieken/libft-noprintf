@@ -1,10 +1,5 @@
 #+TITLE: ft_printf
 
-* agenda
-** TODO org en remarkable en de projectbestanden synchronizeren
-** TODO put_c en put_s maken
-** TODO conv_num
-
 
 * directories/files/functions
 ** de development folder: [[../dev/]]
@@ -12,39 +7,13 @@
 *** de Makefile [[../dev/Makefile]]
 ** de headerfiles [[../dev/includes]]
 *** [[../dev/includes/ft_printf.h]]
-**** de t_convert struct
-     typedef struct s_convert
-     va_list	ap;
-     int		printcounter;
-     int		width;
-     int		precision;
-     bool		minus;
-     bool		zero;
-     char		type;
-     char		c;
-     char		*s;
-     int		p;
-     int		d;
-     int		i;
-     unsigned int	u;
-     char		*x;
-     char		*X;
-     t_convert;
 ** de sources folder [[../dev/srcs]]
 *** [[../dev/srcs/ft_printf.c]]
 **** int 	ft_init_convspecs
 **** void 	ft_argtostruct(t_convert *conv_specs)
-     in deze functie wil ik het te converteren argument in de struct zetten
 **** int	ft_check_conversion(char *format, t_convert *conv_specs)
 **** int	ft_parse(char *format, va_list ap)
-     inputstring doorloopen
-     als % gevonden is roepen we ft_check_conversion aan die de conversie gaat analyzeren
-     deze functie gaat de format vanaf een % analyzeren
-     dat doet ie door karakter voor karakter te kijken of het een geldige conversiespecifier is
-     en alle flags en relevante info in de struct te stoppen.
-     Wanneer de type specificatie gevonden is wordt het aantal verwerkte karakters (i) gereturnt.
 **** int 	ft_printf
-     deze functie opent de va_list en roept ft_parse aan
 *** [[../dev/srcs/helperfunctions.c]]
 **** int	ft_checkflag(char *format, t_convert *conv_specs)
 **** int	ft_checkprecision(char *format, t_convert *conv_specs)
@@ -53,7 +22,6 @@
 **** int	ft_checktype(char *format, t_convert *conv_specs)
 *** [[../dev/srcs/putfunctions.c]]
 **** char	*ft_putconversions(t_convert *conv_specs)
-     in deze functie gaat de conv_specs gecombineerd worden met het variatische argument en worden de gespecificeerde karakters geprint
 ** [[../printf_org/]]
 *** [[../printf_org/main.c]]
 *** [[../printf_org/printf.org]]
@@ -65,7 +33,6 @@
     the result of the conversion is left-justified within the field (right-justified if not specified)
 *** nul
     field is padded with 0's instead of blanks
-
 ** dan een optionele precision in de vorm van een punt (.) eventueel gevolgd door een asterisk * of een optionele decimale integer.
    dat bepaald wat het minimale hoeveelheid nummers is dat moet verschijnen voor de d, i, u, x en X conversies
    als er alleen een punt staat is de precisie 0.
@@ -89,9 +56,8 @@
     hetzelfde maar dan in hoofdletters
  Een overzicht maken van de verschillende manieren waarop je printf kunt gebruiken zodat je de betekenis leert kennen van alle verschillende soorten valide (en invalide) invoer.
 
-
 * oefenen met de originele printf
-** met BABEL in deze org buffer
+** org-babel
    :PROPERTIES:
    :ORDERED:  t
    :END:
@@ -108,7 +74,7 @@ char **ppointer = pointer;
 
 /* 1 min of nul */
 printf("|%s|\n|%.-9c|\n", string, c);
-printf("|%02c|\n", c);
+printf("|%04c|\n", c);
 printf("|%.-3s|\n", string);
 
 #+end_src
@@ -117,7 +83,7 @@ printf("|%.-3s|\n", string);
  #+begin_src C
  |hallo herld|
  |c        |
- |0c|
+ |000c|
  |   |
  #+end_src
 

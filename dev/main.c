@@ -14,8 +14,8 @@ int main()
     char **ppointer = &pointer;
 
     /* 1 min of nul */
-	printf(">>>%s<<<", string);
-	printf("|%s|\n|%.*d|\n", string, -9, a);
+	ft_printf(">>>%s<<<\n", string);
+//	ft_printf("|%s|\n|%.*d|\n", string, -9, a);
 	/****************************************************************************************************************************************/
     /* ft_printf("2: 5s: >%5s<\n", string);												    */
     /* ft_printf("3: .* met een 3: >%.*s<\n", 3, string);										    */
