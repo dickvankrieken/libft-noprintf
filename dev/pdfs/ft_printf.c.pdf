@@ -29,7 +29,7 @@ endobj
 3 0 obj
 <<
 /Length
-5072
+5654
 >>
 stream
 BT
@@ -131,7 +131,7 @@ Tj
 56.692913
 669.023622
 Tm
-(/*   Updated: 2021/03/21 09:48:09 by dvan-kri      ########   odam.nl         */)
+(/*   Updated: 2021/03/27 14:36:59 by dvan-kri      ########   odam.nl         */)
 Tj
 1
 0
@@ -167,7 +167,7 @@ Tj
 56.692913
 628.223622
 Tm
-(#include "includes/ft_printf.h")
+(#include "../includes/ft_printf.h")
 Tj
 1
 0
@@ -176,7 +176,7 @@ Tj
 56.692913
 618.023622
 Tm
-(#include "libft/libft.h")
+(#include "../libft/libft.h")
 Tj
 1
 0
@@ -230,7 +230,7 @@ Tj
 56.692913
 556.823622
 Tm
-(int	printspecs\(t_convert conv_specs\))
+(/* zet de conv_specs naar initiele waardes want dat is handig als ze geen waarde toegewezen krijgen */)
 Tj
 1
 0
@@ -239,7 +239,7 @@ Tj
 56.692913
 546.623622
 Tm
-({)
+(int	init_convspecs\(t_convert *conv_specs\))
 Tj
 1
 0
@@ -248,7 +248,7 @@ Tj
 56.692913
 536.423622
 Tm
-(	printf\("width-digit: _%d_\\n", conv_specs.width_digit\);)
+({)
 Tj
 1
 0
@@ -257,7 +257,7 @@ Tj
 56.692913
 526.223622
 Tm
-(	printf\("width asterisk \(*\): _%d_\\n", conv_specs.width_asterisk\);)
+(	conv_specs->width = 0;)
 Tj
 1
 0
@@ -266,7 +266,7 @@ Tj
 56.692913
 516.023622
 Tm
-(	printf\("precision \(.\): _%d_\\n", conv_specs.precision\);)
+(	conv_specs->precision = -1; /* precision 0 is anders dan geen precision voor strings bijvoorbeeld */)
 Tj
 1
 0
@@ -275,7 +275,7 @@ Tj
 56.692913
 505.823622
 Tm
-(	printf\("left-justified \(-\): _%d_\\n", conv_specs.minus\);)
+(	conv_specs->minus = 0;)
 Tj
 1
 0
@@ -284,7 +284,7 @@ Tj
 56.692913
 495.623622
 Tm
-(	printf\("zero-padding \(0\): _%d_\\n", conv_specs.zero\);)
+(	conv_specs->zero = 0;)
 Tj
 1
 0
@@ -293,7 +293,7 @@ Tj
 56.692913
 485.423622
 Tm
-(	printf\("conversion-type: _%c_\\n", conv_specs.type\);)
+(	conv_specs->type = 'z';)
 Tj
 1
 0
@@ -329,7 +329,7 @@ Tj
 56.692913
 444.623622
 Tm
-(int	init_convspecs\(t_convert *conv_specs\))
+()
 Tj
 1
 0
@@ -338,7 +338,7 @@ Tj
 56.692913
 434.423622
 Tm
-({)
+(void	ft_argtostruct\(t_convert *conv_specs\))
 Tj
 1
 0
@@ -347,7 +347,7 @@ Tj
 56.692913
 424.223622
 Tm
-(	conv_specs->width_asterisk = 0;)
+({)
 Tj
 1
 0
@@ -356,7 +356,7 @@ Tj
 56.692913
 414.023622
 Tm
-(	conv_specs->width_digit = 0;)
+(	if \(conv_specs->type == 'c'\))
 Tj
 1
 0
@@ -365,7 +365,7 @@ Tj
 56.692913
 403.823622
 Tm
-(	conv_specs->precision = 0;)
+(		conv_specs->c = va_arg\(conv_specs->ap, int\);)
 Tj
 1
 0
@@ -374,7 +374,7 @@ Tj
 56.692913
 393.623622
 Tm
-(	conv_specs->precision_asterisk = 0;)
+(	if \(conv_specs->type == 's'\))
 Tj
 1
 0
@@ -383,7 +383,7 @@ Tj
 56.692913
 383.423622
 Tm
-(	conv_specs->minus = 0;)
+(		conv_specs->s = va_arg\(conv_specs->ap, char *\);)
 Tj
 1
 0
@@ -392,7 +392,7 @@ Tj
 56.692913
 373.223622
 Tm
-(	conv_specs->zero = 0;)
+(	if \(conv_specs->type == 'p'\))
 Tj
 1
 0
@@ -401,7 +401,7 @@ Tj
 56.692913
 363.023622
 Tm
-(	conv_specs->type = 'z';)
+(		conv_specs->p = va_arg\(conv_specs->ap, char *\);)
 Tj
 1
 0
@@ -410,7 +410,7 @@ Tj
 56.692913
 352.823622
 Tm
-(	return \(0\);)
+(	if \(conv_specs->type == 'd'\))
 Tj
 1
 0
@@ -419,7 +419,7 @@ Tj
 56.692913
 342.623622
 Tm
-(})
+(		conv_specs->d = va_arg\(conv_specs->ap, int\);)
 Tj
 1
 0
@@ -428,7 +428,7 @@ Tj
 56.692913
 332.423622
 Tm
-()
+(	if \(conv_specs->type == 'i'\))
 Tj
 1
 0
@@ -437,7 +437,7 @@ Tj
 56.692913
 322.223622
 Tm
-(int	ft_convtostring\(t_convert conv_specs, va_list ap\))
+(		conv_specs->i = va_arg\(conv_specs->ap, int\);)
 Tj
 1
 0
@@ -446,7 +446,7 @@ Tj
 56.692913
 312.023622
 Tm
-({)
+(	if \(conv_specs->type == 'u'\))
 Tj
 1
 0
@@ -455,7 +455,7 @@ Tj
 56.692913
 301.823622
 Tm
-(	char *string;)
+(		conv_specs->u = va_arg\(conv_specs->ap, unsigned int\);)
 Tj
 1
 0
@@ -464,7 +464,7 @@ Tj
 56.692913
 291.623622
 Tm
-()
+(	if \(conv_specs->type == 'x'\))
 Tj
 1
 0
@@ -473,7 +473,7 @@ Tj
 56.692913
 281.423622
 Tm
-(	string = va_arg\(ap, char*\);)
+(		conv_specs->u = va_arg\(conv_specs->ap, unsigned int\);)
 Tj
 1
 0
@@ -482,7 +482,7 @@ Tj
 56.692913
 271.223622
 Tm
-(	ft_putstr_fd\(string, 1\);)
+(	if \(conv_specs->type == 'X'\))
 Tj
 1
 0
@@ -491,7 +491,7 @@ Tj
 56.692913
 261.023622
 Tm
-(	return \(0\);)
+(		conv_specs->u = va_arg\(conv_specs->ap, unsigned int\);)
 Tj
 1
 0
@@ -518,7 +518,7 @@ Tj
 56.692913
 230.423622
 Tm
-(int	check_conversion\(char *format, va_list ap, t_convert *conv_specs\))
+(/* deze functie wordt aangeroepen als er een procent teken gevonden is in de format string.)
 Tj
 1
 0
@@ -527,7 +527,7 @@ Tj
 56.692913
 220.223622
 Tm
-({)
+(De functie gaat de conversie specificatie analyzeren en de gegevens in de t_convert struct zetten.)
 Tj
 1
 0
@@ -536,7 +536,7 @@ Tj
 56.692913
 210.023622
 Tm
-(	int i;)
+(De functie returnt het aantal karakters van de format string dat verwerkt is, zodat de parse functie verder kan gaan met de format string controleren na de conversie specificatie. */)
 Tj
 1
 0
@@ -545,7 +545,7 @@ Tj
 56.692913
 199.823622
 Tm
-()
+(int	check_conversion\(char *format, t_convert *conv_specs\))
 Tj
 1
 0
@@ -554,7 +554,7 @@ Tj
 56.692913
 189.623622
 Tm
-(	i = 0;)
+({)
 Tj
 1
 0
@@ -563,7 +563,7 @@ Tj
 56.692913
 179.423622
 Tm
-(	while \(ft_checkflag\(&format[i], conv_specs\) && i < 2\))
+(	int i;)
 Tj
 1
 0
@@ -572,7 +572,7 @@ Tj
 56.692913
 169.223622
 Tm
-(		i++;)
+()
 Tj
 1
 0
@@ -581,7 +581,7 @@ Tj
 56.692913
 159.023622
 Tm
-(	if \(ft_checkasterisk\(&format[i], conv_specs, ap\)\))
+(	i = 0;)
 Tj
 1
 0
@@ -590,7 +590,7 @@ Tj
 56.692913
 148.823622
 Tm
-(		i++;)
+(	while \(ft_checkflag\(&format[i], conv_specs\)\))
 Tj
 1
 0
@@ -599,7 +599,7 @@ Tj
 56.692913
 138.623622
 Tm
-(	/* check for digits for the width */)
+(		i++;)
 Tj
 1
 0
@@ -608,7 +608,7 @@ Tj
 56.692913
 128.423622
 Tm
-(	if \(ft_checkwidthdigit\(&format[i], conv_specs\)\))
+(	if \(ft_checkasterisk\(&format[i], conv_specs\)\))
 Tj
 1
 0
@@ -617,7 +617,7 @@ Tj
 56.692913
 118.223622
 Tm
-(		i += ft_strlen\(ft_itoa\(conv_specs->width_digit\)\);)
+(		i++;)
 Tj
 1
 0
@@ -626,7 +626,7 @@ Tj
 56.692913
 108.023622
 Tm
-(	if \(ft_checkprecision\(&format[i], conv_specs, ap\)\))
+(	/* check for digits for the width */)
 Tj
 1
 0
@@ -635,7 +635,7 @@ Tj
 56.692913
 97.823622
 Tm
-(	{)
+(	if \(ft_checkwidthdigit\(&format[i], conv_specs\)\))
 Tj
 1
 0
@@ -644,7 +644,7 @@ Tj
 56.692913
 87.623622
 Tm
-(		if \(conv_specs->precision\))
+(		i += ft_strlen\(ft_itoa\(conv_specs->width\)\);)
 Tj
 1
 0
@@ -653,7 +653,7 @@ Tj
 56.692913
 77.423622
 Tm
-(			i += ft_strlen\(ft_itoa\(conv_specs->precision\)\);)
+(	if \(ft_checkprecision\(&format[i], conv_specs\)\))
 Tj
 1
 0
@@ -662,7 +662,7 @@ Tj
 56.692913
 67.223622
 Tm
-(		else)
+(	{)
 Tj
 1
 0
@@ -671,7 +671,7 @@ Tj
 56.692913
 57.023622
 Tm
-(			i++;)
+(		if \(conv_specs->precision\))
 Tj
 1
 0
@@ -680,7 +680,7 @@ Tj
 56.692913
 46.823622
 Tm
-(	})
+(			i += ft_strlen\(ft_itoa\(conv_specs->precision\)\);)
 Tj
 ET
 endstream
@@ -700,7 +700,7 @@ endobj
 5 0 obj
 <<
 /Length
-2802
+2890
 >>
 stream
 BT
@@ -730,7 +730,7 @@ Tj
 56.692913
 750.623622
 Tm
-(	while \(!ft_checktype\(&format[i], conv_specs\)\))
+(		else)
 Tj
 1
 0
@@ -739,7 +739,7 @@ Tj
 56.692913
 740.423622
 Tm
-(		i++;)
+(			i++;)
 Tj
 1
 0
@@ -748,7 +748,7 @@ Tj
 56.692913
 730.223622
 Tm
-(	if \(ft_checktype\(&format[i], conv_specs\)\))
+(	})
 Tj
 1
 0
@@ -757,7 +757,7 @@ Tj
 56.692913
 720.023622
 Tm
-(		i++;)
+(	while \(!ft_checktype\(&format[i], conv_specs\)\))
 Tj
 1
 0
@@ -766,7 +766,7 @@ Tj
 56.692913
 709.823622
 Tm
-(	return \(i\);)
+(		i++;)
 Tj
 1
 0
@@ -775,7 +775,7 @@ Tj
 56.692913
 699.623622
 Tm
-(})
+(	if \(ft_checktype\(&format[i], conv_specs\)\))
 Tj
 1
 0
@@ -784,7 +784,7 @@ Tj
 56.692913
 689.423622
 Tm
-()
+(		i++;)
 Tj
 1
 0
@@ -793,7 +793,7 @@ Tj
 56.692913
 679.223622
 Tm
-()
+(	ft_argtostruct\(conv_specs\);)
 Tj
 1
 0
@@ -802,7 +802,7 @@ Tj
 56.692913
 669.023622
 Tm
-(int	ft_parse\(char *format, va_list ap\))
+(	return \(i\);)
 Tj
 1
 0
@@ -811,7 +811,7 @@ Tj
 56.692913
 658.823622
 Tm
-({)
+(})
 Tj
 1
 0
@@ -820,7 +820,7 @@ Tj
 56.692913
 648.623622
 Tm
-(	t_convert conv_specs;)
+()
 Tj
 1
 0
@@ -829,7 +829,7 @@ Tj
 56.692913
 638.423622
 Tm
-(	int	i;)
+()
 Tj
 1
 0
@@ -838,7 +838,7 @@ Tj
 56.692913
 628.223622
 Tm
-(	int	ret;)
+(int	ft_parse\(char *format, t_convert conv_specs\))
 Tj
 1
 0
@@ -847,7 +847,7 @@ Tj
 56.692913
 618.023622
 Tm
-()
+({)
 Tj
 1
 0
@@ -856,7 +856,7 @@ Tj
 56.692913
 607.823622
 Tm
-(	init_convspecs\(&conv_specs\);)
+()
 Tj
 1
 0
@@ -865,7 +865,7 @@ Tj
 56.692913
 597.623622
 Tm
-(//	printspecs\(conv_specs\);)
+(	char		*converted_argument;)
 Tj
 1
 0
@@ -874,7 +874,7 @@ Tj
 56.692913
 587.423622
 Tm
-(	i = 0;)
+(	int		i;)
 Tj
 1
 0
@@ -883,7 +883,7 @@ Tj
 56.692913
 577.223622
 Tm
-(	ret = 0;)
+(	int		ret;)
 Tj
 1
 0
@@ -892,7 +892,7 @@ Tj
 56.692913
 567.023622
 Tm
-(	while \(i < ft_strlen\(format\)\))
+()
 Tj
 1
 0
@@ -901,7 +901,7 @@ Tj
 56.692913
 556.823622
 Tm
-(	{)
+(	init_convspecs\(&conv_specs\);)
 Tj
 1
 0
@@ -910,7 +910,7 @@ Tj
 56.692913
 546.623622
 Tm
-(		if \(format[i] == '%'\))
+(	i = 0;)
 Tj
 1
 0
@@ -919,7 +919,7 @@ Tj
 56.692913
 536.423622
 Tm
-(		{)
+(	ret = 0;)
 Tj
 1
 0
@@ -928,7 +928,7 @@ Tj
 56.692913
 526.223622
 Tm
-(			i++;)
+(	while \(i < ft_strlen\(format\)\))
 Tj
 1
 0
@@ -937,7 +937,7 @@ Tj
 56.692913
 516.023622
 Tm
-(			i += check_conversion\(&format[i], ap, &conv_specs\);)
+(	{)
 Tj
 1
 0
@@ -946,7 +946,7 @@ Tj
 56.692913
 505.823622
 Tm
-(			ret += ft_convtostring\(conv_specs, ap\);)
+(		if \(format[i] == '%'\))
 Tj
 1
 0
@@ -955,7 +955,7 @@ Tj
 56.692913
 495.623622
 Tm
-(		})
+(		{)
 Tj
 1
 0
@@ -964,7 +964,7 @@ Tj
 56.692913
 485.423622
 Tm
-(		else)
+(			i++;)
 Tj
 1
 0
@@ -973,7 +973,7 @@ Tj
 56.692913
 475.223622
 Tm
-(		{)
+(			i += check_conversion\(&format[i], &conv_specs\);)
 Tj
 1
 0
@@ -982,7 +982,7 @@ Tj
 56.692913
 465.023622
 Tm
-(			ft_putchar_fd\(format[i], 1\);)
+(			ft_putconversion\(&conv_specs\);)
 Tj
 1
 0
@@ -991,7 +991,7 @@ Tj
 56.692913
 454.823622
 Tm
-(			i++;)
+(		})
 Tj
 1
 0
@@ -1000,7 +1000,7 @@ Tj
 56.692913
 444.623622
 Tm
-(			ret++;)
+(		else)
 Tj
 1
 0
@@ -1009,7 +1009,7 @@ Tj
 56.692913
 434.423622
 Tm
-(		})
+(		{)
 Tj
 1
 0
@@ -1018,7 +1018,7 @@ Tj
 56.692913
 424.223622
 Tm
-(	})
+(			ft_putchar_fd\(format[i], 1\);)
 Tj
 1
 0
@@ -1027,7 +1027,7 @@ Tj
 56.692913
 414.023622
 Tm
-( 	/* printf\("de conversion type: |%c| en i is nu: |%d|\\n", conv_specs.type, i\); */)
+(			i++;)
 Tj
 1
 0
@@ -1036,7 +1036,7 @@ Tj
 56.692913
 403.823622
 Tm
-(//	printspecs\(conv_specs\);)
+(			ret++;)
 Tj
 1
 0
@@ -1045,7 +1045,7 @@ Tj
 56.692913
 393.623622
 Tm
-(	return \(ret\);)
+(		})
 Tj
 1
 0
@@ -1054,7 +1054,7 @@ Tj
 56.692913
 383.423622
 Tm
-(})
+(	})
 Tj
 1
 0
@@ -1063,7 +1063,7 @@ Tj
 56.692913
 373.223622
 Tm
-()
+(	printspecs\(conv_specs\);)
 Tj
 1
 0
@@ -1072,7 +1072,7 @@ Tj
 56.692913
 363.023622
 Tm
-(int	ft_printf\(const char *format, ...\))
+(	return \(ret\);)
 Tj
 1
 0
@@ -1081,7 +1081,7 @@ Tj
 56.692913
 352.823622
 Tm
-( {)
+(})
 Tj
 1
 0
@@ -1090,7 +1090,7 @@ Tj
 56.692913
 342.623622
 Tm
-(	va_list	ap;)
+()
 Tj
 1
 0
@@ -1099,7 +1099,7 @@ Tj
 56.692913
 332.423622
 Tm
-(	int		written_bytes;)
+(int	ft_printf\(const char *format, ...\))
 Tj
 1
 0
@@ -1108,7 +1108,7 @@ Tj
 56.692913
 322.223622
 Tm
-()
+( {)
 Tj
 1
 0
@@ -1117,7 +1117,7 @@ Tj
 56.692913
 312.023622
 Tm
-(	va_start\(ap, format\);)
+(	t_convert	conv_specs;)
 Tj
 1
 0
@@ -1126,7 +1126,7 @@ Tj
 56.692913
 301.823622
 Tm
-(	written_bytes = ft_parse\(\(char *\)format, ap\);)
+(	int		written_bytes;)
 Tj
 1
 0
@@ -1135,7 +1135,7 @@ Tj
 56.692913
 291.623622
 Tm
-(	va_end\(ap\);)
+()
 Tj
 1
 0
@@ -1144,7 +1144,7 @@ Tj
 56.692913
 281.423622
 Tm
-(	return \(written_bytes\);)
+(	va_start\(conv_specs.ap, format\);)
 Tj
 1
 0
@@ -1153,7 +1153,7 @@ Tj
 56.692913
 271.223622
 Tm
-(})
+(	written_bytes = ft_parse\(\(char *\)format, conv_specs\);)
 Tj
 1
 0
@@ -1161,6 +1161,33 @@ Tj
 1
 56.692913
 261.023622
+Tm
+(	va_end\(conv_specs.ap\);)
+Tj
+1
+0
+0
+1
+56.692913
+250.823622
+Tm
+(	return \(written_bytes\);)
+Tj
+1
+0
+0
+1
+56.692913
+240.623622
+Tm
+(})
+Tj
+1
+0
+0
+1
+56.692913
+230.423622
 Tm
 ()
 Tj
@@ -1213,11 +1240,11 @@ xref
 0000000019 00000 n
 0000000097 00000 n
 0000000164 00000 n
-0000005287 00000 n
-0000005367 00000 n
-0000008220 00000 n
-0000008300 00000 n
-0000008405 00000 n
+0000005869 00000 n
+0000005949 00000 n
+0000008890 00000 n
+0000008970 00000 n
+0000009075 00000 n
 trailer
 <<
 /Size
@@ -1226,5 +1253,5 @@ trailer
 8 0 R
 >>
 startxref
-8454
+9124
 %%EOF

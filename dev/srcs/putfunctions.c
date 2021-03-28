@@ -1,30 +1,12 @@
 #include "../libft/libft.h"
 #include "../includes/ft_printf.h"
 
-void ft_putrightjustification(t_convert *conv_specs)
-{
-	/* while (conv_specs->printcounter < conv_specs->width - conv_specs->arg_length) */
-	/* { */
-
-	/* } */
-}
-
-/* probleem is nu: hoeveel putchars neerzetten terwijl je niet weet hoe veel ruimte dat variatische argument in moet gaan nemen... */
-void ft_putleftjustification(t_convert *conv_specs)
-{
-	while (conv_specs->printcounter < conv_specs->width)
-	{
-		ft_putchar_fd(' ', 1);
-		conv_specs->printcounter++;
-	}
-}
-
-void ft_put_arg(t_convert *conv_specs)
+void	ft_putconversion(t_convert *conv_specs)
 {
 	if (conv_specs->type == 'c')
-		ft_putchar_fd(conv_specs->c, 1);
+		ft_putc_pf(conv_specs);
 	if (conv_specs->type == 's')
-		ft_putstr_fd(conv_specs->s, 1);
+		ft_puts_pf(conv_specs);
 	/* if (conv_specs->type == 'p') */
 	/* 	conv_specs->p = va_arg(conv_specs->ap, char *); */
 	/* if (conv_specs->type == 'd') */
@@ -39,34 +21,38 @@ void ft_put_arg(t_convert *conv_specs)
 	/* 	conv_specs->u = va_arg(conv_specs->ap, unsigned int); */
 }
 
-/* we gaan eerst een stukje verwerken wat voor ieder conversie type geldt: de width en de 0 en - flags.*/
-void	ft_putconversion(t_convert *conv_specs)
+void	ft_putc_pf(t_convert *conv_specs)
 {
+	write(1, &conv_specs->c, sizeof(char));
+	conv_specs->printcounter++;
+}
+
+void	ft_puts_pf(t_convert *conv_specs)
+{
+	int i;
+	int len;
+
+	len = ft_strlen(conv_specs->s);
+	i = 0;
+	if (conv_specs->precision > -1)
+	{
+		while (i < conv_specs->precision && i < len)
+		{
+			write(1, conv_specs->s, 1);
+			conv_specs->s++;
+			conv_specs->printcounter++;
+			i++;
+		}
+		return ;
+	}
 	if (conv_specs->width)
 	{
 		if (conv_specs->minus)
 		{
-			/* als het goed is houd ft_put_arg bij hoeveel hij geprint heeft. Zodat vervolgens het restant volgezet kan worden met spaties of nullen */
-			ft_put_arg(conv_specs);
-//			ft_putjustification(conv_specs);
+			write(1, conv_specs->s, ft_strlen(conv_specs->s));
 		}
-		else
-		{
-
-		}
-
-
-		//	if (!conv_specs->minus)
-
-//			ft_put_arg(conv_specs);
 	}
-
-	ft_put_arg(conv_specs);
-
-}
-
-void	ft_putchar_pf(char c, t_convert *conv_specs)
-{
-	write(1, &c, sizeof(char));
-	conv_specs->printcounter++;
+	// if (conv_specs->s)
+	// 	write(1, conv_specs->s, ft_strlen(conv_specs->s));
+	conv_specs->printcounter += ft_strlen(conv_specs->s);
 }

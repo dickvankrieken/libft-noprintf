@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/03/27 07:38:06 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/03/28 20:36:09 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,15 +97,16 @@ int	ft_parse(char *format, t_convert conv_specs)
 			i++;
 			i += check_conversion(&format[i], &conv_specs);
 			ft_putconversion(&conv_specs);
+			/* Het variatisch argument wordt geconverteerd en geprint */
 		}
 		else
 		{
-			ft_putchar_pf(format[i], &conv_specs);
+			ft_putchar_fd(format[i], 1);
 			i++;
 			ret++;
 		}
 	}
-	printspecs(conv_specs);
+	// printspecs(conv_specs);
 	return (ret);
 }
 

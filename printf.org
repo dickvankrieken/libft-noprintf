@@ -2,30 +2,26 @@
 
 
 * directories/files/functions
-** de development folder: [[../dev/]]
-*** main om mee te testen: [[../dev/main.c]]
-*** de Makefile [[../dev/Makefile]]
-** de headerfiles [[../dev/includes]]
-*** [[../dev/includes/ft_printf.h]]
+** de development folder: [[dev/]]
+*** main om mee te testen: [[dev/main.c]]
+*** de Makefile [[dev/Makefile]]
+** de headerfiles [[dev/includes]]
+*** [[dev/includes/ft_printf.h]]
 ** de sources folder [[../dev/srcs]]
-*** [[../dev/srcs/ft_printf.c]]
+*** [[dev/srcs/ft_printf.c]]
 **** int 	ft_init_convspecs
 **** void 	ft_argtostruct(t_convert *conv_specs)
 **** int	ft_check_conversion(char *format, t_convert *conv_specs)
 **** int	ft_parse(char *format, va_list ap)
 **** int 	ft_printf
-*** [[../dev/srcs/helperfunctions.c]]
+*** [[dev/srcs/helperfunctions.c]]
 **** int	ft_checkflag(char *format, t_convert *conv_specs)
 **** int	ft_checkprecision(char *format, t_convert *conv_specs)
 **** int	ft_checkasterisk(char *format, t_convert *conv_specs)
 **** int	ft_checkwidthdigit(char *format, t_convert *conv_specs)
 **** int	ft_checktype(char *format, t_convert *conv_specs)
-*** [[../dev/srcs/putfunctions.c]]
+*** [[dev/srcs/putfunctions.c]]
 **** char	*ft_putconversions(t_convert *conv_specs)
-** [[../printf_org/]]
-*** [[../printf_org/main.c]]
-*** [[../printf_org/printf.org]]
-
 
 * omschrijving van de printf functie.
 ** eerst optioneel een - en/of 0

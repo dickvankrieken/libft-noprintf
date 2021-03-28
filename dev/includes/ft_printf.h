@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/03/27 07:33:46 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/03/28 20:22:50 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ int	isconvspecifier(char *format, t_convert *conv_specs);
 void	ft_putconversion(t_convert *conv_specs);
 void 	ft_putleftjustification(t_convert *conv_specs);
 void 	ft_putjustification(t_convert *conv_specs);
-void	ft_putchar_pf(char c, t_convert *conv_specs);
+void	ft_putc_pf(t_convert *conv_specs);
+void	ft_puts_pf(t_convert *conv_specs);
 
 /* printspecs functions for development */
 int	printspecs(t_convert conv_specs);
