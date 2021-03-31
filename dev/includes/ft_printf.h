@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/03/28 20:22:50 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/03/30 08:13:10 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef struct s_convert
 {
-	va_list	ap;
+	va_list		ap;
 	int		printcounter;
 	int		width;
 	int		precision;
@@ -38,31 +38,32 @@ typedef struct s_convert
 	unsigned int	X;
 }	t_convert;
 
-/* printcounter houdt bij hoe lang het te printen stukje tekst uiteindelijk wordt */
+/* printcounter keeps track of the number of bytes written */
 
-/* checkfunctions.c prototypes */
+/* ../srcs/checkfunctions.c prototypes */
 int	ft_checkflag(char *format, t_convert *conv_specs);
 int	ft_checkprecision(char *format, t_convert *conv_specs);
 int	ft_checkasterisk(char *format, t_convert *conv_specs);
 int	ft_checkwidthdigit(char *format, t_convert *conv_specs);
 int	ft_checktype(char *format, t_convert *conv_specs);
 
-/* ft_printf.c prototypes */
+/* ../srcs/ft_printf.c prototypes */
 int	ft_printf(const char*, ...);
 int	init_convspecs(t_convert *conv_specs);
 int	ft_putconvstring(char *string);
 int	check_conversion(char *format, t_convert *conv_specs);
-/* int	ft_checkspec(char *format, int i, t_convert *conv_specs, va_list ap);*/
 int	isconvspecifier(char *format, t_convert *conv_specs);
 
-/* put_functions.c prototypes */
+/* ../srcs/putfunctions.c prototypes */
 void	ft_putconversion(t_convert *conv_specs);
 void 	ft_putleftjustification(t_convert *conv_specs);
 void 	ft_putjustification(t_convert *conv_specs);
 void	ft_putc_pf(t_convert *conv_specs);
+/* ../srcs/ft_puts_pf.c prototypes */
 void	ft_puts_pf(t_convert *conv_specs);
+void	ft_putspaces_pf(int len);
 
-/* printspecs functions for development */
+/* printspecs function for development */
 int	printspecs(t_convert conv_specs);
 
 #endif

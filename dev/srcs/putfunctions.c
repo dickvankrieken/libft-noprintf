@@ -27,32 +27,7 @@ void	ft_putc_pf(t_convert *conv_specs)
 	conv_specs->printcounter++;
 }
 
-void	ft_puts_pf(t_convert *conv_specs)
+void ft_puts_precision(t_convert *conv_specs)
 {
-	int i;
-	int len;
 
-	len = ft_strlen(conv_specs->s);
-	i = 0;
-	if (conv_specs->precision > -1)
-	{
-		while (i < conv_specs->precision && i < len)
-		{
-			write(1, conv_specs->s, 1);
-			conv_specs->s++;
-			conv_specs->printcounter++;
-			i++;
-		}
-		return ;
-	}
-	if (conv_specs->width)
-	{
-		if (conv_specs->minus)
-		{
-			write(1, conv_specs->s, ft_strlen(conv_specs->s));
-		}
-	}
-	// if (conv_specs->s)
-	// 	write(1, conv_specs->s, ft_strlen(conv_specs->s));
-	conv_specs->printcounter += ft_strlen(conv_specs->s);
 }

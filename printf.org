@@ -14,7 +14,7 @@
 **** int	ft_check_conversion(char *format, t_convert *conv_specs)
 **** int	ft_parse(char *format, va_list ap)
 **** int 	ft_printf
-*** [[dev/srcs/helperfunctions.c]]
+*** [[dev/srcs/checkfunctions.c]]
 **** int	ft_checkflag(char *format, t_convert *conv_specs)
 **** int	ft_checkprecision(char *format, t_convert *conv_specs)
 **** int	ft_checkasterisk(char *format, t_convert *conv_specs)
@@ -52,10 +52,10 @@
     hetzelfde maar dan in hoofdletters
  Een overzicht maken van de verschillende manieren waarop je printf kunt gebruiken zodat je de betekenis leert kennen van alle verschillende soorten valide (en invalide) invoer.
 
-* oefenen met de originele printf
+* testing original printf return values
 ** org-babel
    :PROPERTIES:
-   :ORDERED:  t
+   :ORDERED:
    :END:
 
  #+begin_src C :results value code :includes <stdio.h> <unistd.h>
@@ -63,13 +63,13 @@ int a = 100;
 char c = 'c';
 char d = 'd';
 
-char *string = "hallo herld";
+char *string = "hello world";
 char *string2 = "bye world";
 char *pointer = string;
 char **ppointer = pointer;
 
 /* 1 min of nul */
-printf("|%s|\n|%.-9c|\n", string, c);
+printf("|%-.3s|\n", string);
 printf("|%04c|\n", c);
 printf("|%.-3s|\n", string);
 
@@ -77,13 +77,12 @@ printf("|%.-3s|\n", string);
 
  #+RESULTS:
  #+begin_src C
- |hallo herld|
- |c        |
+ |hel|
  |000c|
  |   |
  #+end_src
 
  #+RESULTS:
 
-** in een aparte file en compileren via een shell
+** testing original printf in a separate file
    [[./printfpractice.c]]

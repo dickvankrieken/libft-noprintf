@@ -1,4 +1,3 @@
-
 #include "includes/ft_printf.h"
 #include "libft/libft.h"
 #include <stdio.h>
@@ -14,11 +13,21 @@ int main()
     char **ppointer = &pointer;
 
     /* 1 min of nul */
-	ft_printf("string: >>>%.17s<<<\n", string);
-	ft_printf("string: >>>%-17s<<<\n", string);
-	ft_printf("character: >>>%c<<<\n", c);
-	ft_printf("|%s|\n|%.*d|\n", string, -9, a);
-	/****************************************************************************************************************************************/
+	ft_printf("1: ft_printf:\nstring >>>%-017s<<<\n", string);
+	printf("1: printf:\nstring >>>%017s<<<\n", string);
+	ft_printf("\n");
+	ft_printf("2: ft_printf:\nstring: >>>%-17s<<<\n", string);
+	printf("2: print:\nstring: >>>%-17s<<<\n", string);
+	ft_printf("\n");
+	ft_printf("3: ft_printf:\nstring: >>>%020.2s<<<\n", string);
+	printf("3: print:\nstring: >>>%020.2s<<<\n", string);
+	ft_printf("\n");
+	ft_printf("4: ft_printf:\ncharacter: >>>%c<<<\n", c);
+	ft_printf("4: printf:\ncharacter: >>>%c<<<\n", c);
+	ft_printf("\n");
+	ft_printf("5: ft_printf:\nstring: >>>%s<<<\ndigit:|%.*d|\n", string, -9, a);
+	ft_printf(": ft_printf:\nstring: >>>%s<<<\ndigit:|%.*d|\n", string, -9, a);
+/****************************************************************************************************************************************/
     /* ft_printf("2: 5s: >%5s<\n", string);												    */
     /* ft_printf("3: .* met een 3: >%.*s<\n", 3, string);										    */
     /* /\* 2 field width*\/														    */
