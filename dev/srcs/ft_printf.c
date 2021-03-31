@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/03/29 13:07:39 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/03/31 13:19:30 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,82 +17,82 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-/* geef de conv_specs naar initiele waardes  */
-int	init_convspecs(t_convert *conv_specs)
+/* zet p naar initiele waardes  */
+int	pf_init_convspecs(t_convert *p)
 {
-	conv_specs->width = 0;
-	conv_specs->precision = -1; /* precision 0 is anders dan geen precision voor strings bijvoorbeeld */
-	conv_specs->minus = 0;
-	conv_specs->zero = 0;
-	conv_specs->type = 'z';
+	p->width = 0;
+	p->precision = -1; /* precision 0 is anders dan geen precision voor strings bijvoorbeeld */
+	p->minus = 0;
+	p->zero = 0;
+	p->type = 'z';
 	return (0);
 }
 
 
-void	ft_argtostruct(t_convert *conv_specs)
+void	pf_argtostruct(t_convert *p)
 {
-	if (conv_specs->type == 'c')
-		conv_specs->c = va_arg(conv_specs->ap, int);
-	if (conv_specs->type == 's')
-		conv_specs->s = va_arg(conv_specs->ap, char *);
-	if (conv_specs->type == 'p')
-		conv_specs->p = va_arg(conv_specs->ap, char *);
-	if (conv_specs->type == 'd')
-		conv_specs->d = va_arg(conv_specs->ap, int);
-	if (conv_specs->type == 'i')
-		conv_specs->i = va_arg(conv_specs->ap, int);
-	if (conv_specs->type == 'u')
-		conv_specs->u = va_arg(conv_specs->ap, unsigned int);
-	if (conv_specs->type == 'x')
-		conv_specs->u = va_arg(conv_specs->ap, unsigned int);
-	if (conv_specs->type == 'X')
-		conv_specs->u = va_arg(conv_specs->ap, unsigned int);
+	if (p->type == 'c')
+		p->c = va_arg(p->ap, int);
+	if (p->type == 's')
+		p->s = va_arg(p->ap, char *);
+	if (p->type == 'p')
+		p->p = va_arg(p->ap, char *);
+	if (p->type == 'd')
+		p->d = va_arg(p->ap, int);
+	if (p->type == 'i')
+		p->i = va_arg(p->ap, int);
+	if (p->type == 'u')
+		p->u = va_arg(p->ap, unsigned int);
+	if (p->type == 'x')
+		p->u = va_arg(p->ap, unsigned int);
+	if (p->type == 'X')
+		p->u = va_arg(p->ap, unsigned int);
 }
 
 /* check_conversion starts when % is found in format string.
 it analyzes the conversion specificationf and stores relevant data in a t_convert struct.
 It returns the amount of characters of the format string that have been processed. */
-int	check_conversion(char *format, t_convert *conv_specs)
+int	pf_check_conversion(char *format, t_convert *p)
 {
 	int i;
 
 	i = 0;
-	while (ft_checkflag(&format[i], conv_specs))
+	while (pf_checkflag(&format[i], p))
 		i++;
- 	if (ft_checkasterisk(&format[i], conv_specs))
+ 	if (pf_checkasterisk(&format[i], p))
 		i++;
-	if (ft_checkwidthdigit(&format[i], conv_specs))
-		i += ft_strlen(ft_itoa(conv_specs->width));
-	if (ft_checkprecision(&format[i], conv_specs))
+	if (pf_checkwidthdigit(&format[i], p))
+		i += ft_strlen(ft_itoa(p->width));
+	if (pf_checkprecision(&format[i], p))
 	{
-		if (conv_specs->precision)
-			i += ft_strlen(ft_itoa(conv_specs->precision));
+		if (p->precision)
+			i += ft_strlen(ft_itoa(p->precision));
 		else
 			i++;
 	}
-	while (!ft_checktype(&format[i], conv_specs))
+	while (!pf_checktype(&format[i], p))
 		i++;
-	if (ft_checktype(&format[i], conv_specs))
+	if (pf_checktype(&format[i], p))
 		i++;
-	ft_argtostruct(conv_specs);
+	pf_argtostruct(p);
 	return (i);
 }
 
-void	ft_parse(char *format, t_convert conv_specs)
+void	pf_parse(char *format, t_convert p)
 {
 	char		*converted_argument;
 	/* no extra local counter because everything is done in struct variable printcounter? */
 	int		i;
 
-	init_convspecs(&conv_specs);
+	pf_init_convspecs(&p);
 	i = 0;
 	while (i < ft_strlen(format))
 	{
 		if (format[i] == '%')
 		{
 			i++;
-			i += check_conversion(&format[i], &conv_specs);
-			ft_putconversion(&conv_specs);
+			i += pf_check_conversion(&format[i], &p);
+			pf_putconversion(&p);
 		}
 		else
 		{
@@ -100,17 +100,17 @@ void	ft_parse(char *format, t_convert conv_specs)
 			i++;
 		}
 	}
-	// printspecs(conv_specs);
+	// printspecs(p);
 //	return (i);
 }
 
 int	ft_printf(const char *format, ...)
  {
-	t_convert	conv_specs;
+	t_convert	p;
 	int		written_bytes;
 
-	va_start(conv_specs.ap, format);
-	ft_parse((char *)format, conv_specs);
-	va_end(conv_specs.ap);
-	return (conv_specs.printcounter);
+	va_start(p.ap, format);
+	pf_parse((char *)format, p);
+	va_end(p.ap);
+	return (p.printcounter);
 }

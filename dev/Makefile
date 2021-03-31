@@ -1,10 +1,10 @@
 NAME = libftprintf.a
 
 SRCS = srcs/ft_printf.c \
-	srcs/checkfunctions.c \
-	srcs/putfunctions.c \
-	srcs/ft_puts_pf.c \
-	srcs/printspecs.c
+	srcs/pf_checkfunctions.c \
+	srcs/pf_putfunctions.c \
+	srcs/pf_puts.c \
+	srcs/pf_printspecs.c
 
 OBJ_FILES = ft_printf.o
 

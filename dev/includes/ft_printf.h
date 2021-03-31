@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/03/30 08:13:10 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/03/31 13:28:18 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,29 +41,30 @@ typedef struct s_convert
 /* printcounter keeps track of the number of bytes written */
 
 /* ../srcs/checkfunctions.c prototypes */
-int	ft_checkflag(char *format, t_convert *conv_specs);
-int	ft_checkprecision(char *format, t_convert *conv_specs);
-int	ft_checkasterisk(char *format, t_convert *conv_specs);
-int	ft_checkwidthdigit(char *format, t_convert *conv_specs);
-int	ft_checktype(char *format, t_convert *conv_specs);
+int	pf_checkflag(char *format, t_convert *p);
+int	pf_checkprecision(char *format, t_convert *p);
+int	pf_checkasterisk(char *format, t_convert *p);
+int	pf_checkwidthdigit(char *format, t_convert *p);
+int	pf_checktype(char *format, t_convert *p);
 
 /* ../srcs/ft_printf.c prototypes */
-int	ft_printf(const char*, ...);
-int	init_convspecs(t_convert *conv_specs);
-int	ft_putconvstring(char *string);
-int	check_conversion(char *format, t_convert *conv_specs);
-int	isconvspecifier(char *format, t_convert *conv_specs);
+int	pf_printf(const char*, ...);
+int	pf_init_convspecs(t_convert *p);
+int	pf_putconvstring(char *string);
+int	pf_check_conversion(char *format, t_convert *p);
+int	pf_isconvspecifier(char *format, t_convert *p);
 
 /* ../srcs/putfunctions.c prototypes */
-void	ft_putconversion(t_convert *conv_specs);
-void 	ft_putleftjustification(t_convert *conv_specs);
-void 	ft_putjustification(t_convert *conv_specs);
-void	ft_putc_pf(t_convert *conv_specs);
-/* ../srcs/ft_puts_pf.c prototypes */
-void	ft_puts_pf(t_convert *conv_specs);
-void	ft_putspaces_pf(int len);
+void	pf_putconversion(t_convert *p);
+void	pf_putspaces(int len);
+void	pf_putzero(int len);
+void	pf_putc(t_convert *p);
+/* ../srcs/pf_puts.c prototypes */
+void	pf_puts(t_convert *p);
+
+
 
 /* printspecs function for development */
-int	printspecs(t_convert conv_specs);
+int	printspecs(t_convert p);
 
 #endif
