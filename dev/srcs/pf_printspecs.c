@@ -12,18 +12,18 @@ int	printspecs(t_convert p)
 	if (p.type == 'c')
 	printf("%%c value: %c\n", p.c);
 	if (p.type == 's')
-	    printf("%%s value: %s", p.s);
+	    printf("%%s value: %s\n", p.s);
 	if (p.type == 'p')
-		printf("%%p value: %p", p.p);
+		printf("%%p value: %p\n", p.p);
 	if (p.type == 'd')
-		printf("%%d value: %d", p.d);
+		printf("%%d value: %d\n", p.d);
 	if (p.type == 'i')
-		printf("%%i value: %i", p.i);
+		printf("%%i value: %i\n", p.i);
 	if (p.type == 'u')
-		printf("%%u value: %u", p.u);
+		printf("%%u value: %u\n", p.u);
 	if (p.type == 'x')
-		printf("%%x value: %x", p.x);
+		printf("%%x value: %x\n", p.x);
 	if (p.type == 'X')
-		printf("%%x value: %X", p.X);
+		printf("%%x value: %X\n", p.X);
 	return (0);
 }
