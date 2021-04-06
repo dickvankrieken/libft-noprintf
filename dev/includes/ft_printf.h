@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/03/31 13:28:18 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/04/01 20:02:06 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ void	pf_putzero(int len);
 void	pf_putc(t_convert *p);
 /* ../srcs/pf_puts.c prototypes */
 void	pf_puts(t_convert *p);
-
+/* ../srcs/pf_puts_ifwidth.c prototypes */
+void	pf_puts_ifwidth(t_convert *p);
 
 
 /* printspecs function for development */

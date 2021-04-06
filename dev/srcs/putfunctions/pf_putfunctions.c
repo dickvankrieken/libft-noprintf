@@ -26,6 +26,7 @@ void	pf_putc(t_convert *p)
 	write(1, &p->c, sizeof(char));
 	p->printcounter++;
 }
+
 void	pf_putspaces(int len)
 {
 	int i;
