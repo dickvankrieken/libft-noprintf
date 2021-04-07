@@ -1,6 +1,8 @@
 #+TITLE: ft_printf
 
 * directories/files/functions
+** Makefile: [[dev/Makefile]]
+** libft: [[dev/libft/]]
 ** de development folder: [[dev/]]
 *** main om mee te testen: [[dev/main.c]]
 *** de Makefile [[dev/Makefile]]

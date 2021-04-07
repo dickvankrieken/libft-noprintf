@@ -7,16 +7,23 @@ SRCS = srcs/ft_printf.c \
 	srcs/putfunctions/pf_s_minus_with_precision.c \
 	srcs/pf_printspecs.c
 
-OBJ_FILES = ft_printf.o
+C_FLAGS = -Werror -Wextra -Wall
+
+// OBJ_FILES = ft_printf.o
 
 HEADER_FILES = includes/ft_printf.h
 
-all:
+all: $(NAME)
+
+test:
 	$(CC) -g main.c $(SRCS) libft/libft.a
 	./a.out
 
+%.o: %.c $(HEADER_FILES)
+	$(CC) $(C_FLAGS) -o $@ $^
+
 $(NAME):
-	$(CC)
+	ar
 
 clean:
 
