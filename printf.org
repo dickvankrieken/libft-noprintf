@@ -32,8 +32,10 @@
 *** [[dev/srcs/putfunctions/pf_puts.c]]
 **** void	pf_puts(t_convert *p)
 **** void	pf_putspaces(int len)
+*** [[dev/srcs/putfunctions/pf_s_minus_with_precision.c]]
 **** dev/srcs/putfunctions/pf_s_minus_with_precision.c
-
+*** [[dev/srcs/putfunctions/pf_putd.c]]
+**** void	pf_putd(t_convert *p)
 
 * omschrijving van de printf functie.
 ** eerst optioneel een - en/of 0
@@ -75,24 +77,20 @@
 int a = 100;
 char c = 'c';
 char d = 'd';
-
 char *string = "hello world";
 char *string2 = "bye world";
 char *pointer = string;
 char **ppointer = pointer;
 
-/* 1 min of nul */
-printf("|%-.3s|\n", string);
-printf("|%04c|\n", c);
-printf("|%.-3s|\n", string);
+
+/* format: printf("|...|\n", argumenten) */
+printf("|%.14d|\n", a);
 
 #+end_src
 
  #+RESULTS:
  #+begin_src C
- |hel|
- |000c|
- |   |
+ |00000000000100|
  #+end_src
 
  #+RESULTS:

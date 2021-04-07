@@ -1,7 +1,10 @@
 #include "../../includes/ft_printf.h"
 
 void	pf_s_width_minus_checkprecision(p->s)
-void	pf_s_minus_with_precision(p->s)
+{
+}
+
+void	pf_s_minus_with_precision(t_convert *p)
 {
 	if (p->precision > -1)
 	{
@@ -15,7 +18,7 @@ void	pf_s_minus_with_precision(p->s)
 	}
 }
 
-void	pf_s_minus_noprecision(p->s)
+void	pf_s_minus_noprecision(t_convert *p)
 {
 
 }

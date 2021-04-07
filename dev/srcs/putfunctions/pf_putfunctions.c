@@ -1,5 +1,5 @@
-#include "../libft/libft.h"
-#include "../includes/ft_printf.h"
+#include "../../libft/libft.h"
+#include "../../includes/ft_printf.h"
 
 void	pf_putconversion(t_convert *p)
 {
@@ -8,17 +8,18 @@ void	pf_putconversion(t_convert *p)
 	if (p->type == 's')
 		pf_puts(p);
 	/* if (p->type == 'p') */
-	/* 	p->p = va_arg(p->ap, char *); */
-	/* if (p->type == 'd') */
-	/* 	p->d = va_arg(p->ap, int); */
+
+	if (p->type == 'd' || p->type == 'i')
+		pf_putd(p);
+
 	/* if (p->type == 'i') */
-	/* 	p->i = va_arg(p->ap, int); */
+
 	/* if (p->type == 'u') */
-	/* 	p->u = va_arg(p->ap, unsigned int); */
+
 	/* if (p->type == 'x') */
-	/* 	p->u = va_arg(p->ap, unsigned int); */
+
 	/* if (p->type == 'X') */
-	/* 	p->u = va_arg(p->ap, unsigned int); */
+
 }
 
 void	pf_putc(t_convert *p)
