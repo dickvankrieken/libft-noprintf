@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/04/01 20:02:06 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/04/12 16:51:00 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	pf_checkwidthdigit(char *format, t_convert *p);
 int	pf_checktype(char *format, t_convert *p);
 
 /* ../srcs/ft_printf.c prototypes */
-int	pf_printf(const char*, ...);
+int	ft_printf(const char*, ...);
 int	pf_init_convspecs(t_convert *p);
 int	pf_putconvstring(char *string);
 int	pf_check_conversion(char *format, t_convert *p);

@@ -1,101 +1,34 @@
 #+TITLE: ft_printf
 
-* directories/files/functions
-** Makefile: [[dev/Makefile]]
-** libft: [[dev/libft/]]
-** de development folder: [[dev/]]
-*** main om mee te testen: [[dev/main.c]]
-*** de Makefile [[dev/Makefile]]
-
-** de headerfiles [[dev/includes]]
-*** [[dev/includes/ft_printf.h]]
-
-** de sources folder [[dev/srcs]]
-*** [[dev/srcs/ft_printf.c]]
-**** int 	pf_init_convspecs
-**** void 	pf_argtostruct(t_convert *p)
-**** int	pf_check_conversion(char *format, t_convert *p)
-**** int	pf_parse(char *format, va_list ap)
-**** int 	ft_printf
-*** [[dev/srcs/pf_checkfunctions.c]]
-**** int	pf_checkflag(char *format, t_convert *p)
-**** int	pf_checkprecision(char *format, t_convert *p)
-**** int	pf_checkasterisk(char *format, t_convert *p)
-**** int	pf_checkwidthdigit(char *format, t_convert *p)
-**** int	pf_checktype(char *format, t_convert *p)
-*** [[dev/srcs/putfunctions/pf_putfunctions.c]]
-**** char	*pf_putconversion(t_convert *p)
-**** void	pf_putc(t_convert *p)
-**** void	pf_putspaces(int len)
-**** void	pf_putzero(int len)
-**** void 	pf_puts_precision(t_convert *p)
-*** [[dev/srcs/putfunctions/pf_puts.c]]
-**** void	pf_puts(t_convert *p)
-**** void	pf_putspaces(int len)
-**** dev/srcs/putfunctions/pf_s_minus_with_precision.c
-
-
-* omschrijving van de printf functie.
-** eerst optioneel een - en/of 0
-*** minus - left-justify
-    the result of the conversion is left-justified within the field (right-justified if not specified)
-*** nul
-    field is padded with 0's instead of blanks
-** dan een optionele precision in de vorm van een punt (.) eventueel gevolgd door een asterisk * of een optionele decimale integer.
-   dat bepaald wat het minimale hoeveelheid nummers is dat moet verschijnen voor de d, i, u, x en X conversies
-   als er alleen een punt staat is de precisie 0.
-
-** dan een optionele field width in de vorm van een asterisk (*) of een niet-negatieve decimale integer
-** conversion specifier: cspdiuxX%
-   dit zijn de conversie specificaties die de printf moet kunnen verwerken.
-*** c: character
-*** s: string...
-*** p: pointer
-    het argument zal een pointer naar void zijn. De waarde zal geconverteerd worden naar een rij van karakters
-*** d: digit
-    gewoon een heel getal
-*** i: integer
-    ook gewoon een heel getal (schijnt weinig verschil te hebben met digit)
-*** u: unsiged int
-    getal dat unsigned is d.w.z. dat het niet negatief kan zijn en een hogere bereik heeft in positieve waardes.
-*** x: unsigned hexadecimal notation
-   hexadecimale notatie van een argument
-*** X: unSIGNED hexadecimal notation in CAPS
-    hetzelfde maar dan in hoofdletters
- Een overzicht maken van de verschillende manieren waarop je printf kunt gebruiken zodat je de betekenis leert kennen van alle verschillende soorten valide (en invalide) invoer.
-
-
-* testing original printf return values
-** org-babel
-   :PROPERTIES:
-   :ORDERED:
-   :END:
-
- #+begin_src C :results value code :includes <stdio.h> <unistd.h>
-int a = 100;
-char c = 'c';
-char d = 'd';
-
-char *string = "hello world";
-char *string2 = "bye world";
-char *pointer = string;
-char **ppointer = pointer;
-
-/* 1 min of nul */
-printf("|%-.3s|\n", string);
-printf("|%04c|\n", c);
-printf("|%.-3s|\n", string);
-
-#+end_src
-
- #+RESULTS:
- #+begin_src C
- |hel|
- |000c|
- |   |
- #+end_src
-
- #+RESULTS:
-
-** testing original printf in a separate file
-   [[./printfpractice.c]]
+* de development folder: [[dev/]]
+** [[dev/libft/]]
+main om mee te testen: [[dev/main.c]]
+de Makefile [[dev/Makefile]]
+** [[dev/includes]]
+[[dev/includes/ft_printf.h]]
+** [[dev/srcs]]
+[[dev/srcs/ft_printf.c]]
+int 	pf_init_convspecs
+void 	pf_argtostruct(t_convert *p)
+int	pf_check_conversion(char *format, t_convert *p)
+int	pf_parse(char *format, va_list ap)
+int 	ft_printf
+[[dev/srcs/pf_checkfunctions.c]]
+int	pf_checkflag(char *format, t_convert *p)
+int	pf_checkprecision(char *format, t_convert *p)
+int	pf_checkasterisk(char *format, t_convert *p)
+int	pf_checkwidthdigit(char *format, t_convert *p)
+int	pf_checktype(char *format, t_convert *p)
+*** [[dev/srcs/putfunctions]]
+[[dev/srcs/putfunctions/pf_putfunctions.c]]
+char	*pf_putconversion(t_convert *p)
+void	pf_putc(t_convert *p)
+void	pf_putspaces(int len)
+void	pf_putzero(int len)
+void 	pf_puts_precision(t_convert *p)
+**** [[dev/srcs/putfunctions/puts]]
+[[dev/srcs/putfunctions/puts/pf_puts.c]]
+void	pf_puts(t_convert *p)
+void	pf_putspaces(int len)
+[[dev/srcs/putfunctions/puts/pf_s_minus_with_precision.c]]
+**** [[dev/srcs/putfunctions/putd]]

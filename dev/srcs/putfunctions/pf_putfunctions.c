@@ -1,5 +1,5 @@
-#include "../libft/libft.h"
-#include "../includes/ft_printf.h"
+#include "../../libft/libft.h"
+#include "../../includes/ft_printf.h"
 
 void	pf_putconversion(t_convert *p)
 {

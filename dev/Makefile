@@ -3,8 +3,8 @@ NAME = libftprintf.a
 SRCS = srcs/ft_printf.c \
 	srcs/pf_checkfunctions.c \
 	srcs/putfunctions/pf_putfunctions.c \
-	srcs/putfunctions/pf_puts.c \
-	srcs/putfunctions/pf_s_minus_with_precision.c \
+	srcs/putfunctions/puts/pf_puts.c \
+	srcs/putfunctions/puts/pf_s_minus_with_precision.c \
 	srcs/pf_printspecs.c
 
 C_FLAGS = -Werror -Wextra -Wall
