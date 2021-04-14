@@ -1,7 +1,13 @@
 #include "../../../includes/ft_printf.h"
 
+<<<<<<< HEAD:dev/srcs/putfunctions/puts/pf_s_minus_with_precision.c
 void	pf_s_width_minus_checkprecision(t_convert *p)
 {}
+=======
+void	pf_s_width_minus_checkprecision(p->s)
+{
+}
+>>>>>>> 1721e647022fbbd43bb4721604cfa8fef7601545:dev/srcs/putfunctions/pf_s_minus_with_precision.c
 
 void	pf_s_minus_with_precision(t_convert *p)
 {

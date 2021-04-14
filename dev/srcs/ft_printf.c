@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/03/31 15:35:59 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/04/07 16:32:31 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	pf_init_convspecs(t_convert *p)
 	p->type = 'z';
 	return (0);
 }
-
 
 void	pf_argtostruct(t_convert *p)
 {
@@ -84,7 +83,7 @@ void	pf_parse(char *format, t_convert p)
 	/* no extra local counter because everything is done in struct variable printcounter? */
 	int		i;
 
-	pf_init_convspecs(&p);
+	pf_reinit_convspecs(&p);
 	i = 0;
 	while (i < ft_strlen(format))
 	{
@@ -99,7 +98,7 @@ void	pf_parse(char *format, t_convert p)
 			ft_putchar_fd(format[i], 1);
 			i++;
 		}
-	}
+}
 //	printspecs(p);
 //	return (i);
 }
