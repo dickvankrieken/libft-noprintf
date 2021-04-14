@@ -1,0 +1,30 @@
+#+TITLE: Functie beschrijving
+
+* omschrijving van de printf functie.
+** eerst optioneel een - en/of 0
+*** minus - left-justify
+    the result of the conversion is left-justified within the field (right-justified if not specified)
+*** nul
+    field is padded with 0's instead of blanks
+** dan een optionele precision in de vorm van een punt (.) eventueel gevolgd door een asterisk * of een optionele decimale integer.
+   dat bepaald wat het minimale hoeveelheid nummers is dat moet verschijnen voor de d, i, u, x en X conversies
+   als er alleen een punt staat is de precisie 0.
+
+** dan een optionele field width in de vorm van een asterisk (*) of een niet-negatieve decimale integer
+** conversion specifier: cspdiuxX%
+   dit zijn de conversie specificaties die de printf moet kunnen verwerken.
+*** c: character
+*** s: string...
+*** p: pointer
+    het argument zal een pointer naar void zijn. De waarde zal geconverteerd worden naar een rij van karakters
+*** d: digit
+    gewoon een heel getal
+*** i: integer
+    ook gewoon een heel getal (schijnt weinig verschil te hebben met digit)
+*** u: unsiged int
+    getal dat unsigned is d.w.z. dat het niet negatief kan zijn en een hogere bereik heeft in positieve waardes.
+*** x: unsigned hexadecimal notation
+   hexadecimale notatie van een argument
+*** X: unSIGNED hexadecimal notation in CAPS
+    hetzelfde maar dan in hoofdletters
+ Een overzicht maken van de verschillende manieren waarop je printf kunt gebruiken zodat je de betekenis leert kennen van alle verschillende soorten valide (en invalide) invoer.
