@@ -1,0 +1,35 @@
+
+* testing original printf return values
+** org-babel
+   :PROPERTIES:
+   :ORDERED:
+   :END:
+
+ #+begin_src C :results value code :includes <stdio.h> <unistd.h>
+int a = 100;
+char c = 'c';
+char d = 'd';
+
+char *string = "hello world";
+char *string2 = "bye world";
+char *pointer = string;
+char **ppointer = pointer;
+
+/* 1 min of nul */
+printf("|%020.3s|\n", string);
+printf("|%-04c|\n", c);
+printf("|%-.7d|\n", -12345);
+
+#+end_src
+
+ #+RESULTS:
+ #+begin_src C
+ |00000000000000000hel|
+ |c   |
+ |-0012345|
+ #+end_src
+
+ #+RESULTS:
+
+** testing original printf in a separate file
+   [[./printfpractice.c]]
