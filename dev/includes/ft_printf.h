@@ -6,17 +6,12 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-<<<<<<< HEAD
-/*   Updated: 2021/04/12 16:51:00 by dvan-kri      ########   odam.nl         */
-=======
-/*   Updated: 2021/04/07 17:22:10 by dvan-kri      ########   odam.nl         */
->>>>>>> 1721e647022fbbd43bb4721604cfa8fef7601545
+/*   Updated: 2021/04/16 11:15:34 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
 
 # include <stdio.h> /* verwijder voor inleveren */
 # include <stdarg.h>
@@ -26,7 +21,7 @@
 typedef struct s_convert
 {
 	va_list		ap;
-	int		printcounter;
+	int		count;
 	int		width;
 	int		precision;
 	bool		minus;
@@ -40,6 +35,7 @@ typedef struct s_convert
 	unsigned int	u;
 	unsigned int	x;
 	unsigned int	X;
+	int		printcounter;
 }	t_convert;
 
 /* printcounter keeps track of the number of bytes written */
@@ -63,12 +59,25 @@ void	pf_putconversion(t_convert *p);
 void	pf_putspaces(int len);
 void	pf_putzero(int len);
 void	pf_putc(t_convert *p);
-/* ../srcs/pf_puts.c prototypes */
+/* ../srcs/putfunctions/puts prototypes */
 void	pf_puts(t_convert *p);
-/* ../srcs/pf_puts_ifwidth.c prototypes */
-void	pf_puts_ifwidth(t_convert *p);
-/* ../srcs/pf_putd.c prototypes */
+/* ../srcs/putfunctions/puts/pf_puts_width.c prototypes */
+void	pf_puts_width(t_convert *p);
+void	pf_puts_width_minus_checkprecision(t_convert *p);
+void	pf_puts_minus_with_precision(t_convert *p);
+void	pf_puts_minus_noprecision(t_convert *p);
+void	pf_puts_width_checkzero(t_convert *p);
+/* ../srcs/putfunctions/putd prototypes */
 void	pf_putd(t_convert *p);
+int	pf_putd_precision(t_convert *p);
+void	pf_putd_zero(t_convert *p);
+void	pf_putd_zero_width(t_convert *p);
+void	pf_putd_zero_width_precision(t_convert *p);
+void	pf_putd_zero_precision(t_convert *p);
+void	pf_putd_minus(t_convert *p);
+void	pf_putd_minus_width(t_convert *p);
+void	pf_putd_minus_width_precision(t_convert *p);
+void	pf_putd_minus_precision(t_convert *p);
 
 /* printspecs function for development */
 int	printspecs(t_convert p);

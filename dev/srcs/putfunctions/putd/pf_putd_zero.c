@@ -1,3 +1,4 @@
+#include "../../../includes/ft_printf.h"
 
 void	pf_putd_zero(t_convert *p)
 {
@@ -15,8 +16,13 @@ void	pf_putd_zero(t_convert *p)
 	}
 	else
 	{
-		ft_putstr_fd(ft_itoa(p->d, 1));
+		ft_putstr_fd(ft_itoa(p->d), 1);
 	}
+}
+
+void	pf_putd_zero_width(t_convert *p)
+{
+
 }
 
 void	pf_putd_zero_width_precision(t_convert *p)

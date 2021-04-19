@@ -29,6 +29,11 @@ void 	pf_puts_precision(t_convert *p)
 **** [[dev/srcs/putfunctions/puts]]
 [[dev/srcs/putfunctions/puts/pf_puts.c]]
 void	pf_puts(t_convert *p)
-void	pf_putspaces(int len)
+[[dev/srcs/putfunctions/puts/pf_puts_width.c]]
+void	pf_puts_width(t_convert *p)
 [[dev/srcs/putfunctions/puts/pf_s_minus_with_precision.c]]
 **** [[dev/srcs/putfunctions/putd]]
+
+
+* [[./]]
+** [[./test.org]]

@@ -6,13 +6,12 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/04/07 16:32:31 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/04/16 08:57:01 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -83,7 +82,7 @@ void	pf_parse(char *format, t_convert p)
 	/* no extra local counter because everything is done in struct variable printcounter? */
 	int		i;
 
-	pf_reinit_convspecs(&p);
+	pf_init_convspecs(&p);
 	i = 0;
 	while (i < ft_strlen(format))
 	{
@@ -98,9 +97,9 @@ void	pf_parse(char *format, t_convert p)
 			ft_putchar_fd(format[i], 1);
 			i++;
 		}
-}
+		pf_init_convspecs(&p);
+	}
 //	printspecs(p);
-//	return (i);
 }
 
 int	ft_printf(const char *format, ...)
@@ -111,5 +110,6 @@ int	ft_printf(const char *format, ...)
 	va_start(p.ap, format);
 	pf_parse((char *)format, p);
 	va_end(p.ap);
-	return (p.printcounter);
+	/* return (p.printcounter); */
+	return (0);
 }

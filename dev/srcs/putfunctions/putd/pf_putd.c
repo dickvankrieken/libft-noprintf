@@ -8,28 +8,79 @@ En voor andere conversies is het gedrag ongedefinieerd.
 Het int argument wordt geconverteerd naar een signed decimal in de stijl van [-]dddd de precisie specifieerd het minimale aantal getallen dat zal verschijnen; als de waarde die geconverteerd gaat worden in minder getallen gerepresenteerd kan worden, dan zal het uitgebreid worden met vooraanstaande nullen. De standaard precisie is 1. Het resultaat van het converteren van een 0 waarde met een precisie van 0, is geen karakters
 */
 
+#include "../../../includes/ft_printf.h"
+
 void	pf_putd(t_convert *p)
 {
-		if (p->minus)
+	int i;
+
+	i = 0;
+	if (p->minus)
+		pf_putd_minus(p);
+	else if (p->zero)
+		pf_putd_zero(p);
+	else if (p->width > ft_strlen(ft_itoa(p->d)))
+	{
+		while (i < p->width - ft_strlen(ft_itoa(p->d)))
 		{
-			pf_putd_minus(p);
+			ft_putstr_fd(ft_itoa(p->width - ft_strlen(ft_itoa(p->d))), 1);
+			ft_putchar_fd(' ', 1);
+			i++;
 		}
-		else if (p->zero)
+		ft_putstr_fd(ft_itoa(p->d), 1);
+	}
+	else if (p->precision > ft_strlen(ft_itoa(p->d)))
+	{
+		int len;
+
+		len = ft_strlen(ft_itoa(p->d));
+		i = 0;
+		if (p->d < 0)
 		{
-			pf_putd_zero(p);
+			ft_putchar_fd('-', 1);
+			i++;
+			len--;
+			p->d = -(p->d);
 		}
-		else if (p->width)
+		while (p->precision > len)
 		{
-			/* zet een d/i die alleen een width heeft */
+			ft_putchar_fd('0', 1);
+			len++;
+			i++;
 		}
-		else if (p->precision)
-		{
-			/* zet een d/i die alleen een precision heeft */
-		}
-		else
-		{
-			ft_putstr_fd(ft_itoa(p->d, 1)); /* ik denk nu dat dit alles is voor het zetten van d/i zonder flags dus dat we geen pf_putd_noflags() functie nodig hebben. */
-		}
+		ft_putstr_fd(ft_itoa(p->d), 1);
+
+	}
+	else
+		ft_putstr_fd(ft_itoa(p->d), 1);
+}
+
+int	pf_putd_precision(t_convert *p)
+{
+	int i;
+	int len;
+
+	len = ft_strlen(ft_itoa(p->d));
+	i = 0;
+	if (p->d < 0)
+	{
+		ft_putchar_fd('-', 1);
+		i++;
+		len--;
+		p->d = -(p->d);
+		/* 't getal was negatief dus de lengte van het getal was inclusief een minus maar die hebben we nu niet meer nodig dus len-- en p->d maken we positief omdat we de min al gezet hebben.*/
+	}
+	 /* als die precision groter is dan de strlen van het getal (zonder een eventuele minus als het een negatief getal is), dan wordt het getal uitgebreid met vooraanstaande nullen */
+	while (p->precision > len)
+	{
+		ft_putchar_fd('0', 1);
+		len++;
+		i++;
+	}
+	/* nu gaat het getal gezet worden */
+	ft_putstr_fd(ft_itoa(p->d), 1);
+	i += ft_strlen(ft_itoa(p->d));
+	return (i);
 }
 
 /*

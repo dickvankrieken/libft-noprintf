@@ -25,7 +25,6 @@ void	pf_putconversion(t_convert *p)
 void	pf_putc(t_convert *p)
 {
 	write(1, &p->c, sizeof(char));
-	p->printcounter++;
 }
 
 void	pf_putspaces(int len)
@@ -50,9 +49,4 @@ void	pf_putzero(int len)
 		ft_putchar_fd('0', 1);
 		i++;
 	}
-}
-
-void pf_puts_precision(t_convert *p)
-{
-
 }
