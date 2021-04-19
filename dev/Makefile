@@ -5,11 +5,10 @@ SRCS = srcs/ft_printf.c \
 	srcs/putfunctions/pf_putfunctions.c \
 	srcs/putfunctions/puts/pf_puts.c \
 	srcs/putfunctions/puts/pf_puts_width.c \
-	srcs/putfunctions/puts/pf_puts_minus_with_precision.c \
 	srcs/putfunctions/putd/pf_putd.c \
 	srcs/putfunctions/putd/pf_putd_minus.c \
 	srcs/putfunctions/putd/pf_putd_zero.c \
-	srcs/pf_printspecs.c
+	srcs/printspecs.c
 
 C_FLAGS = -Werror -Wextra -Wall
 

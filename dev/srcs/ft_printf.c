@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/04/16 08:57:01 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/04/19 17:27:48 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,23 @@ int	pf_check_conversion(char *format, t_convert *p)
 	int i;
 
 	i = 0;
+/*		printf("minus? : %c", format[i]); */
+	/* 		printf("i = %d", i); */
+	/* printf("char = %s", &format[i]); */
+		// printf("i = %d", i);
+
 	while (pf_checkflag(&format[i], p))
+	{
 		i++;
+	}
  	if (pf_checkasterisk(&format[i], p))
+	{
 		i++;
+	}
 	if (pf_checkwidthdigit(&format[i], p))
+	{
 		i += ft_strlen(ft_itoa(p->width));
+	}
 	if (pf_checkprecision(&format[i], p))
 	{
 		if (p->precision)
@@ -90,6 +101,7 @@ void	pf_parse(char *format, t_convert p)
 		{
 			i++;
 			i += pf_check_conversion(&format[i], &p);
+			/* printspecs(p); */
 			pf_putconversion(&p);
 		}
 		else

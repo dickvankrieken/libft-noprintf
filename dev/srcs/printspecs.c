@@ -4,6 +4,7 @@
 
 int	printspecs(t_convert p)
 {
+	printf("minus: _%d_\n", p.minus);
 	printf("width: _%d_\n", p.width);
 	printf("precision (.): _%d_\n", p.precision);
 	printf("left-justified (-): _%d_\n", p.minus);

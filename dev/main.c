@@ -12,8 +12,7 @@ int main()
 	char *pointer = string;
 	char **ppointer = &pointer;
 
-	ft_printf(">>>%0.12d<<<\n", a);
-	printf(">>>%0.12d<<<\n", a);
+	ft_printf(">>>%-.20d<<<\n", a);
+	printf(">>>%-.20d<<<\n", a);
 	/* ft_printf("%s", "hello world"); */
-
 }

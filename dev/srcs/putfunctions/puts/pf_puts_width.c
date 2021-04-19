@@ -21,3 +21,21 @@ void	pf_puts_width(t_convert *p)
 	}
 	p->printcounter += p->width;
 }
+
+void	pf_puts_width_checkzero(t_convert *p)
+{
+	if (p->precision > -1)
+	{
+		pf_putzero(p->width - p->precision);
+		write(1, p->s, p->precision);
+	}
+	else
+	{
+		pf_putzero(p->width - ft_strlen(p->s));
+		write(1, p->s, ft_strlen(p->s));
+	}
+}
+
+
+void	pf_puts_width_minus_checkprecision(t_convert *p)
+{}

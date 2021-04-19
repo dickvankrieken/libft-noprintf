@@ -33,7 +33,14 @@ void	pf_puts(t_convert *p)
 void	pf_puts_width(t_convert *p)
 [[dev/srcs/putfunctions/puts/pf_s_minus_with_precision.c]]
 **** [[dev/srcs/putfunctions/putd]]
-
+***** [[dev/srcs/putfunctions/pf_putd_minus.c]]
+void	pf_putd_minus_width_precision
+void	pf_putd_minus_width
+void	pf_putd_minus_precision
+***** [[dev/srcs/putfunctions/pf_putd_zero.c]]
+void	pf_putd_zero_width
+void	pf_putd_zero_width_precision
+void	pf_putd_zero_precision
 
 * [[./]]
 ** [[./test.org]]
