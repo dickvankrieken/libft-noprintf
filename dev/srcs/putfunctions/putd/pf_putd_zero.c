@@ -6,7 +6,7 @@ void	pf_putd_zero(t_convert *p)
 	{
 		if (p->precision)
 		{
-			pf_putd_zero_width_precision(p);
+		pf_putd_zero_width_precision(p);
 		}
 		pf_putd_zero_width(p);
 	}
