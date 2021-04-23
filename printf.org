@@ -2,45 +2,53 @@
 
 * de development folder: [[dev/]]
 ** [[dev/libft/]]
-main om mee te testen: [[dev/main.c]]
-de Makefile [[dev/Makefile]]
+*** [[dev/main.c]]
+*** [[dev/Makefile]]
 ** [[dev/includes]]
-[[dev/includes/ft_printf.h]]
+*** [[dev/includes/ft_printf.h]]
 ** [[dev/srcs]]
-[[dev/srcs/ft_printf.c]]
-int 	pf_init_convspecs
-void 	pf_argtostruct(t_convert *p)
-int	pf_check_conversion(char *format, t_convert *p)
-int	pf_parse(char *format, va_list ap)
-int 	ft_printf
-[[dev/srcs/pf_checkfunctions.c]]
-int	pf_checkflag(char *format, t_convert *p)
-int	pf_checkprecision(char *format, t_convert *p)
-int	pf_checkasterisk(char *format, t_convert *p)
-int	pf_checkwidthdigit(char *format, t_convert *p)
-int	pf_checktype(char *format, t_convert *p)
-*** [[dev/srcs/putfunctions]]
-[[dev/srcs/putfunctions/pf_putfunctions.c]]
-char	*pf_putconversion(t_convert *p)
-void	pf_putc(t_convert *p)
-void	pf_putspaces(int len)
-void	pf_putzero(int len)
-void 	pf_puts_precision(t_convert *p)
-**** [[dev/srcs/putfunctions/puts]]
-[[dev/srcs/putfunctions/puts/pf_puts.c]]
-void	pf_puts(t_convert *p)
-[[dev/srcs/putfunctions/puts/pf_puts_width.c]]
-void	pf_puts_width(t_convert *p)
-[[dev/srcs/putfunctions/puts/pf_s_minus_with_precision.c]]
-**** [[dev/srcs/putfunctions/putd]]
-***** [[dev/srcs/putfunctions/pf_putd_minus.c]]
-void	pf_putd_minus_width_precision
-void	pf_putd_minus_width
-void	pf_putd_minus_precision
-***** [[dev/srcs/putfunctions/pf_putd_zero.c]]
-void	pf_putd_zero_width
-void	pf_putd_zero_width_precision
-void	pf_putd_zero_precision
+*** [[dev/srcs/ft_printf.c]]
+**** int 	pf_init_convspecs(t_convert * p)
+**** void 	pf_argtostruct(t_convert * p)
+**** int	pf_check_conversion(char * format, t_convert * p)
+**** int	pf_parse(char * format, va_list ap)
+**** int 	ft_printf(const char * format, ...)
+*** [[dev/srcs/pf_checkfunctions.c]]
+**** int	pf_checkflag(char * format, t_convert * p)
+**** int	pf_checkprecision(char * format, t_convert *p)
+**** int	pf_checkasterisk(char * format, t_convert * p)
+**** int	pf_checkwidthdigit(char * format, t_convert * p)
+**** int	pf_checktype(char * format, t_convert * p)
+** [[dev/srcs/putfunctions]]
+*** [[dev/srcs/putfunctions/pf_putfunctions.c]]
+**** char	* pf_putconversion(t_convert * p)
+**** void	pf_putc(t_convert * p)
+**** void	pf_putspaces(int len)
+**** void	pf_putzero(int len)
+**** void 	pf_puts_precision(t_convert * p)
+** [[dev/srcs/putfunctions/puts]]
+*** [[dev/srcs/putfunctions/puts/pf_puts.c]]
+**** void	pf_puts(t_convert * p)
+*** [[dev/srcs/putfunctions/puts/pf_puts_width.c]]
+**** void	pf_puts_width(t_convert * p)
+*** [[dev/srcs/putfunctions/puts/pf_puts_minus.c]]
+** [[dev/srcs/putfunctions/putd]]
+*** [[dev/srcs/putfunctions/putd/pf_putd.c]]
+**** void	pf_putd(t_convert * p)
+**** int	pf_putd_precision(t_convert * p)
+**** void	pf_putd_width_precision(t_convert * p)
+*** [[dev/srcs/putfunctions/putd/pf_putd_minus.c]]
+**** void	pf_putd_minus(t_convert * p)
+**** void	pf_putd_minus_width_precision(t_convert *p)
+**** void	pf_putd_minus_width(t_convert * p)
+*** [[dev/srcs/putfunctions/putd/pf_putd_zero.c]]
+**** void	pf_putd_zero(t_convert * p)
+**** void	pf_putd_zero_width(t_convert *p)
+** [[dev/srcs/putfunctions/putp/]]
+*** [[dev/srcs/putfunctions/putp/pf_putp.c]]
+**** void	pf_putp(t_convert * p)
+**** void
+**** void
 
 * [[./]]
 ** [[./test.org]]

@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/04/19 15:22:12 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/04/23 09:51:08 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,24 @@ void	pf_puts_minus_with_precision(t_convert *p);
 void	pf_puts_minus_noprecision(t_convert *p);
 void	pf_puts_width_checkzero(t_convert *p);
 /* ../srcs/putfunctions/putd prototypes */
+/* ../srcs/putfunctions/putd/pf_putd.c prototypes */
 void	pf_putd(t_convert *p);
 int	pf_putd_precision(t_convert *p);
+void	pf_putd_width_precision(t_convert *p);
 void	pf_putd_zero(t_convert *p);
 void	pf_putd_zero_width(t_convert *p);
 void	pf_putd_zero_width_precision(t_convert *p);
 void	pf_putd_zero_precision(t_convert *p);
-int		pf_putd_precision(t_convert *p);
+int	pf_putd_precision(t_convert *p);
 void	pf_putd_minus(t_convert *p);
 void	pf_putd_minus_width(t_convert *p);
 void	pf_putd_minus_width_precision(t_convert *p);
 void	pf_putd_minus_precision(t_convert *p);
+/* ../srcs/putfunctions/putp prototypes */
+/* ../srcs/putfunctions/putp/pf_putp.c prototypes */
+void	pf_putp(t_convert *p);
+/* ../srcs/putfunctions/putp/pf_ultohex.c prototypes */
+char	*pf_ultohex(int n);
 
 /* printspecs function for development */
 int	printspecs(t_convert p);

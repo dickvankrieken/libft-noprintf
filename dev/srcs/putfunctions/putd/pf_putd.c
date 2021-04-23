@@ -19,11 +19,14 @@ void	pf_putd(t_convert *p)
 		pf_putd_minus(p);
 	else if (p->zero)
 		pf_putd_zero(p);
+	else if (p->width > ft_strlen(ft_itoa(p->d)) && p->precision > 0)
+	{
+	}
 	else if (p->width > ft_strlen(ft_itoa(p->d)))
 	{
 		while (i < p->width - ft_strlen(ft_itoa(p->d)))
 		{
-			ft_putstr_fd(ft_itoa(p->width - ft_strlen(ft_itoa(p->d))), 1);
+			/*		ft_putstr_fd(ft_itoa(p->width - ft_strlen(ft_itoa(p->d))), 1); geen idee wat deze regel deed, hij lijkt nu niet meer nodig */
 			ft_putchar_fd(' ', 1);
 			i++;
 		}
@@ -65,6 +68,26 @@ int	pf_putd_precision(t_convert *p)
 	ft_putstr_fd(ft_itoa(p->d), 1);
 	i += ft_strlen(ft_itoa(p->d));
 	return (i);
+}
+
+void	pf_putd_width_precision(t_convert *p)
+{
+	/* er is een width en een precision
+	als de width groter is dan de precision, dan worden er spaties gezet */
+	int i;
+
+	i = 0;
+	if (p->width > p->precision)
+	{
+		if (p->d < 0)
+			i++;
+		while (i < p->width - p->precision)
+		{
+			ft_putchar_fd(' ', 1);
+			i++;
+		}
+	}
+	pf_putd_precision(p);
 }
 
 /*

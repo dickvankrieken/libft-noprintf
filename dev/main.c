@@ -5,6 +5,7 @@
 int main()
 {
 	int a = -12345;
+	int b = 2190;
 	char c = 'e';
 	char d = 'd';
 
@@ -12,7 +13,8 @@ int main()
 	char *pointer = string;
 	char **ppointer = &pointer;
 
-	ft_printf(">>>%-.20d<<<\n", a);
-	printf(">>>%-.20d<<<\n", a);
+//	ft_printf(">>>%p<<< en >>>%p<<<\n", pointer, ppointer);
+	printf(">>>%-25lu<<< en >>>%7lu<<<\n", pointer, ppointer);
+
 	/* ft_printf("%s", "hello world"); */
 }

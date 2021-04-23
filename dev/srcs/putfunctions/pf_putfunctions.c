@@ -7,8 +7,8 @@ void	pf_putconversion(t_convert *p)
 		pf_putc(p);
 	if (p->type == 's')
 		pf_puts(p);
-	/* if (p->type == 'p') */
-
+	if (p->type == 'p')
+		pf_putp(p);
 	if (p->type == 'd' || p->type == 'i')
 		pf_putd(p);
 
