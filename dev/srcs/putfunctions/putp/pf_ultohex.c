@@ -1,6 +1,6 @@
-#include "libft.h"
+#include "../../../libft/libft.h"
 
-int		numberofchars(int n)
+static int		numberofchars(int n)
 {
 	int i;
 
@@ -15,7 +15,7 @@ int		numberofchars(int n)
 	return (i);
 }
 
-char	*ft_convert(int isneg, int num, int allchars)
+static char	*ft_convert(unsigned long num, int allchars)
 {
 	int		i;
 	char	*a;
@@ -24,29 +24,19 @@ char	*ft_convert(int isneg, int num, int allchars)
 	a = ft_calloc(allchars + 1, sizeof(char));
 	if (!a)
 		return (NULL);
-	if (isneg)
-		num *= -1;
 	while (i >= 0)
 	{
-		if (i == 0 && isneg)
-		{
-			a[i] = '-';
-			i--;
-		}
-		else
-		{
-			a[i] = (num % 16) + '0';
-			num /= 16;
-			i--;
-		}
+		a[i] = (num % 16) + '0';
+		num /= 16;
+		i--;
 	}
 	return (a);
 }
 
-char	*pf_ultohex(int n)
+char	*pf_ultohex(unsigned long n)
 {
 	int		allchars;
 
 	allchars = numberofchars(n);
-	return (ft_convert(isnegative, n, allchars));
+	return (ft_convert(n, allchars));
 }

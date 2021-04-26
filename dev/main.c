@@ -13,8 +13,8 @@ int main()
 	char *pointer = string;
 	char **ppointer = &pointer;
 
-//	ft_printf(">>>%p<<< en >>>%p<<<\n", pointer, ppointer);
-	printf(">>>%-25lu<<< en >>>%7lu<<<\n", pointer, ppointer);
+	ft_printf(">>>%p<<< en >>>%p<<<\n", pointer, ppointer);
+	printf(">>>%p<<< en >>>%p<<<\n", pointer, ppointer);
 
 	/* ft_printf("%s", "hello world"); */
 }

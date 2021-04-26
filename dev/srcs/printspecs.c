@@ -15,7 +15,7 @@ int	printspecs(t_convert p)
 	if (p.type == 's')
 	    printf("%%s value: %s\n", p.s);
 	if (p.type == 'p')
-		printf("%%p value: %p\n", p.p);
+		printf("%%lu value: %lu\n", p.p);
 	if (p.type == 'd')
 		printf("%%d value: %d\n", p.d);
 	if (p.type == 'i')

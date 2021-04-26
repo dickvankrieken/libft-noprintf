@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/04/23 09:51:08 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/04/26 14:43:02 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_convert
 	char		type;
 	char		c;
 	char		*s;
-	char		*p;
+	unsigned long	p;
 	int		d;
 	int		i;
 	unsigned int	u;
@@ -85,7 +85,8 @@ void	pf_putd_minus_precision(t_convert *p);
 /* ../srcs/putfunctions/putp/pf_putp.c prototypes */
 void	pf_putp(t_convert *p);
 /* ../srcs/putfunctions/putp/pf_ultohex.c prototypes */
-char	*pf_ultohex(int n);
+char	*pf_ultohex(unsigned long n);
+
 
 /* printspecs function for development */
 int	printspecs(t_convert p);
