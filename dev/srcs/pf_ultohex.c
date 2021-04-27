@@ -1,6 +1,6 @@
 #include "../../../libft/libft.h"
 
-static int		numberofchars(int n)
+static int		numberofchars(unsigned long n)
 {
 	int i;
 
@@ -10,6 +10,7 @@ static int		numberofchars(int n)
 	while (n)
 	{
 		n /= 16;
+		// printf("|%d|\n", n);
 		i++;
 	}
 	return (i);
@@ -26,14 +27,19 @@ static char	*ft_convert(unsigned long num, int allchars)
 		return (NULL);
 	while (i >= 0)
 	{
-		a[i] = (num % 16) + '0';
+		if ((num % 16) <= 9)
+			a[i] = (num % 16) + '0';
+		else if (isupper)
+			a[i] = (num % 16) + 55;
+		else
+			a[i] = (num % 16) + 87;
 		num /= 16;
 		i--;
 	}
 	return (a);
 }
 
-char	*pf_ultohex(unsigned long n)
+char	*pf_ultohex(unsigned long n, int isupper)
 {
 	int		allchars;
 

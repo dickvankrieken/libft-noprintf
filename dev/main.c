@@ -11,7 +11,7 @@ int main()
 
 	char *string = "hello world";
 	char *pointer = string;
-	char **ppointer = &pointer;
+	char *ppointer = &c;
 
 	ft_printf(">>>%p<<< en >>>%p<<<\n", pointer, ppointer);
 	printf(">>>%p<<< en >>>%p<<<\n", pointer, ppointer);

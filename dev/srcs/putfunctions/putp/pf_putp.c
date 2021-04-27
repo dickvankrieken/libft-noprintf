@@ -6,6 +6,5 @@
 
 void	pf_putp(t_convert *p)
 {
-//	ft_putstr_fd(pf_ultohex(p->p), 1);
-	printf("%lu\n", p->p);
+	ft_putstr_fd(pf_ultohex(p->p), 1);
 }
