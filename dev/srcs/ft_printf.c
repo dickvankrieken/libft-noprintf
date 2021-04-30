@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/04/22 09:24:37 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/04/29 20:21:50 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	pf_argtostruct(t_convert *p)
 	if (p->type == 's')
 		p->s = va_arg(p->ap, char *);
 	if (p->type == 'p')
-		p->p = va_arg(p->ap, void *);
+		p->p = va_arg(p->ap, unsigned long);
 	if (p->type == 'd')
 		p->d = va_arg(p->ap, int);
 	if (p->type == 'i')
@@ -42,9 +42,9 @@ void	pf_argtostruct(t_convert *p)
 	if (p->type == 'u')
 		p->u = va_arg(p->ap, unsigned int);
 	if (p->type == 'x')
-		p->u = va_arg(p->ap, unsigned int);
+		p->x = va_arg(p->ap, unsigned int);
 	if (p->type == 'X')
-		p->u = va_arg(p->ap, unsigned int);
+		p->X = va_arg(p->ap, unsigned int);
 }
 
 /* check_conversion starts when % is found in format string.

@@ -11,10 +11,12 @@ int main()
 
 	char *string = "hello world";
 	char *pointer = string;
-	char **ppointer = &pointer;
+	char *ppointer = &c;
 
-//	ft_printf(">>>%p<<< en >>>%p<<<\n", pointer, ppointer);
-	printf(">>>%-25lu<<< en >>>%7lu<<<\n", pointer, ppointer);
+	int tohex = 190607;
+	int tohex2 = 121990607;
 
-	/* ft_printf("%s", "hello world"); */
+	ft_printf(">>>%x<<< en >>>%x<<<\n", tohex, tohex2);
+	printf(">>>%x<<< en >>>%x<<<\n", tohex, tohex2);
+
 }
