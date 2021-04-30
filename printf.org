@@ -58,6 +58,8 @@
 ** [[dev/srcs/putfunctions/putx/]]
 *** [[dev/srcs/putfunctions/putx/pf_putx.c]]
 
+** [[dev/srcs/putfunctions/putu/]]
+
 * [[./]]
 ** [[./test.org]]
 

@@ -2,8 +2,18 @@
 
 void	pf_putx(t_convert *p, int isupper)
 {
+	char *string;
+
+	int len;
 	if (isupper)
-		ft_putstr_fd(pf_ultohex(p->X, 1), 1);
+		string = pf_ultohex(p->X, isupper);
 	else
-		ft_putstr_fd(pf_ultohex(p->x, 0), 0);
+		string = pf_ultohex(p->x, isupper);
+	len = ft_strlen(string);
+	while (p->width > len)
+	{
+		ft_putchar_fd(' ', 1);
+		len++;
+	}
+	ft_putstr_fd(string, 1);
 }
