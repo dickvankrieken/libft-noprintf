@@ -11,15 +11,11 @@ void	pf_putconversion(t_convert *p)
 		pf_putp(p);
 	if (p->type == 'd' || p->type == 'i')
 		pf_putd(p);
-
-	/* if (p->type == 'i') */
-
 	/* if (p->type == 'u') */
-
-	/* if (p->type == 'x') */
-
-	/* if (p->type == 'X') */
-
+	if (p->type == 'x')
+		pf_putx(p, 0);
+	if (p->type == 'X')
+		pf_putx(p, 1);
 }
 
 void	pf_putc(t_convert *p)

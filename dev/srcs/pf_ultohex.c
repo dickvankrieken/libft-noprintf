@@ -1,4 +1,4 @@
-#include "../../../libft/libft.h"
+#include "../libft/libft.h"
 
 static int		numberofchars(unsigned long n)
 {
@@ -16,7 +16,7 @@ static int		numberofchars(unsigned long n)
 	return (i);
 }
 
-static char	*ft_convert(unsigned long num, int allchars)
+static char	*ft_convert(unsigned long num, int allchars, int isupper)
 {
 	int		i;
 	char	*a;
@@ -44,5 +44,5 @@ char	*pf_ultohex(unsigned long n, int isupper)
 	int		allchars;
 
 	allchars = numberofchars(n);
-	return (ft_convert(n, allchars));
+	return (ft_convert(n, allchars, isupper));
 }

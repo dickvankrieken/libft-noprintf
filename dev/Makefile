@@ -9,7 +9,8 @@ SRCS = srcs/ft_printf.c \
 	srcs/putfunctions/putd/pf_putd_minus.c \
 	srcs/putfunctions/putd/pf_putd_zero.c \
 	srcs/putfunctions/putp/pf_putp.c \
-	srcs/putfunctions/putp/pf_ultohex.c \
+	srcs/putfunctions/putx/pf_putx.c \
+	srcs/pf_ultohex.c \
 	srcs/printspecs.c
 
 C_FLAGS = -Werror -Wextra -Wall

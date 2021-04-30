@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/04/27 16:18:52 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/04/29 20:27:36 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,10 @@ void	pf_putd_minus_precision(t_convert *p);
 /* ../srcs/putfunctions/putp */
 /* ../srcs/putfunctions/putp/pf_putp.c prototypes */
 void	pf_putp(t_convert *p);
+
+/* ../srcs/putfunctions/putx */
+/* ../srcs/putfunctions/putx/pf_putx.c prototypes */
+void	pf_putx(t_convert *p, int isupper);
 
 
 /* printspecs function for development */

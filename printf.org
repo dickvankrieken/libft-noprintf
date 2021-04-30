@@ -21,6 +21,8 @@
 **** int	pf_checkasterisk(char * format, t_convert * p)
 **** int	pf_checkwidthdigit(char * format, t_convert * p)
 **** int	pf_checktype(char * format, t_convert * p)
+*** [[dev/srcs/pf_ultohex.c]]
+**** char	*pf_ultohex(unsigned long n, int isupper)
 
 ** [[dev/srcs/putfunctions]]
 *** [[dev/srcs/putfunctions/pf_putfunctions.c]]
@@ -52,9 +54,9 @@
 ** [[dev/srcs/putfunctions/putp/]]
 *** [[dev/srcs/putfunctions/putp/pf_putp.c]]
 **** void	pf_putp(t_convert * p)
-*** [[dev/srcs/pf_ultohex.c]]
-**** char	*pf_ultohex(unsigned long n, int isupper)
 
+** [[dev/srcs/putfunctions/putx/]]
+*** [[dev/srcs/putfunctions/putx/pf_putx.c]]
 
 * [[./]]
 ** [[./test.org]]
