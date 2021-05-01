@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/04/29 20:21:50 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/04/30 14:12:48 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ void	pf_parse(char *format, t_convert p)
 		}
 		pf_init_convspecs(&p);
 	}
-//	printspecs(p);
 }
 
 int	ft_printf(const char *format, ...)

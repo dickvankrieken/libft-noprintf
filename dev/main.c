@@ -16,7 +16,10 @@ int main()
 	int tohex = 190607;
 	int tohex2 = 121990607;
 
-	ft_printf(">>>%x<<< en >>>%x<<<\n", tohex, tohex2);
-	printf(">>>%x<<< en >>>%x<<<\n", tohex, tohex2);
+	ft_printf(">>>%13p<<< en >>>%3p<<<\n", pointer, ppointer);
+	printf(">>>%13p<<< en >>>%3p<<<\n", pointer, ppointer);
+
+	ft_printf(">>>%13.10x<<< en >>>%3x<<<\n", tohex, tohex2);
+	printf(">>>%9.10x<<< en >>>%3x<<<\n", tohex, tohex2);
 
 }
