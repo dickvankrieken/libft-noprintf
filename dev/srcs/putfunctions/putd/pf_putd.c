@@ -19,14 +19,14 @@ void	pf_putd(t_convert *p)
 		pf_putd_minus(p);
 	else if (p->zero)
 		pf_putd_zero(p);
-	else if (p->width > ft_strlen(ft_itoa(p->d)) && p->precision > 0)
+	else if (p->width > ft_strlen(ft_itoa(p->d)) && (p->precision > ft_strlen(ft_itoa(p->d))))
 	{
+		pf_putd_width_precision(p);
 	}
 	else if (p->width > ft_strlen(ft_itoa(p->d)))
 	{
 		while (i < p->width - ft_strlen(ft_itoa(p->d)))
 		{
-			/*		ft_putstr_fd(ft_itoa(p->width - ft_strlen(ft_itoa(p->d))), 1); geen idee wat deze regel deed, hij lijkt nu niet meer nodig */
 			ft_putchar_fd(' ', 1);
 			i++;
 		}

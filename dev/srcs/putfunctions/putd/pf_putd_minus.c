@@ -7,8 +7,6 @@ void	pf_putd_minus(t_convert *p)
 		if (p->precision)
 		{
 			pf_putd_minus_width_precision(p);
-			/* hij gaat nu hierin terwijl er geen width is */
-			write(1, "?", 1);
 		}
 		else
 			pf_putd_minus_width(p);

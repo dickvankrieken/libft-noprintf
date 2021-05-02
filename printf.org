@@ -1,5 +1,6 @@
 #+TITLE: ft_printf
 
+
 * de development folder: [[dev/]]
 ** [[dev/libft/]]
 *** [[dev/main.c]]
@@ -58,14 +59,34 @@
 ** [[dev/srcs/putfunctions/putx/]]
 *** [[dev/srcs/putfunctions/putx/pf_putx.c]]
 
-** [[dev/srcs/putfunctions/putu/]]
+** TODO [[dev/srcs/putfunctions/putu/]]
 
 * [[./]]
 ** [[./test.org]]
 
 
+* TODOLIST
+** DONE c
+** DONE s
+** DONE p
+** DONE d
+** DONE i
+** TODO u
+***   %u is itoa maar dan niet negatief en een unsigned int ervan maken
+    nu aan het werken aan putu
+    werkt nog niet met precision en width
+    is mogelijk hetzelfde als %d en %i...
+    kijken wat ik daar van kan gebruiken
+    wellicht alles? dat getal kan alleen niet negatief zijn maar dat is ie dus al niet ook niet als je hem als integer in pf_putd stopt.
+** DONE x
+** DONE X
+** TODO %
 
-   /*
-   cspdiuxX%
-   %u is itoa maar dan niet negatief en een unsigned int ervan maken
-   */
+
+   putd werkt nu weer naar behoren geloof ik.
+
+** TODO onderzoeken wat de teruggave waarde van de originele printf is -> subject PDF && ISO C Standard PDF
+   The fprintf function returns the number of characters transmitted, or a negative value if an output or encoding error occurred.
+   Dus het aantal neergezette karakters wordt gereturnt.
+   Dus ik moet me ergens mee gaan bezig houden namelijk dat het juiste aantal karakters gereturnt worden.
+** TODO Elke keer als er iets gezet wordt moet de p->printcounter met 1 verhoogt worden.

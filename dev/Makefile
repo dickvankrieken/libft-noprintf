@@ -10,6 +10,7 @@ SRCS = srcs/ft_printf.c \
 	srcs/putfunctions/putd/pf_putd_zero.c \
 	srcs/putfunctions/putp/pf_putp.c \
 	srcs/putfunctions/putx/pf_putx.c \
+	srcs/putfunctions/putu/pf_putu.c \
 	srcs/pf_ultohex.c \
 	srcs/printspecs.c
 
