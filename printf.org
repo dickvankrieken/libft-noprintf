@@ -83,9 +83,8 @@
 ** TODO %
 
 
-   putd werkt nu weer naar behoren geloof ik.
 
-** TODO onderzoeken wat de teruggave waarde van de originele printf is -> subject PDF && ISO C Standard PDF
+** DONE onderzoeken wat de teruggave waarde van de originele printf is -> subject PDF && ISO C Standard PDF
    The fprintf function returns the number of characters transmitted, or a negative value if an output or encoding error occurred.
    Dus het aantal neergezette karakters wordt gereturnt.
    Dus ik moet me ergens mee gaan bezig houden namelijk dat het juiste aantal karakters gereturnt worden.
