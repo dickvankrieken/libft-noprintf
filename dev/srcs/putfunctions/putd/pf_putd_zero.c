@@ -4,25 +4,15 @@ void	pf_putd_zero(t_convert *p)
 {
 	if (p->width > ft_strlen(ft_itoa(p->d)))
 	{
-<<<<<<< HEAD
-		/* if (p->precision >= 0) */
-		/* { */
-		/* 	/\* als de width groter is dan de precision, dan worden er spaties gezet *\/ */
-		/* 	pf_putd_width_precision(p); */
-		/* 	/\* ? welke functie komt hier ? pf_putd_width_precision(p); *\/ */
-		/* } */
-		/* ft_putchar_fd('!', 1); */
 		if (p->precision >= 0)
 			pf_putd_width_precision(p);
 		else
 			pf_putd_zero_width(p);
-=======
 		if (p->precision)
 		{
 		pf_putd_zero_width_precision(p);
 		}
 		pf_putd_zero_width(p);
->>>>>>> 56ab94e0bfe1e87f15b77c0e235e52acf044c59c
 	}
 	else if (p->precision > ft_strlen(ft_itoa(p->d)))
 	{
