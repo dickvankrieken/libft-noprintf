@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/01 21:25:31 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/03 19:09:06 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void	pf_putx(t_convert *p, int isupper);
 /* ../srcs/putfunctions/putu */
 /* ../srcs/putfunctions/putu/pf_putu.c prototypes */
 void	pf_putu(t_convert *p);
+char	*ft_uitoa(unsigned int n);
 
 /* printspecs function for development */
 int	printspecs(t_convert p);

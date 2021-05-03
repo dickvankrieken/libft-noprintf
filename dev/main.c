@@ -40,10 +40,18 @@ static void testp()
 	printf(">>>%13p<<< en >>>%3p<<<\n", pointer, ppointer);
 }
 
+static void testu()
+{
+	unsigned int uint1 = 12345;
+	unsigned int uint2 = -1;
+	ft_printf(">>>%u<<< en >>>%u<<<\n", uint1, uint2);
+	printf(">>>%u<<< en >>>%u<<<\n", uint1, uint2);
+}
+
 int main()
 {
 	// testx();
 	// testp();
 	// testd();
-	printf("%d", printf("%d", 12345));
+	testu();
 }

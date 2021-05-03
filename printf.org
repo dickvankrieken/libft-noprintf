@@ -62,7 +62,8 @@
 ** TODO [[dev/srcs/putfunctions/putu/]]
 
 * [[./]]
-** [[./test.org]]
+** [[./TEST.org]]
+** [[./focus.org]]
 
 
 * TODOLIST

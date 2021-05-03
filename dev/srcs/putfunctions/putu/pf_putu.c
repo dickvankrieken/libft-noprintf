@@ -2,5 +2,5 @@
 
 void		pf_putu(t_convert *p)
 {
-	ft_putstr_fd(ft_itoa(p->u), 1);
+	ft_putstr_fd(ft_uitoa(p->u), 1);
 }

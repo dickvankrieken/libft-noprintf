@@ -16,3 +16,6 @@ build/
 printf_evalsheet.png
 
 a.out
+
+*.o
+*.a
