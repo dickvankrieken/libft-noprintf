@@ -1,0 +1,43 @@
+* FOCUS BLOCKS
+
+  most recent first
+
+** <2021-05-02 Sun>
+   :LOGBOOK:
+   CLOCK: [2021-05-02 Sun 23:23]--[2021-05-02 Sun 23:54] =>  0:31
+   CLOCK: [2021-05-02 Sun 18:40]--[2021-05-02 Sun 19:14] =>  0:34
+   CLOCK: [2021-05-02 Sun 17:35]--[2021-05-02 Sun 18:02] =>  0:27
+   CLOCK: [2021-05-02 Sun 11:01]--[2021-05-02 Sun 11:36] =>  0:35
+   :END:
+#+BEGIN: clocktable :scope subtree :maxlevel 2
+#+CAPTION: Clock summary at [2021-05-02 Sun 23:55]
+| Headline             | Time   |      |
+|----------------------+--------+------|
+| *Total time*         | *2:07* |      |
+|----------------------+--------+------|
+| \_  <2021-05-02 Sun> |        | 2:07 |
+#+END:
+
+
+** <2005-05-21 Sat>
+  :LOGBOOK:
+  CLOCK: [2021-05-01 Sat 20:54]--[2021-05-01 Sat 21:27] =>  0:33
+  CLOCK: [2021-05-01 Sat 17:28]--[2021-05-01 Sat 17:50] =>  0:22
+  CLOCK: [2021-05-01 Sat 16:21]--[2021-05-01 Sat 16:37] =>  0:16
+  CLOCK: [2021-05-01 Sat 16:00]--[2021-05-01 Sat 16:11] =>  0:11
+  CLOCK: [2021-05-01 Sat 15:49]--[2021-05-01 Sat 16:00] =>  0:11
+  :END:
+<2021-05-01 Sat 15:46>
+FB PF25
+<2021-05-01 Sat 17:28>
+FB PF25
+<2021-05-01 Sat 20:54>
+FB PF40
+#+BEGIN: clocktable :scope subtree :maxlevel 2
+#+CAPTION: Clock summary at [2021-05-01 Sat 21:27]
+| Headline     | Time   |
+|--------------+--------|
+| *Total time* | *1:33* |
+|--------------+--------|
+| FOCUS BLOCK  | 1:33   |
+#+END:
