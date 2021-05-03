@@ -8,11 +8,6 @@ void	pf_putd_zero(t_convert *p)
 			pf_putd_width_precision(p);
 		else
 			pf_putd_zero_width(p);
-		if (p->precision)
-		{
-		pf_putd_zero_width_precision(p);
-		}
-		pf_putd_zero_width(p);
 	}
 	else if (p->precision > ft_strlen(ft_itoa(p->d)))
 	{
@@ -47,10 +42,3 @@ void	pf_putd_zero_width(t_convert *p)
 	i += ft_strlen(ft_itoa(p->d));
 	/* wat gaan we met de i doen? het aantal gezette karakters houden we misschien bij in de struct maar we weten nog niet zo goed waarom we die zouden moeten bijhouden, misschien hoeft dat in mijn project wel helemaal niet */
 }
-
-/* void	pf_putd_zero_precision(t_convert *p) */
-/* { */
-/* 	int i; */
-
-/* 	i += pf_putd_precision(p); */
-/* } */
