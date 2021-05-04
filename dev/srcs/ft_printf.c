@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/03 17:15:58 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/04 16:22:50 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,11 @@ int	pf_check_conversion(char *format, t_convert *p)
 
 void	pf_parse(char *format, t_convert p)
 {
-	char		*converted_argument;
-	/* no extra local counter because everything is done in struct variable printcounter? */
 	int		i;
 
 	pf_init_convspecs(&p);
 	i = 0;
-	while (i < ft_strlen(format))
+	while (i < (int)ft_strlen(format))
 	{
 		if (format[i] == '%')
 		{
@@ -116,7 +114,6 @@ void	pf_parse(char *format, t_convert p)
 int	ft_printf(const char *format, ...)
 {
 	t_convert	p;
-	int		written_bytes;
 
 	va_start(p.ap, format);
 	pf_parse((char *)format, p);

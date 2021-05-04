@@ -2,6 +2,7 @@
 #include "libft/libft.h"
 #include <stdio.h>
 
+/*
 static void testd()
 {
 
@@ -39,6 +40,7 @@ static void testp()
 	ft_printf(">>>%13p<<< en >>>%3p<<<\n", pointer, ppointer);
 	printf(">>>%13p<<< en >>>%3p<<<\n", pointer, ppointer);
 }
+*/
 
 static void testu()
 {

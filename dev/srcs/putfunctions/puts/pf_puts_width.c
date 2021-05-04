@@ -36,6 +36,8 @@ void	pf_puts_width_checkzero(t_convert *p)
 	}
 }
 
-
 void	pf_puts_width_minus_checkprecision(t_convert *p)
-{}
+{
+	printf("%s", p->s);
+	/* TODO */
+}

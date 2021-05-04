@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/03 19:09:06 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/04 18:02:36 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ void	pf_puts(t_convert *p);
 /* ../srcs/putfunctions/puts/pf_puts_width.c prototypes */
 void	pf_puts_width(t_convert *p);
 void	pf_puts_width_minus_checkprecision(t_convert *p);
-void	pf_puts_minus_with_precision(t_convert *p);
 void	pf_puts_minus_noprecision(t_convert *p);
 void	pf_puts_width_checkzero(t_convert *p);
+void	pf_puts_width_minus_checkprecision(t_convert *p);
 
 /* ../srcs/putfunctions/putd */
 /* ../srcs/putfunctions/putd/pf_putd.c prototypes */
@@ -97,6 +97,13 @@ void	pf_putx(t_convert *p, int isupper);
 /* ../srcs/putfunctions/putu/pf_putu.c prototypes */
 void	pf_putu(t_convert *p);
 char	*ft_uitoa(unsigned int n);
+int		pf_putu_precision(t_convert *p);
+void	pf_putu_width_precision(t_convert *p);
+void	pf_putu_minus(t_convert *p);
+void	pf_putu_minus_width_precision(t_convert *p);
+void	pf_putu_minus_width(t_convert *p);
+void	pf_putu_zero(t_convert *p);
+void	pf_putu_zero_width(t_convert *p);
 
 /* printspecs function for development */
 int	printspecs(t_convert p);

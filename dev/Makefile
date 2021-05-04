@@ -11,6 +11,8 @@ SRCS = srcs/ft_printf.c \
 	srcs/putfunctions/putp/pf_putp.c \
 	srcs/putfunctions/putx/pf_putx.c \
 	srcs/putfunctions/putu/pf_putu.c \
+	srcs/putfunctions/putu/pf_putu_minus.c \
+	srcs/putfunctions/putu/pf_putu_zero.c \
 	srcs/putfunctions/putu/pf_uitoa.c \
 	srcs/pf_ultohex.c \
 	srcs/printspecs.c
@@ -24,7 +26,7 @@ HEADER_FILES = includes/ft_printf.h
 all: $(NAME)
 
 test:
-	$(CC) -g main.c $(SRCS) libft/libft.a
+	$(CC) $(C_FLAGS) -g main.c $(SRCS) libft/libft.a
 	./a.out
 
 %.o: %.c $(HEADER_FILES)

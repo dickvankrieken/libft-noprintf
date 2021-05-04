@@ -19,20 +19,20 @@ void	pf_putd(t_convert *p)
 		pf_putd_minus(p);
 	else if (p->zero)
 		pf_putd_zero(p);
-	else if (p->width > ft_strlen(ft_itoa(p->d)) && (p->precision > ft_strlen(ft_itoa(p->d))))
+	else if (p->width > (int)ft_strlen(ft_itoa(p->d)) && (p->precision > (int)ft_strlen(ft_itoa(p->d))))
 	{
 		pf_putd_width_precision(p);
 	}
-	else if (p->width > ft_strlen(ft_itoa(p->d)))
+	else if (p->width > (int)ft_strlen(ft_itoa(p->d)))
 	{
-		while (i < p->width - ft_strlen(ft_itoa(p->d)))
+		while (i < p->width - (int)ft_strlen(ft_itoa(p->d)))
 		{
 			ft_putchar_fd(' ', 1);
 			i++;
 		}
 		ft_putstr_fd(ft_itoa(p->d), 1);
 	}
-	else if (p->precision > ft_strlen(ft_itoa(p->d)))
+	else if (p->precision > (int)ft_strlen(ft_itoa(p->d)))
 	{
 		pf_putd_precision(p);
 	}

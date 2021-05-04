@@ -16,12 +16,9 @@ static int		numberofchars(int n)
 static char	*ft_convert(unsigned int num, int allchars)
 {
 	int		i;
-	char	*a;
+	char	a[allchars + 1];
 
 	i = allchars - 1;
-	a = ft_calloc(allchars + 1, sizeof(char));
-	if (!a)
-		return (NULL);
 	while (i >= 0)
 	{
 		a[i] = (num % 10) + '0';

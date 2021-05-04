@@ -11,7 +11,7 @@ void	pf_putd_minus(t_convert *p)
 		else
 			pf_putd_minus_width(p);
 	}
-	else if (p->precision > ft_strlen(ft_itoa(p->d)))
+	else if (p->precision > (int)ft_strlen(ft_itoa(p->d)))
 	{
 		pf_putd_precision(p);
 	}
@@ -31,6 +31,7 @@ void	pf_putd_minus_width_precision(t_convert *p)
 eerst dus kijken of de precision langer of korter is dan het aantal getallen waaruit het getal bestaat. */
 	int i;
 
+	i = 0;
 	i += pf_putd_precision(p);
 	/* en nu komt er afhankelijk van de width nog een reeks spaties omdat hij links is uitgelijnd */
 	while (i < p->width) /* zolang ie dus kleiner is dan die width nog spaties zetten */

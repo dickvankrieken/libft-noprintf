@@ -18,7 +18,7 @@ void	pf_puts(t_convert *p)
 			if (p->precision)
 			{
 				write(1, p->s, p->precision);
-				if (p->precision < ft_strlen(p->s))
+				if (p->precision < (int)ft_strlen(p->s))
 					p->printcounter += p->precision;
 				else
 					p->printcounter += ft_strlen(p->s);
