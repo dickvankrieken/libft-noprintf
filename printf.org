@@ -76,7 +76,7 @@
 ** DONE d
 ** DONE i
 ** TODO u
-***   %u is itoa maar dan niet negatief en een unsigned int ervan maken
+*** %u is itoa maar dan niet negatief en een unsigned int ervan maken
     nu aan het werken aan putu
     werkt nog niet met precision en width
     is mogelijk hetzelfde als %d en %i...

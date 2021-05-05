@@ -11,8 +11,8 @@ void	pf_putconversion(t_convert *p)
 		pf_putp(p);
 	if (p->type == 'd' || p->type == 'i')
 		pf_putd(p);
-	if (p->type == 'u')
-		pf_putu(p);
+	/* if (p->type == 'u') */
+	/* 	pf_putu(p); */
 	if (p->type == 'x')
 		pf_putx(p, 0);
 	if (p->type == 'X')

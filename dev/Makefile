@@ -10,12 +10,12 @@ SRCS = srcs/ft_printf.c \
 	srcs/putfunctions/putd/pf_putd_zero.c \
 	srcs/putfunctions/putp/pf_putp.c \
 	srcs/putfunctions/putx/pf_putx.c \
-	srcs/putfunctions/putu/pf_putu.c \
-	srcs/putfunctions/putu/pf_putu_minus.c \
-	srcs/putfunctions/putu/pf_putu_zero.c \
-	srcs/putfunctions/putu/pf_uitoa.c \
 	srcs/pf_ultohex.c \
 	srcs/printspecs.c
+
+	# srcs/putfunctions/putu/pf_putu.c \
+	# srcs/putfunctions/putu/pf_putu_minus.c \
+	# srcs/putfunctions/putu/pf_putu_zero.c \
 
 C_FLAGS = -Werror -Wextra -Wall
 

@@ -40,7 +40,6 @@ static void testp()
 	ft_printf(">>>%13p<<< en >>>%3p<<<\n", pointer, ppointer);
 	printf(">>>%13p<<< en >>>%3p<<<\n", pointer, ppointer);
 }
-*/
 
 static void testu()
 {
@@ -49,11 +48,14 @@ static void testu()
 	ft_printf(">>>%u<<< en >>>%u<<<\n", uint1, uint2);
 	printf(">>>%u<<< en >>>%u<<<\n", uint1, uint2);
 }
+*/
+
 
 int main()
 {
 	// testx();
 	// testp();
 	// testd();
-	testu();
+	// testu();
+	ft_integerprint(12345);
 }

@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/04 18:02:36 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/05 13:32:17 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ int	pf_check_conversion(char *format, t_convert *p);
 int	pf_isconvspecifier(char *format, t_convert *p);
 /* ../srcs/pf_ultohex.c prototypes */
 char	*pf_ultohex(unsigned long n, int isupper);
-/* ../srcs/putfunctions.c prototypes */
+
+/* ../srcs/putfunctions/ */
+/* ../srcs/putfunctions/pf_putfunctions.c prototypes */
 void	pf_putconversion(t_convert *p);
 void	pf_putspaces(int len);
 void	pf_putzero(int len);
