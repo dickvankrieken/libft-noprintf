@@ -2,7 +2,7 @@
 #include "libft/libft.h"
 #include <stdio.h>
 
-/*
+
 static void testd()
 {
 
@@ -20,14 +20,13 @@ static void testd()
 
 static void testx()
 {
-
 	int tohex = 190607;
 	int tohex2 = 121990607;
 
-	ft_printf(">>>%3.3x<<< en >>>%.10x<<<\n", tohex, tohex2);
-	printf(">>>%3.3x<<< en >>>%.10x<<<\n", tohex, tohex2);
-	ft_printf(">>>%3.3u<<< en >>>%.10u<<<\n", tohex, tohex2);
-	printf(">>>%3.3u<<< en >>>%.10u<<<\n", tohex, tohex2);
+	   printf("printf    >>%3.3x<<< en >>>%.10x<<<\n", tohex, tohex2);
+	ft_printf("ft_printf >>%3.3x<<< en >>>%.10x<<<\n", tohex, tohex2);
+	   printf("printf    >>%3.3x<<< en >>>%.10x<<<\n", tohex, tohex2);
+	ft_printf("ft_printf >>%3.3x<<< en >>>%.10x<<<\n", tohex, tohex2);
 }
 
 static void testp()
@@ -48,14 +47,16 @@ static void testu()
 	ft_printf(">>>%u<<< en >>>%u<<<\n", uint1, uint2);
 	printf(">>>%u<<< en >>>%u<<<\n", uint1, uint2);
 }
-*/
 
 
 int main()
 {
-	// testx();
-	// testp();
-	// testd();
-	// testu();
-	ft_integerprint(12345);
+	printf("\ntestx:\n");
+	testx();
+	printf("\ntestp:\n");
+	testp();
+	printf("\ntestd:\n");
+	testd();
+	printf("\ntestu:\n");
+	testu();
 }

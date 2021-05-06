@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/04 16:22:50 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/06 14:03:31 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ int	pf_check_conversion(char *format, t_convert *p)
 	}
 	if (pf_checkwidthdigit(&format[i], p))
 	{
-		i += ft_strlen(ft_itoa(p->width));
+		i += ft_intcountchars(p->width);
 	}
 	if (pf_checkprecision(&format[i], p))
 	{
 		if (p->precision)
-			i += ft_strlen(ft_itoa(p->precision));
+			i += ft_intcountchars(p->precision);
 		else
 			i++;
 	}

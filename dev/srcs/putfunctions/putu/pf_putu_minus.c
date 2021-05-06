@@ -11,7 +11,7 @@ void	pf_putu_minus(t_convert *p)
 		else
 			pf_putu_minus_width(p);
 	}
-	else if (p->precision > (int)ft_strlen(ft_uitoa(p->d)))
+	else if (p->precision > ft_uintcountchars(p->d))
 	{
 		pf_putu_precision(p);
 	}

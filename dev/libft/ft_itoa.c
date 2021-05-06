@@ -6,26 +6,12 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/20 11:36:48 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2020/11/30 11:18:28 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/06 12:54:45 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		numberofchars(int n)
-{
-	int i;
-
-	i = 0;
-	if (n < 0)
-		i++;
-	while (n)
-	{
-		n /= 10;
-		i++;
-	}
-	return (i);
-}
 
 char	*ft_convert(int isneg, int num, int allchars)
 {
@@ -67,6 +53,6 @@ char	*ft_itoa(int n)
 		isnegative = 1;
 	if (n == -0)
 		return (ft_strdup("0"));
-	allchars = numberofchars(n);
+	allchars = ft_intcountchars(n);
 	return (ft_convert(isnegative, n, allchars));
 }
