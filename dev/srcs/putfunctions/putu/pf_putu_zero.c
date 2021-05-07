@@ -15,7 +15,7 @@ void	pf_putu_zero(t_convert *p)
 	}
 	else
 	{
-		ft_putstr_fd(ft_uitoa(p->u), 1);
+		ft_putuint_fd((p->u), 1);
 	}
 }
 
@@ -38,7 +38,7 @@ void	pf_putu_zero_width(t_convert *p)
 		i++;
 	}
 	/* nu gaat het getal gezet worden */
-	ft_putstr_fd(ft_uitoa(p->u), 1);
+	ft_putuint_fd((p->u), 1);
 	i += ft_strlen(ft_uitoa(p->u));
 	/* wat gaan we met de i doen? het aantal gezette karakters houden we misschien bij in de struct maar we weten nog niet zo goed waarom we die zouden moeten bijhouden, misschien hoeft dat in mijn project wel helemaal niet */
 }

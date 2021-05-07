@@ -17,7 +17,7 @@ void	pf_putu_minus(t_convert *p)
 	}
 	else
 	{
-		ft_putstr_fd(ft_uitoa(p->d), 1);
+		ft_putuint_fd((p->u), 1);
 		/* zet alleen met minus zonder meer */
 	}
 }
@@ -47,7 +47,7 @@ void	pf_putu_minus_width(t_convert *p)
 	/* er is een minus en een width, dus het getal gaat als eerst gezet worden en er komen eventueel nog wat spaties achter */
 	int i;
 
-	ft_putstr_fd(ft_uitoa(p->u), 1);
+	ft_putuint_fd((p->u), 1);
 	i = 0;
 	/* en nu komt er afhankelijk van de width nog een reeks spaties omdat hij links is uitgelijnd */
 	while (i < p->width) /* zolang ie dus kleiner is dan die width nog spaties zetten */

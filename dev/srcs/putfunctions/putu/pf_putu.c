@@ -12,6 +12,7 @@ Het int argument wordt geconverteerd naar een signed decimal in de stijl van [-]
 
 void	pf_putu(t_convert *p)
 {
+	printf("???");
 	int i;
 
 	i = 0;
@@ -30,14 +31,14 @@ void	pf_putu(t_convert *p)
 			ft_putchar_fd(' ', 1);
 			i++;
 		}
-		ft_putstr_fd(ft_uitoa(p->d), 1);
+		ft_putuint_fd((p->u), 1);
 	}
 	else if (p->precision > ft_uintcountchars(p->u))
 	{
 		pf_putu_precision(p);
 	}
 	else
-		ft_putstr_fd(ft_uitoa(p->u), 1);
+		ft_putuint_fd((p->u), 1);
 }
 
 /* pf_putd_precision zet een getal in een bepaalde precisie. Het returnt het aantal karakters dat is geprint. */
@@ -65,7 +66,7 @@ int	pf_putu_precision(t_convert *p)
 		i++;
 	}
 	/* nu gaat het getal gezet worden */
-	ft_putstr_fd(ft_uitoa(p->u), 1);
+		ft_putuint_fd((p->u), 1);
 	i += ft_uintcountchars(p->u);
 	return (i);
 }

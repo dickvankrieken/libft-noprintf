@@ -19,3 +19,7 @@ a.out
 
 *.o
 *.a
+
+
+# testers
+/pft

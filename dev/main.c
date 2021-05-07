@@ -51,12 +51,14 @@ static void testu()
 
 int main()
 {
-	printf("\ntestx:\n");
-	testx();
-	printf("\ntestp:\n");
-	testp();
-	printf("\ntestd:\n");
-	testd();
+
+	/* printf("\ntestx:\n"); */
+	/* testx(); */
+	/* printf("\ntestp:\n"); */
+	/* testp(); */
+	/* printf("\ntestd:\n"); */
+	/* testd(); */
 	printf("\ntestu:\n");
 	testu();
+
 }

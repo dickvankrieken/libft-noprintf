@@ -1,5 +1,7 @@
 NAME = libftprintf.a
 
+
+# sources
 SRCS = srcs/ft_printf.c \
 	srcs/pf_checkfunctions.c \
 	srcs/putfunctions/pf_putfunctions.c \
@@ -11,11 +13,12 @@ SRCS = srcs/ft_printf.c \
 	srcs/putfunctions/putp/pf_putp.c \
 	srcs/putfunctions/putx/pf_putx.c \
 	srcs/pf_ultohex.c \
+	srcs/putfunctions/putu/pf_putu.c \
+	srcs/putfunctions/putu/pf_putu_minus.c \
+	srcs/putfunctions/putu/pf_putu_zero.c \
 	srcs/printspecs.c
 
-	# srcs/putfunctions/putu/pf_putu.c \
-	# srcs/putfunctions/putu/pf_putu_minus.c \
-	# srcs/putfunctions/putu/pf_putu_zero.c \
+# libft sources
 
 C_FLAGS = -Werror -Wextra -Wall
 
@@ -26,6 +29,10 @@ HEADER_FILES = includes/ft_printf.h
 all: $(NAME)
 
 test:
+	$(CC) -g main.c $(SRCS) libft/libft.a
+	./a.out
+
+testflags:
 	$(CC) $(C_FLAGS) -g main.c $(SRCS) libft/libft.a
 	./a.out
 
@@ -33,7 +40,7 @@ test:
 	$(CC) $(C_FLAGS) -o $@ $^
 
 $(NAME):
-	ar
+	ar rcs $(SRCS)
 
 clean:
 

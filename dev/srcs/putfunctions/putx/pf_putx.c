@@ -43,5 +43,4 @@ void		pf_putx(t_convert *p, int isupper)
 		}
 	}
 	ft_putstr_fd(string, 1);
-
 }

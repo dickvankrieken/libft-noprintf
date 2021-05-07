@@ -31,13 +31,13 @@
 **** void	pf_putc(t_convert * p)
 **** void	pf_putspaces(int len)
 **** void	pf_putzero(int len)
-**** void 	pf_puts_precision(t_convert * p)
 ** [[dev/srcs/putfunctions/puts]]
 *** [[dev/srcs/putfunctions/puts/pf_puts.c]]
 **** void	pf_puts(t_convert * p)
 *** [[dev/srcs/putfunctions/puts/pf_puts_width.c]]
 **** void	pf_puts_width(t_convert * p)
 *** [[dev/srcs/putfunctions/puts/pf_puts_minus.c]]
+**** void	pf_puts_minus_width_precision(t_convert *p)
 
 ** [[dev/srcs/putfunctions/putd]]
 *** [[dev/srcs/putfunctions/putd/pf_putd.c]]
@@ -65,9 +65,6 @@
 *** TODO [[dev/srcs/putfunctions/putu/pf_uitoa.c]]
 *** TODO [[dev/srcs/putfunctions/putu/pf_putu_minus.c]]
 *** TODO [[dev/srcs/putfunctions/putu/pf_putu_zero.c]]
-* [[./]]
-** [[./TEST.org]]
-** [[./focus.org]]
 
 
 * TODOLIST
