@@ -22,7 +22,7 @@ SRCS = srcs/ft_printf.c \
 
 C_FLAGS = -Werror -Wextra -Wall
 
-OBJ_FILES = ft_printf.o
+OBJ = $(SRCS:.c=.o)
 
 HEADER_FILES = includes/ft_printf.h
 
@@ -32,15 +32,15 @@ test:
 	$(CC) -g main.c $(SRCS) libft/libft.a
 	./a.out
 
-testflags:
+testwithflags:
 	$(CC) $(C_FLAGS) -g main.c $(SRCS) libft/libft.a
 	./a.out
 
-%.o: %.c $(HEADER_FILES)
-	$(CC) $(C_FLAGS) -o $@ $^
+obj/%.o: srcs/%.c 
+	$(CC) $(C_FLAGS) -o $@ -c $<
 
-$(NAME):
-	ar rcs $(SRCS)
+$(NAME): $(OBJ)
+	ar -rc $@ $(OBJ)
 
 clean:
 
