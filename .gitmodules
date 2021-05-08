@@ -1,3 +1,6 @@
 [submodule "dev/srcs/libft"]
 	path = dev/srcs/libft
 	url = https://github.com/dirkvankrieken/libft.git
+[submodule "dev/libft"]
+	path = dev/libft
+	url = https://github.com/dirkvankrieken/libft.git
