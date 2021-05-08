@@ -12,7 +12,6 @@ Het int argument wordt geconverteerd naar een signed decimal in de stijl van [-]
 
 void	pf_putu(t_convert *p)
 {
-	printf("???");
 	int i;
 
 	i = 0;
@@ -20,7 +19,7 @@ void	pf_putu(t_convert *p)
 		pf_putu_minus(p);
 	else if (p->zero)
 		pf_putu_zero(p);
-	else if (p->width > ft_uintcountchars(p->u)) && (p->precision > ft_uintcountchars(p->u))
+	else if ((p->width > ft_uintcountchars(p->u)) && (p->precision > ft_uintcountchars(p->u)))
 	{
 		pf_putu_width_precision(p);
 	}
