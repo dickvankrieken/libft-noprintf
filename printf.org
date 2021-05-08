@@ -2,6 +2,7 @@
 
 * de development folder: [[dev/]]
 ** [[dev/libft/]]
+*** [[dev/libft/Makefile]]
 *** [[dev/main.c]]
 *** [[dev/Makefile]]
 
