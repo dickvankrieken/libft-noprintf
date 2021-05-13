@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/05 13:32:17 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/13 17:19:21 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdio.h> /* verwijder voor inleveren */
 # include <stdarg.h>
 # include <stdbool.h>
-# include "../libft/libft.h"
+# include "../srcs/libft/libft.h"
 
 typedef struct s_convert
 {

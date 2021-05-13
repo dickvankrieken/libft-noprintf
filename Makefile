@@ -7,25 +7,24 @@ SRC_DIR =				srcs
 HDR_DIR =				includes
 OBJ_DIR =				obj
 LIBFT_DIR = 			libft
-FT_PRINTF_DIR =			ft_printf
 
 #---------------------- SOURCES ----------------------#
 
-SOURCES =	 			$(FT_PRINTF_DIR)/ft_printf.c \
-						$(FT_PRINTF_DIR)/pf_checkfunctions.c \
-						$(FT_PRINTF_DIR)/putfunctions/pf_putfunctions.c \
-						$(FT_PRINTF_DIR)/putfunctions/puts/pf_puts.c \
-						$(FT_PRINTF_DIR)/putfunctions/puts/pf_puts_width.c \
-						$(FT_PRINTF_DIR)/putfunctions/putd/pf_putd.c \
-						$(FT_PRINTF_DIR)/putfunctions/putd/pf_putd_minus.c \
-						$(FT_PRINTF_DIR)/putfunctions/putd/pf_putd_zero.c \
-						$(FT_PRINTTF_DIR)/putfunctions/putp/pf_putp.c \
-						$(FT_PRINTTF_DIR)/putfunctions/putx/pf_putx.c \
-						$(FT_PRINTTF_DIR)/pf_ultohex.c \
-						$(FT_PRINTTF_DIR)/putfunctions/putu/pf_putu.c \
-						$(FT_PRINTTF_DIR)/putfunctions/putu/pf_putu_minus.c \
-						$(FT_PRINTTF_DIR)/putfunctions/putu/pf_putu_zero.c \
-						$(FT_PRINTTF_DIR)/printspecs.c
+SOURCES =	 			ft_printf.c \
+						pf_checkfunctions.c \
+						putfunctions/pf_putfunctions.c \
+						putfunctions/puts/pf_puts.c \
+						putfunctions/puts/pf_puts_width.c \
+						putfunctions/putd/pf_putd.c \
+						putfunctions/putd/pf_putd_minus.c \
+						putfunctions/putd/pf_putd_zero.c \
+						putfunctions/putp/pf_putp.c \
+						putfunctions/putx/pf_putx.c \
+						pf_ultohex.c \
+						putfunctions/putu/pf_putu.c \
+						putfunctions/putu/pf_putu_minus.c \
+						putfunctions/putu/pf_putu_zero.c \
+						printspecs.c
 
 
 
@@ -84,7 +83,7 @@ OBJ			=	$(addprefix $(OBJ_DIR)/,$(SOURCES:.c=.o))
 C_FLAGS 	= 	-Werror -Wextra -Wall
 CC 			= 	gcc
 
-HEADER_FILES = includes/ft_printf.h
+HEADER_FILES = includes
 
 
 #---------------------- RECIPES ----------------------#
@@ -99,17 +98,19 @@ testwithflags:
 	./a.out
 
 $(NAME): $(OBJ)
+	make -C $(LIBFT_DIR)
+	cp libft/libft.a ./$(NAME)
 	ar rcs $@ $(OBJ)
 
-
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(C_FLAGS) -o $@ -c $<
-
+	$(CC) $(C_FLAGS) -I includes/libft.h $< -o $@
 
 clean:
+	rm -rf $(SOURCES:.c=.o)
 
-fclean:
+fclean: clean
+	rm -rf $(NAME)
 
-re:
+re: fclean all
 
-.PHONY: all test clean fclean re
+.PHONY: all test testwithflags clean fclean re
