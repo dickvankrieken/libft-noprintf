@@ -1,71 +1,74 @@
 #+TITLE: ft_printf
 
-* de development folder: [[dev/]]
-** [[dev/libft/]]
-*** [[dev/libft/Makefile]]
-*** [[dev/main.c]]
-*** [[dev/Makefile]]
 
-** [[dev/includes]]
-*** [[dev/includes/ft_printf.h]]
+** [[main.c]]
+** [[Makefile]]
 
-** [[dev/srcs]]
-*** [[dev/srcs/ft_printf.c]]
+** [[includes]]
+*** [[includes/ft_printf.h]]
+
+
+** [[srcs/libft/]]
+*** [[srcs/libft/Makefile]]
+
+
+** [[srcs]]
+*** [[srcs/ft_printf.c]]
 **** int 	pf_init_convspecs(t_convert * p)
 **** void 	pf_argtostruct(t_convert * p)
 **** int	pf_check_conversion(char * format, t_convert * p)
 **** int	pf_parse(char * format, va_list ap)
 **** int 	ft_printf(const char * format, ...)
-*** [[dev/srcs/pf_checkfunctions.c]]
+*** [[srcs/pf_checkfunctions.c]]
 **** int	pf_checkflag(char * format, t_convert * p)
 **** int	pf_checkprecision(char * format, t_convert *p)
 **** int	pf_checkasterisk(char * format, t_convert * p)
 **** int	pf_checkwidthdigit(char * format, t_convert * p)
 **** int	pf_checktype(char * format, t_convert * p)
-*** [[dev/srcs/pf_ultohex.c]]
+*** [[srcs/pf_ultohex.c]]
 **** char	*pf_ultohex(unsigned long n, int isupper)
 
 
-** [[dev/srcs/putfunctions]]
-*** [[dev/srcs/putfunctions/pf_putfunctions.c]]
+** [[srcs/putfunctions]]
+*** [[srcs/putfunctions/pf_putfunctions.c]]
 **** char	* pf_putconversion(t_convert * p)
 **** void	pf_putc(t_convert * p)
 **** void	pf_putspaces(int len)
 **** void	pf_putzero(int len)
-** [[dev/srcs/putfunctions/puts]]
-*** [[dev/srcs/putfunctions/puts/pf_puts.c]]
+** [[srcs/putfunctions/puts]]
+*** [[srcs/putfunctions/puts/pf_puts.c]]
 **** void	pf_puts(t_convert * p)
-*** [[dev/srcs/putfunctions/puts/pf_puts_width.c]]
+*** [[srcs/putfunctions/puts/pf_puts_width.c]]
 **** void	pf_puts_width(t_convert * p)
-*** [[dev/srcs/putfunctions/puts/pf_puts_minus.c]]
+*** [[srcs/putfunctions/puts/pf_puts_minus.c]]
 **** void	pf_puts_minus_width_precision(t_convert *p)
 
-** [[dev/srcs/putfunctions/putd]]
-*** [[dev/srcs/putfunctions/putd/pf_putd.c]]
+** [[srcs/putfunctions/putd]]
+*** [[srcs/putfunctions/putd/pf_putd.c]]
 **** void	pf_putd(t_convert * p)
 **** int	pf_putd_precision(t_convert * p)
 **** void	pf_putd_width_precision(t_convert * p)
-*** [[dev/srcs/putfunctions/putd/pf_putd_minus.c]]
+*** [[srcs/putfunctions/putd/pf_putd_minus.c]]
 **** void	pf_putd_minus(t_convert * p)
 **** void	pf_putd_minus_width_precision(t_convert *p)
 **** void	pf_putd_minus_width(t_convert * p)
-*** [[dev/srcs/putfunctions/putd/pf_putd_zero.c]]
+*** [[srcs/putfunctions/putd/pf_putd_zero.c]]
 **** void	pf_putd_zero(t_convert * p)
 **** void	pf_putd_zero_width(t_convert *p)
 
-** [[dev/srcs/putfunctions/putp/]]
-*** [[dev/srcs/putfunctions/putp/pf_putp.c]]
+** [[srcs/putfunctions/putp/]]
+*** [[srcs/putfunctions/putp/pf_putp.c]]
 **** void	pf_putp(t_convert * p)
 
 
-** [[dev/srcs/putfunctions/putx/]]
-*** [[dev/srcs/putfunctions/putx/pf_putx.c]]
+** [[srcs/putfunctions/putx/]]
+*** [[srcs/putfunctions/putx/pf_putx.c]]
 
-** TODO [[dev/srcs/putfunctions/putu/]]
-*** TODO [[dev/srcs/putfunctions/putu/pf_putu.c]]
-*** TODO [[dev/srcs/putfunctions/putu/pf_uitoa.c]]
-*** TODO [[dev/srcs/putfunctions/putu/pf_putu_minus.c]]
-*** TODO [[dev/srcs/putfunctions/putu/pf_putu_zero.c]]
+** TODO [[srcs/putfunctions/putu/]]
+*** TODO [[srcs/putfunctions/putu/pf_putu.c]]
+*** TODO [[srcs/putfunctions/putu/pf_uitoa.c]]
+*** TODO [[srcs/putfunctions/putu/pf_putu_minus.c]]
+*** TODO [[srcs/putfunctions/putu/pf_putu_zero.c]]
 
 
 * TODOLIST
