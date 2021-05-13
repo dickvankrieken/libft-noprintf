@@ -1,4 +1,4 @@
-#include "../libft/libft.h"
+#include "../srcs/libft/libft.h"
 
 static int		numberofchars(unsigned long n)
 {

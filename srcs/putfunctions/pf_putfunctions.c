@@ -1,4 +1,4 @@
-#include "../../libft/libft.h"
+#include "../../srcs/libft/libft.h"
 #include "../../includes/ft_printf.h"
 
 void	pf_putconversion(t_convert *p)

@@ -13,7 +13,7 @@
 #include <stdarg.h>
 #include <stdio.h> /* dit is alleen voor de originele printf verwijder later */
 #include "../includes/ft_printf.h"
-#include "../libft/libft.h"
+#include "../srcs/libft/libft.h"
 
 int	pf_checkflag(char *format, t_convert *p)
 {

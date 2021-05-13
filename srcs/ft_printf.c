@@ -6,12 +6,12 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/06 14:03:31 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/13 17:20:38 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../libft/libft.h"
+#include "../srcs/libft/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
