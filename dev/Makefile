@@ -3,45 +3,29 @@ NAME = libftprintf.a
 
 
 # DIRECTORIES #
-SRC_DIR =				srcs
+SRC_DIR =				src
 HDR_DIR =				includes
-OBJ_DIR =				objs
+OBJ_DIR =				obj
 LIBFT_DIR = 			libft
 FT_PRINTF_DIR =			ft_printf
 
-# sources #
-# SOURCE_FILES = 			$(FT_PRINTF_DIR)/ft_printf.c \
-# 						$(FT_PRINTF_DIR)/pf_checkfunctions.c \
-# 						$(FT_PRINTF_DIR)/putfunctions/pf_putfunctions.c \
-# 						$(FT_PRINTF_DIR)/putfunctions/puts/pf_puts.c \
-# 						$(FT_PRINTF_DIR)/putfunctions/puts/pf_puts_width.c \
-# 						$(FT_PRINTF_DIR)/putfunctions/putd/pf_putd.c \
-# 						$(FT_PRINTF_DIR)/putfunctions/putd/pf_putd_minus.c \
-# 						$(FT_PRINTF_DIR)/putfunctions/putd/pf_putd_zero.c \
-# 						$(FT_PRINTF_DIR)/putfunctions/putp/pf_putp.c \
-# 						$(FT_PRINTF_DIR)/putfunctions/putx/pf_putx.c \
-# 						$(FT_PRINTF_DIR)/pf_ultohex.c \
-# 						$(FT_PRINTF_DIR)/putfunctions/putu/pf_putu.c \
-# 						$(FT_PRINTF_DIR)/putfunctions/putu/pf_putu_minus.c \
-# 						$(FT_PRINTF_DIR)/putfunctions/putu/pf_putu_zero.c \
-# 						$(FT_PRINTF_DIR)/printspecs.c
-# sources #
+#---------------------- SOURCES ----------------------#
 
-SOURCE_FILES = 			srcs/ft_printf.c \
-						srcs/pf_checkfunctions.c \
-						srcs/putfunctions/pf_putfunctions.c \
-						srcs/putfunctions/puts/pf_puts.c \
-						srcs/putfunctions/puts/pf_puts_width.c \
-						srcs/putfunctions/putd/pf_putd.c \
-						srcs/putfunctions/putd/pf_putd_minus.c \
-						srcs/putfunctions/putd/pf_putd_zero.c \
-						srcs/putfunctions/putp/pf_putp.c \
-						srcs/putfunctions/putx/pf_putx.c \
-						srcs/pf_ultohex.c \
-						srcs/putfunctions/putu/pf_putu.c \
-						srcs/putfunctions/putu/pf_putu_minus.c \
-						srcs/putfunctions/putu/pf_putu_zero.c \
-						srcs/printspecs.c
+SOURCE_FILES = 			$(FT_PRINTF_DIR)/ft_printf.c \
+						$(FT_PRINTF_DIR)/pf_checkfunctions.c \
+						$(FT_PRINTF_DIR)/putfunctions/pf_putfunctions.c \
+						$(FT_PRINTF_DIR)/putfunctions/puts/pf_puts.c \
+						$(FT_PRINTF_DIR)/putfunctions/puts/pf_puts_width.c \
+						$(FT_PRINTF_DIR)/putfunctions/putd/pf_putd.c \
+						$(FT_PRINTF_DIR)/putfunctions/putd/pf_putd_minus.c \
+						$(FT_PRINTF_DIR)/putfunctions/putd/pf_putd_zero.c \
+						$(FT_PRINTTF_DIR)/putfunctions/putp/pf_putp.c \
+						$(FT_PRINTTF_DIR)/putfunctions/putx/pf_putx.c \
+						$(FT_PRINTTF_DIR)/pf_ultohex.c \
+						$(FT_PRINTTF_DIR)/putfunctions/putu/pf_putu.c \
+						$(FT_PRINTTF_DIR)/putfunctions/putu/pf_putu_minus.c \
+						$(FT_PRINTTF_DIR)/putfunctions/putu/pf_putu_zero.c \
+						$(FT_PRINTTF_DIR)/printspecs.c
 
 
 
@@ -92,13 +76,19 @@ LIBFT_FILES = 			$(LIBFT_DIR)/ft_memset.c \
 						$(LIBFT_DIR)/ft_lstiter.c \
 						$(LIBFT_DIR)/ft_lstmap.c
 
+#---------------------- OBJECTS ----------------------#
 
-# FLAGS #
+OBJ		:= $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
+
+
+#---------------------- FLAGS ----------------------#
 C_FLAGS 	= 	-Werror -Wextra -Wall
 CC 			= 	gcc
 
 HEADER_FILES = includes/ft_printf.h
 
+
+#---------------------- RECIPES ----------------------#
 all: $(NAME)
 
 test:
