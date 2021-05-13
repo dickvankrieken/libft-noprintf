@@ -3,7 +3,7 @@ NAME = libftprintf.a
 
 
 # DIRECTORIES #
-SRC_DIR =				src
+SRC_DIR =				srcs
 HDR_DIR =				includes
 OBJ_DIR =				obj
 LIBFT_DIR = 			libft
@@ -11,7 +11,7 @@ FT_PRINTF_DIR =			ft_printf
 
 #---------------------- SOURCES ----------------------#
 
-SOURCE_FILES = 			$(FT_PRINTF_DIR)/ft_printf.c \
+SOURCES =	 			$(FT_PRINTF_DIR)/ft_printf.c \
 						$(FT_PRINTF_DIR)/pf_checkfunctions.c \
 						$(FT_PRINTF_DIR)/putfunctions/pf_putfunctions.c \
 						$(FT_PRINTF_DIR)/putfunctions/puts/pf_puts.c \
@@ -77,8 +77,7 @@ LIBFT_FILES = 			$(LIBFT_DIR)/ft_memset.c \
 						$(LIBFT_DIR)/ft_lstmap.c
 
 #---------------------- OBJECTS ----------------------#
-
-OBJ		:= $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
+OBJ			=	$(addprefix $(OBJ_DIR)/,$(SOURCES:.c=.o))
 
 
 #---------------------- FLAGS ----------------------#
@@ -99,11 +98,13 @@ testwithflags:
 	$(CC) $(C_FLAGS) -g main.c $(SRCS) libft/libft.a
 	./a.out
 
-obj/%.o: srcs/%.c
-	$(CC) $(C_FLAGS) -o $@ -c $<
-
 $(NAME): $(OBJ)
 	ar rcs $@ $(OBJ)
+
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(C_FLAGS) -o $@ -c $<
+
 
 clean:
 
