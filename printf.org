@@ -1,6 +1,5 @@
 #+TITLE: ft_printf
 
-
 ** [[main.c]]
 ** [[Makefile]]
 
@@ -63,6 +62,9 @@
 
 ** [[srcs/putfunctions/putx/]]
 *** [[srcs/putfunctions/putx/pf_putx.c]]
+
+** [[srcs/putfunctions/putpercentage/]]
+*** [[srcs/putfunctions/putx/pf_putpercentage.c]]
 
 ** TODO [[srcs/putfunctions/putu/]]
 *** TODO [[srcs/putfunctions/putu/pf_putu.c]]
