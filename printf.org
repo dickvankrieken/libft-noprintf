@@ -1,4 +1,4 @@
-#+TITLE: ft_printf
+#+TITLE: printf.org
 
 ** [[main.c]]
 ** [[Makefile]]
@@ -6,10 +6,8 @@
 ** [[includes]]
 *** [[includes/ft_printf.h]]
 
-
 ** [[srcs/libft/]]
 *** [[srcs/libft/Makefile]]
-
 
 ** [[srcs]]
 *** [[srcs/ft_printf.c]]
@@ -26,7 +24,6 @@
 **** int	pf_checktype(char * format, t_convert * p)
 *** [[srcs/pf_ultohex.c]]
 **** char	*pf_ultohex(unsigned long n, int isupper)
-
 
 ** [[srcs/putfunctions]]
 *** [[srcs/putfunctions/pf_putfunctions.c]]
@@ -59,38 +56,32 @@
 *** [[srcs/putfunctions/putp/pf_putp.c]]
 **** void	pf_putp(t_convert * p)
 
-
 ** [[srcs/putfunctions/putx/]]
 *** [[srcs/putfunctions/putx/pf_putx.c]]
 
 ** [[srcs/putfunctions/putpercentage/]]
-*** [[srcs/putfunctions/putx/pf_putpercentage.c]]
+*** TODO [[srcs/putfunctions/putx/pf_putpercentage.c]]
 
-** TODO [[srcs/putfunctions/putu/]]
-*** TODO [[srcs/putfunctions/putu/pf_putu.c]]
-*** TODO [[srcs/putfunctions/putu/pf_uitoa.c]]
-*** TODO [[srcs/putfunctions/putu/pf_putu_minus.c]]
-*** TODO [[srcs/putfunctions/putu/pf_putu_zero.c]]
-
+** DONE [[srcs/putfunctions/putu/]]
+*** DONE [[srcs/putfunctions/putu/pf_putu.c]]
+*** DONE [[srcs/putfunctions/putu/pf_uitoa.c]]
+*** DONE [[srcs/putfunctions/putu/pf_putu_minus.c]]
+*** DONE [[srcs/putfunctions/putu/pf_putu_zero.c]]
 
 * TODOLIST
 ** DONE c
-** DONE s
+** TODO s
 ** DONE p
 ** DONE d
 ** DONE i
-** TODO u
-*** %u is itoa maar dan niet negatief en een unsigned int ervan maken
-    nu aan het werken aan putu
-    werkt nog niet met precision en width
-    is mogelijk hetzelfde als %d en %i...
-    kijken wat ik daar van kan gebruiken
-    wellicht alles? dat getal kan alleen niet negatief zijn maar dat is ie dus al niet ook niet als je hem als integer in pf_putd stopt.
+** DONE u
 ** DONE x
 ** DONE X
 ** TODO %
-
-
+*** TODO width
+*** TODO precision
+*** TODO minus
+*** TODO
 
 ** DONE onderzoeken wat de teruggave waarde van de originele printf is -> subject PDF && ISO C Standard PDF
    The fprintf function returns the number of characters transmitted, or a negative value if an output or encoding error occurred.
