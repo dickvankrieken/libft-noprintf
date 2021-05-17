@@ -2,10 +2,8 @@
 
 void	pf_puts_width(t_convert *p)
 {
-	if (p->minus)
-		pf_puts_width_minus_checkprecision(p);
-	else if (p->zero)
-		pf_puts_width_checkzero(p);
+	if (p->zero)
+		pf_puts_width_zero(p);
 	else
 	{
 		if (p->precision)
@@ -19,10 +17,10 @@ void	pf_puts_width(t_convert *p)
 			write(1, p->s, ft_strlen(p->s));
 		}
 	}
-	p->printcounter += p->width;
+	p->count += p->width;
 }
 
-void	pf_puts_width_checkzero(t_convert *p)
+void	pf_puts_width_zero(t_convert *p)
 {
 	if (p->precision > -1)
 	{
@@ -34,10 +32,4 @@ void	pf_puts_width_checkzero(t_convert *p)
 		pf_putzero(p->width - ft_strlen(p->s));
 		write(1, p->s, ft_strlen(p->s));
 	}
-}
-
-void	pf_puts_width_minus_checkprecision(t_convert *p)
-{
-	printf("%s", p->s);
-	/* TODO */
 }

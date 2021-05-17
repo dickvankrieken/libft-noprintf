@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/13 17:20:38 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/17 15:23:40 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	pf_argtostruct(t_convert *p)
 		p->x = va_arg(p->ap, unsigned int);
 	if (p->type == 'X')
 		p->X = va_arg(p->ap, unsigned int);
+	if (p->type == '%')
+		p->c = '%';
 }
 
 /* check_conversion starts when % is found in format string.
@@ -55,11 +57,6 @@ int	pf_check_conversion(char *format, t_convert *p)
 	int i;
 
 	i = 0;
-/*		printf("minus? : %c", format[i]); */
-	/* 		printf("i = %d", i); */
-	/* printf("char = %s", &format[i]); */
-		// printf("i = %d", i);
-
 	while (pf_checkflag(&format[i], p))
 	{
 		i++;
@@ -87,27 +84,29 @@ int	pf_check_conversion(char *format, t_convert *p)
 	return (i);
 }
 
-void	pf_parse(char *format, t_convert p)
+void	pf_parse(char *format, t_convert *p)
 {
 	int		i;
 
-	pf_init_convspecs(&p);
+	pf_init_convspecs(p);
 	i = 0;
+	p->count = 0;
 	while (i < (int)ft_strlen(format))
 	{
 		if (format[i] == '%')
 		{
 			i++;
-			i += pf_check_conversion(&format[i], &p);
+			i += pf_check_conversion(&format[i], p);
 			/* printspecs(p); */
-			pf_putconversion(&p);
+			pf_putconversion(p);
 		}
 		else
 		{
 			ft_putchar_fd(format[i], 1);
+			p->count++;
 			i++;
 		}
-		pf_init_convspecs(&p);
+		pf_init_convspecs(p);
 	}
 }
 
@@ -116,8 +115,7 @@ int	ft_printf(const char *format, ...)
 	t_convert	p;
 
 	va_start(p.ap, format);
-	pf_parse((char *)format, p);
+	pf_parse((char *)format, &p);
 	va_end(p.ap);
-	/* return (p.printcounter); */
-	return (0);
+	return (p.count);
 }

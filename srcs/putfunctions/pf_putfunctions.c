@@ -17,11 +17,8 @@ void	pf_putconversion(t_convert *p)
 		pf_putx(p, 0);
 	if (p->type == 'X')
 		pf_putx(p, 1);
-}
-
-void	pf_putc(t_convert *p)
-{
-	write(1, &p->c, sizeof(char));
+	if (p->type == '%')
+		pf_putc(p);
 }
 
 void	pf_putspaces(int len)

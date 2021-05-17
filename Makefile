@@ -10,8 +10,10 @@ LIBFT_DIR = 	srcs/libft
 SRCS =		srcs/ft_printf.c \
 		srcs/pf_checkfunctions.c \
 		srcs/putfunctions/pf_putfunctions.c \
+		srcs/putfunctions/putc/pf_putc.c \
 		srcs/putfunctions/puts/pf_puts.c \
 		srcs/putfunctions/puts/pf_puts_width.c \
+		srcs/putfunctions/puts/pf_puts_minus.c \
 		srcs/putfunctions/putd/pf_putd.c \
 		srcs/putfunctions/putd/pf_putd_minus.c \
 		srcs/putfunctions/putd/pf_putd_zero.c \

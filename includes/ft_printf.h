@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/14 15:48:41 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/17 14:12:45 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_convert
 	unsigned int	u;
 	unsigned int	x;
 	unsigned int	X;
-	int		printcounter;
 }	t_convert;
 
 /* printcounter keeps track of the number of bytes written */
@@ -68,8 +67,8 @@ void	pf_puts(t_convert *p);
 /* ../srcs/putfunctions/puts/pf_puts_width.c prototypes */
 void	pf_puts_width(t_convert *p);
 void	pf_puts_width_minus_checkprecision(t_convert *p);
-void	pf_puts_minus_noprecision(t_convert *p);
-void	pf_puts_width_checkzero(t_convert *p);
+void	pf_puts_minus(t_convert *p);
+void	pf_puts_width_zero(t_convert *p);
 void	pf_puts_width_minus_checkprecision(t_convert *p);
 
 /* ../srcs/putfunctions/putd */

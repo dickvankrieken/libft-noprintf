@@ -60,6 +60,13 @@ int main()
 	/* testd(); */
 	/* printf("\ntestu:\n"); */
 	/* testu(); */
-	printf(">%-20c<\n", '&');
-	ft_printf(">%-20c<\n", '&');
+	int res;
+	res = ft_printf(">%-s<\n", "hello world");
+	printf("return waarde: %d\n", res);
+	res = printf(">%-s<\n", "hello world");
+	printf("return waarde: %d\n", res);
+	res = ft_printf(">%s<\n", "hello world");
+	printf("return waarde: %d\n", res);
+	res = printf(">%-.10s<\n", "hello world");
+	printf("return waarde: %d\n", res);
 }
