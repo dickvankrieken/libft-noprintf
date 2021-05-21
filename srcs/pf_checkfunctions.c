@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 19:08:34 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/04/13 11:00:00 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/19 13:55:51 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int	pf_checkprecision(char *format, t_convert *p)
 				j++;
 			if (j)
 				p->precision = ft_atoi(ft_substr(format, i, j));
+			else
+				p->precision = 0;
 			return (1);
 		}
 	}

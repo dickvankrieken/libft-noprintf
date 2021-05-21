@@ -1,4 +1,4 @@
-#include "../../../includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 static void	pf_putd_minus_width_precision(t_convert *p)
 {
@@ -18,8 +18,18 @@ static void	pf_putd_minus_width(t_convert *p)
 {
 	int i;
 
-	ft_putnbr_fd((p->d), 1);
-	p->count += ft_intcountchars(p->d);
+	i = 0;
+	if (p->precision != 0)
+	{
+		ft_putnbr_fd((p->d), 1);
+		p->count += ft_intcountchars(p->d);
+	}
+	else
+	{
+		ft_putchar_fd(' ', 1);
+		i++;
+		p->count++;
+	}
 	i = 0;
 	while (i < p->width - ft_intcountchars(p->d))
 	{

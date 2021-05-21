@@ -10,7 +10,6 @@ static int		numberofchars(unsigned long n)
 	while (n)
 	{
 		n /= 16;
-		// printf("|%d|\n", n);
 		i++;
 	}
 	return (i);
@@ -43,6 +42,8 @@ char	*pf_ultohex(unsigned long n, int isupper)
 {
 	int		allchars;
 
+	if (n == 0)
+		return (ft_strdup("0"));
 	allchars = numberofchars(n);
 	return (ft_convert(n, allchars, isupper));
 }

@@ -1,4 +1,4 @@
-#include "../../../includes/ft_printf.h"
+#include "../../includes/ft_printf.h"
 
 static void	pf_putd_zero_width(t_convert *p)
 {
@@ -25,14 +25,7 @@ void	pf_putd_zero(t_convert *p)
 {
 	if (p->width > ft_intcountchars(p->d))
 	{
-		if (p->precision >= 0)
-			pf_putd_width_precision(p);
-		else
 			pf_putd_zero_width(p);
-	}
-	else if (p->precision > ft_intcountchars(p->d))
-	{
-		pf_putd_precision(p);
 	}
 	else
 	{

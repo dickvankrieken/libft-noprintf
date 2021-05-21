@@ -1,4 +1,4 @@
-#include "../../../includes/ft_printf.h"
+#include "../includes/ft_printf.h"
 
 static void	pf_putc_width(t_convert *p)
 {
@@ -22,7 +22,7 @@ static void	pf_putc_width(t_convert *p)
 
 void		pf_putc(t_convert *p)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (p->width)
