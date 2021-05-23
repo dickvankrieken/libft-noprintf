@@ -35,7 +35,7 @@ static void	pf_putx_checkprecision(t_convert *p)
 		if (p->precision < (int)ft_strlen(p->s))
 		{
 			write(1, p->s, (int)ft_strlen(p->s));
-			p->count += p->precision;
+			p->count += (int)ft_strlen(p->s);
 		}
 		else
 		{
@@ -67,7 +67,10 @@ static void	pf_putx_width_zero(t_convert *p)
 		pf_putzero(p->width - ft_strlen(p->s));
 		write(1, p->s, ft_strlen(p->s));
 	}
-	p->count += p->width;
+	if (p->width > (int)ft_strlen(p->s))
+		p->count += p->width;
+	else
+		p->count += (int)ft_strlen(p->s);
 }
 
 static void	pf_putx_width(t_convert *p)
@@ -78,15 +81,22 @@ static void	pf_putx_width(t_convert *p)
 	{
 		 if (p->precision > -1 && p->precision > (int)ft_strlen(p->s))
 		{
-			pf_putspaces(p->width - p->precision);
-			p->count += p->width - p->precision;
+			if (p->width > p->precision)
+			{
+				pf_putspaces(p->width - p->precision);
+				p->count += p->width - p->precision;
+			}
 			pf_putx_precision(p);
 		}
 		else
 		{
-			pf_putspaces(p->width - ft_strlen(p->s));
+			if (p->width > (int)ft_strlen(p->s))
+			{
+				pf_putspaces(p->width - ft_strlen(p->s));
+				p->count += p->width - ft_strlen(p->s);
+			}
 			write(1, p->s, ft_strlen(p->s));
-			p->count += p->width;
+			p->count += ft_strlen(p->s);
 		}
 	}
 }
@@ -98,20 +108,30 @@ static void	pf_putx_minus(t_convert *p)
 		if (p->precision > -1 && p->precision < (int)ft_strlen(p->s))
 		{
 			write(1, p->s, ft_strlen(p->s));
-			pf_putspaces(p->width - ft_strlen(p->s));
-			p->count += p->width;
+			p->count += ft_strlen(p->s);
+			if (p->width > p->precision)
+			{	
+				pf_putspaces(p->width - ft_strlen(p->s));
+				p->count += p->width - ft_strlen(p->s);
+			}
 		}
 		else if (p->precision > (int)ft_strlen(p->s))
 		{
 			pf_putx_precision(p);
-			pf_putspaces(p->width - p->precision);
-			p->count += p->width - p->precision;
+			if (p->width > p->precision)
+			{
+				pf_putspaces(p->width - p->precision);
+				p->count += p->width - p->precision;
+			}
 		}
 		else
 		{
 			write(1, p->s, ft_strlen(p->s));
 			pf_putspaces(p->width - (int)ft_strlen(p->s));
-			p->count += p->width;
+			if (p->width < (int)ft_strlen(p->s))
+				p->count += ft_strlen(p->s);
+			else
+				p->count += p->width;
 		}
 	}
 	else if (p->precision > -1 && p->precision < (int)ft_strlen(p->s))
@@ -129,8 +149,6 @@ void		pf_putx(t_convert *p, int isupper)
 	int i;
 	int len;
 
-	if (p->X == 0 || p->x == 0)
-		p->s = "";
 	if (isupper)
 		p->s = pf_ultohex(p->X, isupper);
 	else
@@ -152,5 +170,6 @@ void		pf_putx(t_convert *p, int isupper)
 			pf_putx_checkprecision(p);
 		}
 	}
+
 	free(p->s);
 }
