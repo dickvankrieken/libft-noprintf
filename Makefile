@@ -13,15 +13,14 @@ SRCS =		srcs/ft_printf.c \
 		srcs/pf_putfunctions.c \
 		srcs/pf_putc.c \
 		srcs/puts/pf_puts.c \
-		srcs/puts/pf_puts_width.c \
 		srcs/putd/pf_putd.c \
 		srcs/putd/pf_putd_minus.c \
 		srcs/putd/pf_putd_zero.c \
 		srcs/pf_putp.c \
-		srcs/pf_putx.c \
 		srcs/putu/pf_putu.c \
 		srcs/putu/pf_putu_minus.c \
 		srcs/putu/pf_putu_zero.c \
+		srcs/putx/pf_putx.c \
 		srcs/printspecs.c
 #delete		srcs/printspecs.c before submitting
 

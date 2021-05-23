@@ -21,9 +21,9 @@ int main()
 //	res = printf(">%32s<\n", "abc");
 //	printf("return waarde: %d\n", res);
 
-	res = ft_printf(">%.5x<\n", 21);
+	res = ft_printf(">%-.d<\n", 0);
 	printf("return waarde: %d\n", res);
 
-	res = printf(">%.5x<\n", 21);
+	res = printf(">%-.d<\n", 0);
 	printf("return waarde: %d\n", res);
 }
