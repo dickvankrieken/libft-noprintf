@@ -18,6 +18,12 @@ void	pf_putp(t_convert *p)
 {
 	int		len;
 
+	if (p->p == 0)
+	{
+		ft_putstr_fd("0x", 1);
+		p->count += 2;
+		return ;
+	}
 	p->s = pf_ultohex(p->p, 0);
 	if (p->minus)
 		pf_printp(p);

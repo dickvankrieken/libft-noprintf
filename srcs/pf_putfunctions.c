@@ -14,14 +14,14 @@ void	pf_putconversion(t_convert *p)
 	if (p->type == 'u')
 		pf_putu(p);
 	if (p->type == 'x')
-		pf_putx(p, 0);
+		pf_putx(p);
 	if (p->type == 'X')
-		pf_putx(p, 1);
+		pf_putx(p);
 	if (p->type == '%')
 		pf_putc(p);
 }
 
-void	pf_putspaces(int len)
+void	pf_putspaces(t_convert *p, int len)
 {
 	int i;
 
@@ -30,10 +30,11 @@ void	pf_putspaces(int len)
 	{
 		ft_putchar_fd(' ', 1);
 		i++;
+		p->count++;
 	}
 }
 
-void	pf_putzero(int len)
+void	pf_putzero(t_convert *p, int len)
 {
 	int i;
 
@@ -42,5 +43,6 @@ void	pf_putzero(int len)
 	{
 		ft_putchar_fd('0', 1);
 		i++;
+		p->count++;
 	}
 }

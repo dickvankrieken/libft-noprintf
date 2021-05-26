@@ -21,9 +21,15 @@ int main()
 //	res = printf(">%32s<\n", "abc");
 //	printf("return waarde: %d\n", res);
 
-	res = ft_printf("%-8.3x", 8375);
+	res = ft_printf("%.x", 43521);
 	printf("return waarde: %d\n", res);
 
-	res = printf("%-8.3x", 8375);
+	res = printf("%.x", 43521);
+	printf("return waarde: %d\n", res);
+
+	res = ft_printf("%.X", 43521);
+	printf("return waarde: %d\n", res);
+
+	res = printf("%.X", 43521);
 	printf("return waarde: %d\n", res);
 }

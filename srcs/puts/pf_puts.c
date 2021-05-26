@@ -26,13 +26,15 @@ static void	pf_puts_width_zero(t_convert *p)
 {
 	if (p->precision > -1)
 	{
-		pf_putzero(p->width - p->precision);
+		pf_putzero(p, p->width - p->precision);
 		write(1, p->s, p->precision);
+		p->count += p->precision;
 	}
 	else
 	{
-		pf_putzero(p->width - ft_strlen(p->s));
+		pf_putzero(p, p->width - ft_strlen(p->s));
 		write(1, p->s, ft_strlen(p->s));
+		p->count += ft_strlen(p->s);
 	}
 }
 
@@ -46,22 +48,25 @@ static void	pf_puts_width(t_convert *p)
 		{
 			if (p->precision < (int)ft_strlen(p->s))
 			{
-				pf_putspaces(p->width - p->precision);
+				pf_putspaces(p, p->width - p->precision);
 				write(1, p->s, p->precision);
+				p->count += p->precision;
 			}
 			else
 			{
-				pf_putspaces(p->width - ft_strlen(p->s));
+				pf_putspaces(p, p->width - ft_strlen(p->s));
 				write (1, p->s, ft_strlen(p->s));
+				p->count += ft_strlen(p->s);
 			}
 		}
 		else
 		{
-			pf_putspaces(p->width - ft_strlen(p->s));
+			pf_putspaces(p, p->width - ft_strlen(p->s));
 			write(1, p->s, ft_strlen(p->s));
+			p->count += ft_strlen(p->s);
 		}
 	}
-	p->count += p->width;
+
 }
 
 static void	pf_puts_minus(t_convert *p)
@@ -71,14 +76,15 @@ static void	pf_puts_minus(t_convert *p)
 		if (p->precision > -1 && p->precision < (int)ft_strlen(p->s))
 		{
 			write(1, p->s, p->precision);
-			pf_putspaces(p->width - p->precision);
+			p->count += p->precision;
+			pf_putspaces(p, p->width - p->precision);
 		}
 		else
 		{
 			write(1, p->s, ft_strlen(p->s));
-			pf_putspaces(p->width - ft_strlen(p->s));
+			p->count += ft_strlen(p->s);
+			pf_putspaces(p, p->width - ft_strlen(p->s));
 		}
-		p->count += p->width;
 	}
 	else if (p->precision > -1 && p->precision < (int)ft_strlen(p->s))
 	{

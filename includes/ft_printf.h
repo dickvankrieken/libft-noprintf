@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/21 12:32:24 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/25 17:06:30 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,37 +49,37 @@ int	pf_check_conversion(char *format, t_convert *p);
 /* ../srcs/pf_ultohex.c prototypes */
 char	*pf_ultohex(unsigned long n, int isupper);
 
-/* ../srcs/putfunctions/ */
-/* ../srcs/putfunctions/pf_putfunctions.c prototypes */
+/* ../srcs/ */
+/* ../srcs/pf_putfunctions.c prototypes */
 void	pf_putconversion(t_convert *p);
-void	pf_putspaces(int len);
-void	pf_putzero(int len);
+void	pf_putspaces(t_convert *p, int len);
+void	pf_putzero(t_convert *p, int len);
 void	pf_putc(t_convert *p);
 
 /* ../srcs/puts */
 /* ../srcs/puts/pf_puts.c prototypes */
 void	pf_puts(t_convert *p);
 
-/* ../srcs/putfunctions/putd */
-/* ../srcs/putfunctions/putd/pf_putd.c prototypes */
+/* ../srcs/putd */
+/* ../srcs/putd/pf_putd.c prototypes */
 void	pf_putd(t_convert *p);
 int	pf_putd_precision(t_convert *p);
 void	pf_putd_width_precision(t_convert *p);
-/* ../srcs/putfunctions/putd/pf_putd_zero.c prototypes */
+/* ../srcs/putd/pf_putd_zero.c prototypes */
 void	pf_putd_zero(t_convert *p);
-/* ../srcs/putfunctions/putd/pf_putd_minus.c prototypes */
+/* ../srcs/putd/pf_putd_minus.c prototypes */
 void	pf_putd_minus(t_convert *p);
 
-/* ../srcs/putfunctions/putp */
-/* ../srcs/putfunctions/putp/pf_putp.c prototypes */
+/* ../srcs/putp */
+/* ../srcs/putp/pf_putp.c prototypes */
 void	pf_putp(t_convert *p);
 
-/* ../srcs/putfunctions/putx */
-/* ../srcs/putfunctions/putx/pf_putx.c prototypes */
-void	pf_putx(t_convert *p, int isupper);
+/* ../srcs/pf_putx.c */
+void	pf_putx(t_convert *p);
+int	pf_putx_precision(t_convert *p);
 
-/* ../srcs/putfunctions/putu */
-/* ../srcs/putfunctions/putu/pf_putu.c prototypes */
+/* ../srcs/putu */
+/* ../srcs/putu/pf_putu.c prototypes */
 void	pf_putu(t_convert *p);
 char	*ft_uitoa(unsigned int n);
 int	pf_putu_precision(t_convert *p);

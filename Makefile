@@ -21,6 +21,7 @@ SRCS =		srcs/ft_printf.c \
 		srcs/putu/pf_putu_minus.c \
 		srcs/putu/pf_putu_zero.c \
 		srcs/putx/pf_putx.c \
+		srcs/putx/pf_putx_minus.c \
 		srcs/printspecs.c
 #delete		srcs/printspecs.c before submitting
 
