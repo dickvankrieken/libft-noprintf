@@ -2,7 +2,7 @@
 
 static void	pf_putu_minus_width(t_convert *p)
 {
-	int i;
+	int	i;
 
 	ft_putuint_fd((p->u), 1);
 	p->count += ft_uintcountchars(p->u);
@@ -17,7 +17,7 @@ static void	pf_putu_minus_width(t_convert *p)
 
 static void	pf_putu_minus_width_precision(t_convert *p)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (p->precision != 0)
@@ -30,7 +30,7 @@ static void	pf_putu_minus_width_precision(t_convert *p)
 	}
 }
 
-void		pf_putu_minus(t_convert *p)
+void	pf_putu_minus(t_convert *p)
 {
 	if (p->width)
 	{

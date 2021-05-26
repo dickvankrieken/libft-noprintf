@@ -2,15 +2,17 @@
 
 void	pf_putu(t_convert *p)
 {
-	int	i;
-
-	i = 0;
 	if (p->minus)
 		pf_putu_minus(p);
 	else if (p->zero)
 		pf_putu_zero(p);
 	else if (p->width > ft_uintcountchars(p->u))
-		pf_putu_width(p);
+	{
+		if (p->precision > ft_uintcountchars(p->u))
+			pf_putu_width_precision(p);
+		else
+			pf_putu_width(p);
+	}
 	else if (p->precision > ft_uintcountchars(p->u))
 		pf_putu_precision(p);
 	else
@@ -25,35 +27,31 @@ void	pf_putu(t_convert *p)
 
 void	pf_putu_width(t_convert *p)
 {
-	int i;
+	int	i;
 
-	if (p->precision > ft_uintcountchars(p->u))
-		pf_putu_width_precision(p);
-	else
+	i = 0;
+	if (p->precision == 0)
 	{
-		i = 0;
-		if (p->precision == 0)
+		while (i < p->width)
 		{
-			while (i < p->width)
-			{
-				ft_putchar_fd(' ', 1);
-				i++;
-				p->count++;
-			}
-		}
-		else
-		{
-			while (i < p->width - ft_uintcountchars(p->u))
-			{
-				ft_putchar_fd(' ', 1);
-				i++;
-				p->count++;
-			}
-			ft_putuint_fd((p->u), 1);
-			p->count += ft_uintcountchars(p->u);
+			ft_putchar_fd(' ', 1);
+			i++;
+			p->count++;
 		}
 	}
+	else
+	{
+		while (i < p->width - ft_uintcountchars(p->u))
+		{
+			ft_putchar_fd(' ', 1);
+			i++;
+			p->count++;
+		}
+		ft_putuint_fd((p->u), 1);
+		p->count += ft_uintcountchars(p->u);
+	}
 }
+
 
 int	pf_putu_precision(t_convert *p)
 {

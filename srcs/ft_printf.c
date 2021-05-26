@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/25 13:36:32 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/26 17:00:35 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-/* zet p naar initiele waardes  */
 static int	pf_init_convspecs(t_convert *p)
 {
 	p->width = 0;

@@ -22,7 +22,7 @@ void	pf_putu_zero(t_convert *p)
 
 void	pf_putu_zero_width(t_convert *p)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (p->u < 0)
