@@ -2,7 +2,7 @@
 
 static void	pf_putd_zero_width(t_convert *p)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (p->d < 0)
@@ -25,7 +25,7 @@ void	pf_putd_zero(t_convert *p)
 {
 	if (p->width > ft_intcountchars(p->d))
 	{
-			pf_putd_zero_width(p);
+		pf_putd_zero_width(p);
 	}
 	else
 	{

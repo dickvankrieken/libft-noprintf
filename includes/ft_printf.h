@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/26 17:07:57 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/26 19:00:30 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	pf_puts(t_convert *p);
 /* ../srcs/putd */
 /* ../srcs/putd/pf_putd.c prototypes */
 void	pf_putd(t_convert *p);
-int	pf_putd_precision(t_convert *p);
+void	pf_putd_precision(t_convert *p);
 void	pf_putd_width_precision(t_convert *p);
 /* ../srcs/putd/pf_putd_zero.c prototypes */
 void	pf_putd_zero(t_convert *p);

@@ -13,7 +13,7 @@ int main()
 	/* testd(); */
 	/* printf("\ntestu:\n"); */
 	/* testu(); */
-	int res;
+//	int res;
 
 //	model
 //	res = ft_printf(">%..s<\n", ...);
@@ -21,17 +21,11 @@ int main()
 //	res = printf(">%32s<\n", "abc");
 //	printf("return waarde: %d\n", res);
 
-	int i;
-	int j;
 
-	i = 1;
-	j = 2;
+	ft_printf(" dit is een %%5.10d: %5.10d", 1234);
 
-	res = ft_printf("%-70p", &i);
-	printf("return waarde: %d\n", res);
 
-	res = printf("%-70p", &i);
-	printf("return waarde: %d\n", res);
+	printf(" dit is een %%5.10d: %5.10d", 1234);
 
 
 }

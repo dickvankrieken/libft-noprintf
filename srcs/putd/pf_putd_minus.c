@@ -2,10 +2,11 @@
 
 static void	pf_putd_minus_width_precision(t_convert *p)
 {
-	int i;
+	int	i;
 
-	i = 0;
-	i += pf_putd_precision(p);
+	i = p->count;
+	pf_putd_precision(p);
+	i = p->count - i;
 	while (i < p->width)
 	{
 		ft_putchar_fd(' ', 1);
@@ -16,7 +17,7 @@ static void	pf_putd_minus_width_precision(t_convert *p)
 
 static void	pf_putd_minus_width(t_convert *p)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	ft_putnbr_fd((p->d), 1);
@@ -29,7 +30,7 @@ static void	pf_putd_minus_width(t_convert *p)
 	}
 }
 
-void		pf_putd_minus(t_convert *p)
+void	pf_putd_minus(t_convert *p)
 {
 	if (p->width)
 	{

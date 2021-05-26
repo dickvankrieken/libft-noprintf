@@ -66,7 +66,6 @@ static void	pf_puts_width(t_convert *p)
 			p->count += ft_strlen(p->s);
 		}
 	}
-
 }
 
 static void	pf_puts_minus(t_convert *p)
@@ -87,19 +86,15 @@ static void	pf_puts_minus(t_convert *p)
 		}
 	}
 	else if (p->precision > -1 && p->precision < (int)ft_strlen(p->s))
-	{
 		p->count += write(1, p->s, p->precision);
-	}
 	else
-	{
- 		p->count += write(1, p->s, ft_strlen(p->s));
-	}
+		p->count += write(1, p->s, ft_strlen(p->s));
 }
 
-void		pf_puts(t_convert *p)
+void	pf_puts(t_convert *p)
 {
-	int i;
-	int len;
+	int	i;
+	int	len;
 
 	len = ft_strlen(p->s);
 	i = 0;

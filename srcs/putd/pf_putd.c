@@ -2,7 +2,7 @@
 
 void	pf_putd_width_precision(t_convert *p)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (p->width > p->precision)
@@ -31,13 +31,11 @@ void	pf_putd_width_precision(t_convert *p)
 	pf_putd_precision(p);
 }
 
-int	pf_putd_precision(t_convert *p)
+void	pf_putd_precision(t_convert *p)
 {
-	int i;
-	int len;
+	int	len;
 
 	len = ft_intcountchars(p->d);
-	i = 0;
 	if (p->precision)
 	{
 		if (p->precision > ft_intcountchars(p->d))
@@ -45,27 +43,25 @@ int	pf_putd_precision(t_convert *p)
 			if (p->d < 0)
 			{
 				ft_putchar_fd('-', 1);
-				i++;
 				len--;
 				p->d = -(p->d);
+				p->count++;
 			}
 			while (p->precision > len)
 			{
 				ft_putchar_fd('0', 1);
 				len++;
-				i++;
+				p->count++;
 			}
 		}
 		ft_putnbr_fd((p->d), 1);
-		i += ft_intcountchars(p->d);
-		p->count += i;
+		p->count += ft_intcountchars(p->d);
 	}
-	return (i);
 }
 
 void	pf_putd_width(t_convert *p)
 {
-	int i;
+	int	i;
 
 	if (p->precision > ft_intcountchars(p->d))
 		pf_putd_width_precision(p);
@@ -94,7 +90,7 @@ void	pf_putd_width(t_convert *p)
 
 void	pf_putd(t_convert *p)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (p->minus)
