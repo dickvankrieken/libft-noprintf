@@ -1,33 +1,48 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   pf_putd.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/05/27 22:19:42 by dvan-kri      #+#    #+#                 */
+/*   Updated: 2021/05/27 22:19:45 by dvan-kri      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/ft_printf.h"
 
-void	pf_putd_width_precision(t_convert *p)
+static void	pf_putd_width_precision_putspaces(t_convert *p)
 {
 	int	i;
 
 	i = 0;
-	if (p->width > p->precision)
+	if (p->d < 0)
+		i++;
+	if (p->precision > ft_intcountchars(p->d))
 	{
-		if (p->d < 0)
+		while (i < p->width - p->precision)
+		{
+			ft_putchar_fd(' ', 1);
 			i++;
-		if (p->precision > ft_intcountchars(p->d))
-		{
-			while (i < p->width - p->precision)
-			{
-				ft_putchar_fd(' ', 1);
-				i++;
-				p->count++;
-			}
-		}
-		else
-		{
-			while (i < p->width - ft_intcountchars(p->d))
-			{
-				ft_putchar_fd(' ', 1);
-				i++;
-				p->count++;
-			}
+			p->count++;
 		}
 	}
+	else
+	{
+		while (i < p->width - ft_intcountchars(p->d))
+		{
+			ft_putchar_fd(' ', 1);
+			i++;
+			p->count++;
+		}
+	}
+}
+
+void	pf_putd_width_precision(t_convert *p)
+{
+	if (p->width > p->precision)
+		pf_putd_width_precision_putspaces(p);
 	pf_putd_precision(p);
 }
 

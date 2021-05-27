@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   pf_putp.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/05/27 22:19:31 by dvan-kri      #+#    #+#                 */
+/*   Updated: 2021/05/27 22:19:33 by dvan-kri      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
 static int	pf_countp(t_convert *p)
@@ -6,8 +18,7 @@ static int	pf_countp(t_convert *p)
 		return (2);
 	if (!p->p)
 		return (3);
-	return 2 + (int)ft_strlen(p->s);
-
+	return (2 + (int)ft_strlen(p->s));
 }
 
 static void	pf_printp(t_convert *p)

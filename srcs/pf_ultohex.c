@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   pf_ultohex.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/05/27 22:19:36 by dvan-kri      #+#    #+#                 */
+/*   Updated: 2021/05/27 22:19:38 by dvan-kri      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../srcs/libft/libft.h"
 
-static int		numberofchars(unsigned long n)
+static int	numberofchars(unsigned long n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (n < 0)
@@ -40,7 +52,7 @@ static char	*ft_convert(unsigned long num, int allchars, int isupper)
 
 char	*pf_ultohex(unsigned long n, int isupper)
 {
-	int		allchars;
+	int	allchars;
 
 	if (n == 0)
 		return (ft_strdup("0"));

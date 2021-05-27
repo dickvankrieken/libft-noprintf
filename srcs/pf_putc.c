@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   pf_putc.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/05/27 22:19:09 by dvan-kri      #+#    #+#                 */
+/*   Updated: 2021/05/27 22:19:13 by dvan-kri      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
 static void	pf_putc_width(t_convert *p)
@@ -20,7 +32,7 @@ static void	pf_putc_width(t_convert *p)
 	p->count += 1;
 }
 
-void		pf_putc(t_convert *p)
+void	pf_putc(t_convert *p)
 {
 	int	i;
 

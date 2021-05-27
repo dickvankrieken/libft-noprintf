@@ -1,3 +1,15 @@
+#******************************************************************************#
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: dvan-kri <dvan-kri@student.codam.nl>         +#+                      #
+#                                                    +#+                       #
+#    Created: 2021/05/27 22:20:58 by dvan-kri      #+#    #+#                  #
+#    Updated: 2021/05/27 22:21:01 by dvan-kri      ########   odam.nl          #
+#                                                                              #
+#******************************************************************************#
+
 NAME =		libftprintf.a
 
 #---------------------- DIRECTORIES ------------------#
@@ -13,6 +25,7 @@ SRCS =		srcs/ft_printf.c \
 		srcs/pf_putfunctions.c \
 		srcs/pf_putc.c \
 		srcs/puts/pf_puts.c \
+		srcs/puts/pf_puts_width.c \
 		srcs/putd/pf_putd.c \
 		srcs/putd/pf_putd_minus.c \
 		srcs/putd/pf_putd_zero.c \
@@ -23,8 +36,6 @@ SRCS =		srcs/ft_printf.c \
 		srcs/putx/pf_putx.c \
 		srcs/putx/pf_putx_precision.c \
 		srcs/putx/pf_putx_minus.c \
-		srcs/printspecs.c
-#delete		srcs/printspecs.c before submitting
 
 #---------------------- OBJECTS ----------------------#
 OBJS =		$(SRCS:.c=.o)
@@ -37,10 +48,6 @@ all: $(NAME)
 
 test: $(NAME)
 	$(CC) -g main.c $<
-	./a.out
-
-testwithflags:
-	$(CC) $(C_FLAGS) -g main.c $(NAME)
 	./a.out
 
 $(NAME): $(OBJS)

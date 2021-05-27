@@ -6,20 +6,19 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/26 17:00:35 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/27 20:56:12 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../srcs/libft/libft.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
 static int	pf_init_convspecs(t_convert *p)
 {
 	p->width = 0;
-	p->precision = -1; /* precision 0 is anders dan geen precision voor strings bijvoorbeeld */
+	p->precision = -1;
 	p->minus = 0;
 	p->zero = 0;
 	p->type = 'z';
@@ -54,21 +53,15 @@ static void	pf_argtostruct(t_convert *p)
 
 int	pf_check_conversion(char *format, t_convert *p)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (pf_checkflag(&format[i], p))
-	{
 		i++;
-	}
- 	if (pf_checkasterisk(&format[i], p))
-	{
+	if (pf_checkasterisk(&format[i], p))
 		i++;
-	}
 	if (pf_checkwidthdigit(&format[i], p))
-	{
 		i += ft_intcountchars(p->width);
-	}
 	if (pf_checkprecision(&format[i], p))
 	{
 		if (p->precision)
@@ -97,7 +90,6 @@ void	pf_parse(char *format, t_convert *p)
 		{
 			i++;
 			i += pf_check_conversion(&format[i], p);
-			/* printspecs(p); */
 			pf_putconversion(p);
 		}
 		else

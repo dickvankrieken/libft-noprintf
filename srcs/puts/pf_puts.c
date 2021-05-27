@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   pf_puts.c                                          :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/05/27 22:20:01 by dvan-kri      #+#    #+#                 */
+/*   Updated: 2021/05/27 22:20:04 by dvan-kri      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/ft_printf.h"
 
 static void	pf_puts_checkprecision(t_convert *p)
@@ -19,52 +31,6 @@ static void	pf_puts_checkprecision(t_convert *p)
 	{
 		write(1, p->s, ft_strlen(p->s));
 		p->count += (int)ft_strlen(p->s);
-	}
-}
-
-static void	pf_puts_width_zero(t_convert *p)
-{
-	if (p->precision > -1)
-	{
-		pf_putzero(p, p->width - p->precision);
-		write(1, p->s, p->precision);
-		p->count += p->precision;
-	}
-	else
-	{
-		pf_putzero(p, p->width - ft_strlen(p->s));
-		write(1, p->s, ft_strlen(p->s));
-		p->count += ft_strlen(p->s);
-	}
-}
-
-static void	pf_puts_width(t_convert *p)
-{
-	if (p->zero)
-		pf_puts_width_zero(p);
-	else
-	{
-		if (p->precision > -1)
-		{
-			if (p->precision < (int)ft_strlen(p->s))
-			{
-				pf_putspaces(p, p->width - p->precision);
-				write(1, p->s, p->precision);
-				p->count += p->precision;
-			}
-			else
-			{
-				pf_putspaces(p, p->width - ft_strlen(p->s));
-				write (1, p->s, ft_strlen(p->s));
-				p->count += ft_strlen(p->s);
-			}
-		}
-		else
-		{
-			pf_putspaces(p, p->width - ft_strlen(p->s));
-			write(1, p->s, ft_strlen(p->s));
-			p->count += ft_strlen(p->s);
-		}
 	}
 }
 

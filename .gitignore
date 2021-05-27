@@ -16,6 +16,9 @@ build/
 printf_evalsheet.png
 
 a.out
+main.c
+.gitignore
+.gitmodules
 
 *.o
 *.a
