@@ -21,6 +21,14 @@ int main()
 //	res = printf(">%32s<\n", "abc");
 //	printf("return waarde: %d\n", res);
 
+	int main()
+	{
+		char *s1 = "Check %5.*d";
+		if (ft_printf(s1, -5, 1234) != printf(s1, -5, 1234))
+			printf("error?!\n");
+		while (1)
+		{}
+	}
 
 	ft_printf(" dit is een %%5.10d: %5.10d", 1234);
 

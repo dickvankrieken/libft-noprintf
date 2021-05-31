@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:20:23 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/27 22:20:25 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/28 15:10:14 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,6 @@ void	pf_putu_zero_width(t_convert *p)
 	int	i;
 
 	i = 0;
-	if (p->u < 0)
-	{
-		ft_putchar_fd('-', 1);
-		i++;
-		p->u = -(p->u);
-	}
 	while (p->width > (i + ft_uintcountchars(p->u)))
 	{
 		ft_putchar_fd('0', 1);

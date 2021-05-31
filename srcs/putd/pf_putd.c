@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:19:42 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/27 22:19:45 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/05/28 15:09:05 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,9 +105,6 @@ void	pf_putd_width(t_convert *p)
 
 void	pf_putd(t_convert *p)
 {
-	int	i;
-
-	i = 0;
 	if (p->minus)
 		pf_putd_minus(p);
 	else if (p->zero && !(p->precision > -1))
