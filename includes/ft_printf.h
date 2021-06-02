@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/27 22:36:48 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/02 10:14:53 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		pf_checktype(char *format, t_convert *p);
 
 int		ft_printf(const char *format, ...);
 int		pf_check_conversion(char *format, t_convert *p);
+void 		pf_getprecisionandfree(char *format, int i, int j, t_convert *p);
 
 char	*pf_ultohex(unsigned long n, int isupper);
 

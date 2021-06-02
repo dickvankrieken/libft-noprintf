@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 19:08:34 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/27 21:08:52 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/02 10:33:00 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,34 +33,43 @@ int	pf_checkflag(char *format, t_convert *p)
 	return (i);
 }
 
-int	pf_checkprecision(char *format, t_convert *p)
-{
-	int	i;
-	int	j;
+/* void	pf_getprecisionandfree(char *format, int i, int j, t_convert *p) */
+/* { */
+/* 	char	*string; */
 
-	i = 0;
-	j = 0;
-	if (format[i] == '.')
-	{
-		i++;
-		if (format[i] == '*')
-		{
-			p->precision = va_arg(p->ap, int);
-			return (1);
-		}
-		else
-		{
-			while (ft_isdigit(format[i + j]))
-				j++;
-			if (j)
-				p->precision = ft_atoi(ft_substr(format, i, j));
-			else
-				p->precision = 0;
-			return (1);
-		}
-	}
-	return (0);
-}
+/* 	string = ft_substr(format, i, j); */
+/* 	p->precision = ft_atoi(string); */
+/* 	free(string); */
+/* } */
+
+/* int	pf_checkprecision(char *format, t_convert *p) */
+/* { */
+/* 	int	i; */
+/* 	int	j; */
+
+/* 	i = 0; */
+/* 	j = 0; */
+/* 	if (format[i] == '.') */
+/* 	{ */
+/* 		i++; */
+/* 		if (format[i] == '*') */
+/* 		{ */
+/* 			p->precision = va_arg(p->ap, int); */
+/* 			return (1); */
+/* 		} */
+/* 		else */
+/* 		{ */
+/* 			while (ft_isdigit(format[i + j])) */
+/* 				j++; */
+/* 			if (j) */
+/* 				pf_getprecisionandfree(format, i, j, p); */
+/* 			else */
+/* 				p->precision = 0; */
+/* 			return (1); */
+/* 		} */
+/* 	} */
+/* 	return (0); */
+/* } */
 
 int	pf_checkasterisk(char *format, t_convert *p)
 {
@@ -79,13 +88,18 @@ int	pf_checkasterisk(char *format, t_convert *p)
 
 int	pf_checkwidthdigit(char *format, t_convert *p)
 {
+	char *string;
 	int	i;
 
 	i = 0;
 	while (ft_isdigit(format[i]))
 		i++;
 	if (i)
-		p->width = ft_atoi(ft_substr(format, 0, i));
+	{
+		string = ft_substr(format, 0, i);
+		p->width = ft_atoi(string);
+		free(string);
+	}
 	return (i);
 }
 

@@ -6,7 +6,7 @@
 #    By: dvan-kri <dvan-kri@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/27 22:20:58 by dvan-kri      #+#    #+#                  #
-#    Updated: 2021/05/27 22:21:01 by dvan-kri      ########   odam.nl          #
+#    Updated: 2021/06/02 10:19:30 by dvan-kri      ########   odam.nl          #
 #                                                                              #
 #******************************************************************************#
 
@@ -21,6 +21,7 @@ LIBFT_DIR = 	srcs/libft
 #---------------------- SOURCES ----------------------#
 SRCS =		srcs/ft_printf.c \
 		srcs/pf_checkfunctions.c \
+		srcs/pf_checkfunctions_precision.c \
 		srcs/pf_ultohex.c \
 		srcs/pf_putfunctions.c \
 		srcs/pf_putc.c \
