@@ -29,13 +29,13 @@ int	pf_checkprecision(char *format, t_convert *p)
 
 	i = 0;
 	j = 0;
-	if (format[i] == '.')
+	if (format[0] == '.')
 	{
 		i++;
 		if (format[i] == '*')
 		{
 			p->precision = va_arg(p->ap, int);
-			return (1);
+			i++;
 		}
 		else
 		{
@@ -45,8 +45,7 @@ int	pf_checkprecision(char *format, t_convert *p)
 				pf_getprecisionandfree(format, i, j, p);
 			else
 				p->precision = 0;
-			return (1);
 		}
 	}
-	return (0);
+	return (i);
 }
