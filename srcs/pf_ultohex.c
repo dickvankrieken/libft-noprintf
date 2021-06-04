@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:19:36 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/27 22:19:38 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/02 19:42:05 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ static int	numberofchars(unsigned long n)
 	int	i;
 
 	i = 0;
-	if (n < 0)
-		i++;
 	while (n)
 	{
 		n /= 16;
