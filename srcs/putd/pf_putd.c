@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:19:42 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/28 15:09:05 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/02 19:53:35 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,28 +50,27 @@ void	pf_putd_precision(t_convert *p)
 {
 	int	len;
 
+	if (p->precision == 0 && p->d == 0)
+		return ;
 	len = ft_intcountchars(p->d);
-	if (p->precision)
+	if (p->precision > ft_intcountchars(p->d))
 	{
-		if (p->precision > ft_intcountchars(p->d))
+		if (p->d < 0)
 		{
-			if (p->d < 0)
-			{
-				ft_putchar_fd('-', 1);
-				len--;
-				p->d = -(p->d);
-				p->count++;
-			}
-			while (p->precision > len)
-			{
-				ft_putchar_fd('0', 1);
-				len++;
-				p->count++;
-			}
+			ft_putchar_fd('-', 1);
+			len--;
+			p->d = -(p->d);
+			p->count++;
 		}
-		ft_putnbr_fd((p->d), 1);
-		p->count += ft_intcountchars(p->d);
+		while (p->precision > len)
+		{
+			ft_putchar_fd('0', 1);
+			len++;
+			p->count++;
+		}
 	}
+	ft_putnbr_fd((p->d), 1);
+	p->count += ft_intcountchars(p->d);
 }
 
 void	pf_putd_width(t_convert *p)
