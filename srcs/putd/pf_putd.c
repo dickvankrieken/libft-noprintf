@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:19:42 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/02 19:53:35 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/08 10:24:19 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	pf_putd_precision(t_convert *p)
 		if (p->d < 0)
 		{
 			ft_putchar_fd('-', 1);
-			len--;
 			p->d = -(p->d);
 			p->count++;
 		}

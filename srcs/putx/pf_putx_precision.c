@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:20:39 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/27 22:20:42 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/08 08:38:49 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ void	pf_putx_precision(t_convert *p)
 	{
 		pf_putzero(p, p->precision - len);
 	}
-	if (p->precision == 0)
-		ft_putchar_fd(' ', 1);
 	else
 	{
 		ft_putstr_fd(p->s, 1);
