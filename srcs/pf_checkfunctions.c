@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 19:08:34 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/02 19:42:25 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/10 22:24:01 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	pf_checkasterisk(char *format, t_convert *p)
 
 int	pf_checkwidthdigit(char *format, t_convert *p)
 {
-	char *string;
-	int	i;
+	char	*string;
+	int		i;
 
 	i = 0;
 	while (ft_isdigit(format[i]))
