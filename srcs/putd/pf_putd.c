@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:19:42 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/08 10:24:19 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/10 22:22:08 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	pf_putd_width_precision_putspaces(t_convert *p)
 	i = 0;
 	if (p->d < 0)
 		i++;
-	if (p->precision > ft_intcountchars(p->d))
+	if (p->precision > ft_intcountnumbers(p->d))
 	{
 		while (i < p->width - p->precision)
 		{
@@ -48,12 +48,12 @@ void	pf_putd_width_precision(t_convert *p)
 
 void	pf_putd_precision(t_convert *p)
 {
-	int	len;
+	int	count;
 
 	if (p->precision == 0 && p->d == 0)
 		return ;
-	len = ft_intcountchars(p->d);
-	if (p->precision > ft_intcountchars(p->d))
+	count = ft_intcountnumbers(p->d);
+	if (p->precision > count)
 	{
 		if (p->d < 0)
 		{
@@ -61,10 +61,10 @@ void	pf_putd_precision(t_convert *p)
 			p->d = -(p->d);
 			p->count++;
 		}
-		while (p->precision > len)
+		while (p->precision > count)
 		{
 			ft_putchar_fd('0', 1);
-			len++;
+			count++;
 			p->count++;
 		}
 	}
@@ -76,7 +76,7 @@ void	pf_putd_width(t_convert *p)
 {
 	int	i;
 
-	if (p->precision > ft_intcountchars(p->d))
+	if (p->precision > ft_intcountnumbers(p->d))
 		pf_putd_width_precision(p);
 	else
 	{
@@ -87,16 +87,15 @@ void	pf_putd_width(t_convert *p)
 			i++;
 			p->count++;
 		}
-		if (p->precision)
+		if ((p->precision == 0 && p->d == 0))
 		{
-			ft_putnbr_fd((p->d), 1);
-			p->count += ft_intcountchars(p->d);
+			ft_putchar_fd(' ', 1);
+			p->count++;
 		}
 		else
 		{
-			ft_putchar_fd(' ', 1);
-			i++;
-			p->count++;
+			ft_putnbr_fd((p->d), 1);
+			p->count += ft_intcountchars(p->d);
 		}
 	}
 }
