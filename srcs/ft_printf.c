@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/04 12:06:15 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/11 11:27:30 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static int	pf_init_convspecs(t_convert *p)
 	p->minus = 0;
 	p->zero = 0;
 	p->type = 'z';
+	p->x = 1;
+	p->X = 1;
 	return (0);
 }
 
@@ -44,9 +46,9 @@ static void	pf_argtostruct(t_convert *p)
 	if (p->type == 'u')
 		p->u = va_arg(p->ap, unsigned int);
 	if (p->type == 'x')
-		p->s = pf_ultohex(va_arg(p->ap, unsigned int), 0);
+		p->x = va_arg(p->ap, unsigned int);
 	if (p->type == 'X')
-		p->s = pf_ultohex(va_arg(p->ap, unsigned int), 1);
+		p->X = va_arg(p->ap, unsigned int);
 	if (p->type == '%')
 		p->c = '%';
 }
