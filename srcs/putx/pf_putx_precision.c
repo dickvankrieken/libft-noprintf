@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:20:39 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/08 08:38:49 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/10 22:17:48 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	pf_putx_precision(t_convert *p)
 	{
 		pf_putzero(p, p->precision - len);
 	}
-	else
+	if (!(p->precision == 0 && (p->x == 0 || p->X == 0)))
 	{
 		ft_putstr_fd(p->s, 1);
 		p->count += (int)ft_strlen(p->s);
@@ -32,7 +32,7 @@ void	pf_putx_checkprecision(t_convert *p)
 {
 	if (p->precision > -1)
 	{
-		if (p->precision < (int)ft_strlen(p->s))
+		if (p->precision < (int)ft_strlen(p->s) && !(p->x == 0 || p->X == 0))
 		{
 			write(1, p->s, (int)ft_strlen(p->s));
 			p->count += (int)ft_strlen(p->s);

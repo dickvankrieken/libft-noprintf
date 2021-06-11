@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:20:28 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/08 08:42:30 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/11 11:27:12 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,12 @@ static void	pf_putx_width(t_convert *p)
 		if (p->precision > -1)
 		{
 			if (p->precision < (int)ft_strlen(p->s))
-				pf_putspaces(p, p->width - p->precision);
+				pf_putspaces(p, p->width - (int)ft_strlen(p->s));
 			else if (p->width > p->precision)
 			{
 				pf_putspaces(p, p->width - p->precision);
 			}
-		pf_putx_precision(p);
-		return ;
-		}
-		else if (p->precision == 0)
-		{
-			pf_putspaces(p, p->width);
+			pf_putx_precision(p);
 			return ;
 		}
 		else if (p->width > (int)ft_strlen(p->s))
@@ -109,6 +104,10 @@ static void	pf_putx_minus(t_convert *p)
 
 void	pf_putx(t_convert *p)
 {
+	if (p->type == 'x')
+		p->s = pf_ultohex(p->x, 0);
+	else if (p->type == 'X')
+		p->s = pf_ultohex(p->X, 1);
 	if (p->precision == 0 && (p->x == 0 || p->X == 0) && !(p->width))
 	{
 		free(p->s);
