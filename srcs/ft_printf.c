@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/11 11:27:30 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/12 11:23:47 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	pf_init_convspecs(t_convert *p)
 	p->precision = -1;
 	p->minus = 0;
 	p->zero = 0;
-	p->type = 'z';
+	p->type = '\0';
 	p->x = 1;
 	p->X = 1;
 	return (0);
@@ -65,9 +65,7 @@ int	pf_check_conversion(char *format, t_convert *p)
 	if (pf_checkwidthdigit(&format[i], p))
 		i += ft_intcountchars(p->width);
 	if (format[i] == '.')
-	{
 		i += pf_checkprecision(&format[i], p);
-	}
 	while (!pf_checktype(&format[i], p))
 		i++;
 	if (pf_checktype(&format[i], p))
