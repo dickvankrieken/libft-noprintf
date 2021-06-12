@@ -16,7 +16,6 @@ build/
 printf_evalsheet.png
 
 a.out
-main.c
 .gitignore
 .gitmodules
 
@@ -27,6 +26,5 @@ main.c
 # testers
 pft/
 pft_2019/
-pft_2019
 42TESTERS-PRINTF/
 tests.c
