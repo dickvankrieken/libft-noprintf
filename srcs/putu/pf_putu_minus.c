@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:20:19 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/27 22:20:21 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/13 15:44:59 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,10 @@ static void	pf_putu_minus_width_precision(t_convert *p)
 	int	i;
 
 	i = 0;
-	if (p->precision != 0)
+	if (!(p->precision == 0 && p->u == 0))
+	{
 		i += pf_putu_precision(p);
+	}
 	while (i < p->width)
 	{
 		ft_putchar_fd(' ', 1);
