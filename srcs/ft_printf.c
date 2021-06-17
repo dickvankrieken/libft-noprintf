@@ -6,14 +6,12 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:08:31 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/12 11:23:47 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/16 17:41:52 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../srcs/libft/libft.h"
-#include <stdlib.h>
-#include <unistd.h>
 
 static int	pf_init_convspecs(t_convert *p)
 {
@@ -24,6 +22,7 @@ static int	pf_init_convspecs(t_convert *p)
 	p->type = '\0';
 	p->x = 1;
 	p->X = 1;
+	p->x_int = 0;
 	return (0);
 }
 
