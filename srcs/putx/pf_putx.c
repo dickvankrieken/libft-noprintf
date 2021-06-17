@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:20:28 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/13 17:32:16 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/16 17:46:13 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,53 +59,18 @@ static void	pf_putx_width(t_convert *p)
 	}
 }
 
-static void	pf_putx_minus_width(t_convert *p)
-{
-	if (p->precision == 0 && p->u == 0)
-		pf_putspaces(p, p->width);
-	else if (p->precision > -1 && p->precision < (int)ft_strlen(p->s))
-	{
-		write(1, p->s, ft_strlen(p->s));
-		p->count += ft_strlen(p->s);
-		if (p->width > p->precision)
-			pf_putspaces(p, p->width - ft_strlen(p->s));
-	}
-	else if (p->precision > (int)ft_strlen(p->s))
-	{
-		pf_putx_precision(p);
-		if (p->width > p->precision)
-			pf_putspaces(p, p->width - p->precision);
-	}
-	else
-	{
-		write(1, p->s, ft_strlen(p->s));
-		p->count += ft_strlen(p->s);
-		pf_putspaces(p, p->width - (int)ft_strlen(p->s));
-	}
-}
-
-static void	pf_putx_minus(t_convert *p)
-{
-	if (p->width)
-	{
-		pf_putx_minus_width(p);
-	}
-	else if (p->precision > -1 && p->precision < (int)ft_strlen(p->s))
-	{
-		p->count += write(1, p->s, p->precision);
-	}
-	else
-	{
-		p->count += write(1, p->s, ft_strlen(p->s));
-	}
-}
-
 void	pf_putx(t_convert *p)
 {
 	if (p->type == 'x')
+	{
+		p->x_int = p->x;
 		p->s = pf_ultohex(p->x, 0);
+	}
 	else if (p->type == 'X')
+	{
+		p->x_int = p->X;
 		p->s = pf_ultohex(p->X, 1);
+	}
 	if (p->precision == 0 && (p->x == 0 || p->X == 0) && !(p->width))
 	{
 		free(p->s);
