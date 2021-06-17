@@ -6,11 +6,12 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:20:23 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/05/28 15:10:14 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/17 14:40:20 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
+#include "../libft/libft.h"
 
 void	pf_putu_zero(t_convert *p)
 {

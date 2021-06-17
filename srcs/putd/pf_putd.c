@@ -6,11 +6,12 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:19:42 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/17 13:33:49 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/17 14:39:13 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
+#include "../libft/libft.h"
 
 static void	pf_putd_width_precision_putspaces(t_convert *p)
 {

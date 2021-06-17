@@ -6,11 +6,12 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:20:33 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/16 17:41:32 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/17 14:40:42 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/ft_printf.h"
+#include "../libft/libft.h"
 
 static void	pf_putx_minus_width_precision(t_convert *p)
 {
