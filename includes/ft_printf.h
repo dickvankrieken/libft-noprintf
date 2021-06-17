@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/02 10:14:53 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/17 13:40:47 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_convert
 	unsigned int	u;
 	unsigned int	x;
 	unsigned int	X;
+	int		x_int;
 }	t_convert;
 
 int		pf_checkflag(char *format, t_convert *p);
@@ -70,11 +71,13 @@ void	pf_putp(t_convert *p);
 void	pf_putx(t_convert *p);
 void	pf_putx_precision(t_convert *p);
 void	pf_putx_checkprecision(t_convert *p);
+void	pf_putx_minus(t_convert *p);
 
 void	pf_putu(t_convert *p);
 char	*ft_uitoa(unsigned int n);
 int		pf_putu_precision(t_convert *p);
 void	pf_putu_width(t_convert *p);
+void	pf_putu_width_checkprecision(t_convert *p);
 void	pf_putu_width_precision(t_convert *p);
 void	pf_putu_minus(t_convert *p);
 void	pf_putu_zero(t_convert *p);
