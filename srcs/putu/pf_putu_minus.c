@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:20:19 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/13 15:44:59 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/17 13:35:13 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,11 @@ void	pf_putu_minus(t_convert *p)
 		else
 			pf_putu_minus_width(p);
 	}
-	else if (p->precision > ft_uintcountchars(p->d))
+	else if (p->precision > ft_uintcountchars(p->u))
+	{
 		pf_putu_precision(p);
-	else
+	}
+	else if (!(p->u == 0 && p->precision == 0))
 	{
 		ft_putuint_fd((p->u), 1);
 		p->count += ft_uintcountchars(p->u);

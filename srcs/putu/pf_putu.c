@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:20:13 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/10 14:28:13 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/17 13:40:18 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,10 @@ void	pf_putu(t_convert *p)
 		pf_putu_minus(p);
 	else if (p->zero)
 		pf_putu_zero(p);
+	else if (p->precision == 0 && p->u == 0 && p->width)
+		pf_putu_width_checkprecision(p);
 	else if (p->width > ft_uintcountchars(p->u))
-	{
-		if (p->precision > ft_uintcountchars(p->u))
-			pf_putu_width_precision(p);
-		else
-			pf_putu_width(p);
-	}
+		pf_putu_width_checkprecision(p);
 	else if (p->precision > ft_uintcountchars(p->u))
 		pf_putu_precision(p);
 	else
@@ -42,7 +39,7 @@ void	pf_putu_width(t_convert *p)
 	int	i;
 
 	i = 0;
-	if (p->precision == 0)
+	if (p->precision == 0 && p->u == 0)
 	{
 		while (i < p->width)
 		{
@@ -62,6 +59,14 @@ void	pf_putu_width(t_convert *p)
 		ft_putuint_fd((p->u), 1);
 		p->count += ft_uintcountchars(p->u);
 	}
+}
+
+void	pf_putu_width_checkprecision(t_convert *p)
+{
+	if (p->precision > ft_uintcountchars(p->u))
+		pf_putu_width_precision(p);
+	else
+		pf_putu_width(p);
 }
 
 int	pf_putu_precision(t_convert *p)
