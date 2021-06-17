@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:19:42 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/12 12:05:46 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/17 13:33:49 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,9 @@ void	pf_putd(t_convert *p)
 		pf_putd_minus(p);
 	else if (p->zero && !(p->precision > -1))
 		pf_putd_zero(p);
-	else if (p->width > ft_intcountchars(p->d) || (p->d == 0 && p->precision == 0 && p->width == 1))
+	else if (p->d == 0 && p->precision == 0 && p->width == 1)
+		pf_putd_width(p);
+	else if (p->width > ft_intcountchars(p->d))
 		pf_putd_width(p);
 	else if (p->precision > -1)
 		pf_putd_precision(p);
