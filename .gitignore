@@ -27,4 +27,5 @@ a.out
 pft/
 pft_2019/
 42TESTERS-PRINTF/
-tests.c
+tests.c/
+/printf_lover_v2
