@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 22:20:28 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/17 14:40:27 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/19 18:56:03 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 static void	pf_putx_width_zero(t_convert *p)
 {
-	if (p->precision > -1 && p->precision > (int)ft_strlen(p->s))
+	if (p->precision == 0 && (p->x == 0 || p->X == 0))
+		pf_putspaces(p, p->width);
+	else if (p->precision > -1 && p->precision > (int)ft_strlen(p->s))
 	{
 		pf_putspaces(p, p->width - p->precision);
 		pf_putzero(p, p->precision - ft_strlen(p->s));
