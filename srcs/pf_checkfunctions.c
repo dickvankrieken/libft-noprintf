@@ -6,102 +6,102 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 19:08:34 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/20 15:53:03 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/21 09:31:58 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../srcs/libft/libft.h"
 
-static int    pf_checktype(char *format, t_convert *p)
+static int	pf_checktype(char *format, t_convert *p)
 {
-    if (*format == 'd' || *format == 'i' || *format == 'u')
-    {
-        p->type = *format;
-        return (1);
-    }
-    if (*format == 'x' || *format == 'X' || *format == 'c')
-    {
-        p->type = *format;
-        return (1);
-    }
-    if (*format == 'p' || *format == 's' || *format == '%')
-    {
-        p->type = *format;
-        return (1);
-    }
-    return (0);
+	if (*format == 'd' || *format == 'i' || *format == 'u')
+	{
+		p->type = *format;
+		return (1);
+	}
+	if (*format == 'x' || *format == 'X' || *format == 'c')
+	{
+		p->type = *format;
+		return (1);
+	}
+	if (*format == 'p' || *format == 's' || *format == '%')
+	{
+		p->type = *format;
+		return (1);
+	}
+	return (0);
 }
 
-static int    pf_checkwidthdigit(char *format, t_convert *p)
+static int	pf_checkwidthdigit(char *format, t_convert *p)
 {
-    char    *string;
-    int        i;
+	char	*string;
+	int		i;
 
-    i = 0;
-    while (ft_isdigit(format[i]))
-        i++;
-    if (i)
-    {
-        string = ft_substr(format, 0, i);
-        p->width = ft_atoi(string);
-        free(string);
-    }
-    return (i);
+	i = 0;
+	while (ft_isdigit(format[i]))
+		i++;
+	if (i)
+	{
+		string = ft_substr(format, 0, i);
+		p->width = ft_atoi(string);
+		free(string);
+	}
+	return (i);
 }
 
-static int    pf_checkasterisk(char *format, t_convert *p)
+static int	pf_checkasterisk(char *format, t_convert *p)
 {
-    if (*format == '*')
-    {
-        p->width = va_arg(p->ap, int);
-        if (p->width < 0)
-        {
-            p->minus = 1;
-            p->width *= -1;
-        }
-        return (1);
-    }
-    return (0);
+	if (*format == '*')
+	{
+		p->width = va_arg(p->ap, int);
+		if (p->width < 0)
+		{
+			p->minus = 1;
+			p->width *= -1;
+		}
+		return (1);
+	}
+	return (0);
 }
 
-static int    pf_checkflag(char *format, t_convert *p)
+static int	pf_checkflag(char *format, t_convert *p)
 {
-    int    i;
+	int	i;
 
-    i = 0;
-    if (format[i] == '0')
-    {
-        p->zero = 1;
-        i++;
-    }
-    else if (format[i] == '-')
-    {
-        p->minus = 1;
-        i++;
-        if (p->zero == 1)
-            p->zero = 0;
-    }
-    return (i);
+	i = 0;
+	if (format[i] == '0')
+	{
+		p->zero = 1;
+		i++;
+	}
+	else if (format[i] == '-')
+	{
+		p->minus = 1;
+		i++;
+		if (p->zero == 1)
+			p->zero = 0;
+	}
+	return (i);
 }
 
-int    pf_check_conversion(char *format, t_convert *p)
+int	pf_check_conversion(char *format, t_convert *p)
 {
-    int    i;
+	int	i;
 
-    i = 0;
-    while (pf_checkflag(&format[i], p))
-        i++;
-    if (pf_checkasterisk(&format[i], p))
-        i++;
-    if (pf_checkwidthdigit(&format[i], p))
-        i += ft_intcountchars(p->width);
-    if (format[i] == '.')
-        i += pf_checkprecision(&format[i], p);
-    while (!pf_checktype(&format[i], p))
-        i++;
-    if (pf_checktype(&format[i], p))
-        i++;
-    pf_argtostruct(p);
-    return (i);
+	i = 0;
+	while (pf_checkflag(&format[i], p))
+		i++;
+	if (pf_checkasterisk(&format[i], p))
+		i++;
+	if (pf_checkwidthdigit(&format[i], p))
+		i += ft_intcountchars(p->width);
+	if (format[i] == '.')
+		i += pf_checkprecision(&format[i], p);
+	while (!pf_checktype(&format[i], p))
+		i++;
+	if (pf_checktype(&format[i], p))
+		i++;
+	pf_argtostruct(p);
+	return (i);
 }
