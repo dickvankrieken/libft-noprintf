@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/18 11:31:52 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/06/21 08:31:20 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,11 @@ typedef struct s_convert
 	int				x_int;
 }	t_convert;
 
-int		pf_checkflag(char *format, t_convert *p);
 int		pf_checkprecision(char *format, t_convert *p);
-int		pf_checkasterisk(char *format, t_convert *p);
-int		pf_checkwidthdigit(char *format, t_convert *p);
-int		pf_checktype(char *format, t_convert *p);
 
 int		ft_printf(const char *format, ...);
+void    pf_argtostruct(t_convert *p);
+
 int		pf_check_conversion(char *format, t_convert *p);
 void	pf_getprecisionandfree(char *format, int i, int j, t_convert *p);
 
