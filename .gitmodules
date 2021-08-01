@@ -1,6 +1,0 @@
-[submodule "srcs/libft"]
-	path = srcs/libft
-	url = https://github.com/dirkvankrieken/libft.git
-[submodule "pft_2019"]
-	path = pft_2019
-	url = https://github.com/gavinfielder/pft.git
