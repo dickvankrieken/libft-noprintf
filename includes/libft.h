@@ -1,83 +1,77 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_printf.h                                        :+:    :+:            */
+/*   libft.h                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/03/14 21:06:29 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/06/21 09:27:24 by dvan-kri      ########   odam.nl         */
+/*   Created: 2020/11/21 15:58:28 by dvan-kri      #+#    #+#                 */
+/*   Updated: 2021/06/10 14:03:27 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef LIBFT_H
+# define LIBFT_H
 
-# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-typedef struct s_convert
+typedef struct s_list
 {
-	va_list			ap;
-	int				count;
-	int				width;
-	int				precision;
-	int				minus;
-	int				zero;
-	char			type;
-	char			c;
-	char			*s;
-	unsigned long	p;
-	int				d;
-	int				i;
-	unsigned int	u;
-	unsigned int	x;
-	unsigned int	X;
-	int				x_int;
-}	t_convert;
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
-int		pf_checkprecision(char *format, t_convert *p);
+void				*ft_memset(void *b, int c, size_t len);
+void				ft_bzero(void *s, size_t n);
+void				*ft_memcpy(void *dst, const void *src, size_t n);
+void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
+void				*ft_memmove(void *dst, const void *src, size_t len);
+void				*ft_memchr(const void *s, int c, size_t n);
+int					ft_memcmp(const void *s1, const void *s2, size_t n);
+size_t				ft_strlen(const char *s);
+size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
+char				*ft_strchr(const char *s, int c);
+char				*ft_strrchr(const char *s, int c);
+int					ft_strncmp(const char *s1, const char *s2, size_t n);
+char				*ft_strnstr(const char *haystack,
+						const char *needle, size_t len);
+int					ft_atoi(const char *str);
+int					ft_isalpha(int c);
+int					ft_isdigit(int c);
+int					ft_isalnum(int c);
+int					ft_isascii(int c);
+int					ft_isprint(int c);
+int					ft_toupper(int c);
+int					ft_tolower(int c);
+void				*ft_calloc(size_t count, size_t size);
+char				*ft_strdup(const char *s1);
 
-int		ft_printf(const char *format, ...);
-void	pf_argtostruct(t_convert *p);
+char				*ft_substr(char const *s, unsigned int start, size_t len);
+char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strtrim(char const *s1, char const *set);
+char				**ft_split(char const *s, char c);
+char				*ft_itoa(int n);
+char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void				ft_putchar_fd(char c, int fd);
+void				ft_putstr_fd(char *s, int fd);
+void				ft_putendl_fd(char *s, int fd);
+void				ft_putnbr_fd(int n, int fd);
 
-int		pf_check_conversion(char *format, t_convert *p);
-void	pf_getprecisionandfree(char *format, int i, int j, t_convert *p);
-
-char	*pf_ultohex(unsigned long n, int isupper);
-
-void	pf_putconversion(t_convert *p);
-void	pf_putspaces(t_convert *p, int len);
-void	pf_putzero(t_convert *p, int len);
-void	pf_putc(t_convert *p);
-
-void	pf_puts(t_convert *p);
-void	pf_puts_width(t_convert *p);
-void	pf_puts_width_precision(t_convert *p);
-void	pf_puts_width_zero(t_convert *p);
-
-void	pf_putd(t_convert *p);
-void	pf_putd_precision(t_convert *p);
-void	pf_putd_width_precision(t_convert *p);
-
-void	pf_putd_zero(t_convert *p);
-
-void	pf_putd_minus(t_convert *p);
-
-void	pf_putp(t_convert *p);
-
-void	pf_putx(t_convert *p);
-void	pf_putx_precision(t_convert *p);
-void	pf_putx_checkprecision(t_convert *p);
-void	pf_putx_minus(t_convert *p);
-
-void	pf_putu(t_convert *p);
-char	*ft_uitoa(unsigned int n);
-int		pf_putu_precision(t_convert *p);
-void	pf_putu_width(t_convert *p);
-void	pf_putu_width_checkprecision(t_convert *p);
-void	pf_putu_width_precision(t_convert *p);
-void	pf_putu_minus(t_convert *p);
-void	pf_putu_zero(t_convert *p);
-void	pf_putu_zero_width(t_convert *p);
+t_list				*ft_lstnew(void *content);
+void				ft_lstadd_front(t_list **lst, t_list *new);
+int					ft_lstsize(t_list *lst);
+t_list				*ft_lstlast(t_list *lst);
+void				ft_lstadd_back(t_list **lst, t_list *new);
+void				ft_lstdelone(t_list *lst, void (*del)(void *));
+void				ft_lstclear(t_list **lst, void (*del)(void *));
+void				ft_lstiter(t_list *lst, void (*f)(void *));
+t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
+						void (*del)(void *));
+void				ft_putuint_fd(unsigned int n, int fd);
+int					ft_intcountchars(int n);
+int					ft_intcountnumbers(int n);
+int					ft_uintcountchars(unsigned int n);
 
 #endif

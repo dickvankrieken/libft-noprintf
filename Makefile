@@ -6,40 +6,44 @@
 #    By: dvan-kri <dvan-kri@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/27 22:20:58 by dvan-kri      #+#    #+#                  #
-#    Updated: 2021/06/02 10:19:30 by dvan-kri      ########   odam.nl          #
+#    Updated: 2021/08/01 15:26:43 by dvan-kri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME =		libftprintf.a
 
 #---------------------- DIRECTORIES ------------------#
-SRC_DIR =	srcs
-HDR_DIR =	includes
-OBJ_DIR =	obj
-LIBFT_DIR = 	srcs/libft
+HDR_DIR =	includes/
+OBJ_DIR =	obj/
+PRINTF_DIR =	ft_printf/
+LIBFT_DIR = 	libft/
+GNL_DIR =	ft_gnl/
 
 #---------------------- SOURCES ----------------------#
-SRCS =		srcs/ft_printf.c \
-		srcs/pf_checkfunctions.c \
-		srcs/pf_checkfunctions_precision.c \
-		srcs/pf_ultohex.c \
-		srcs/pf_putfunctions.c \
-		srcs/pf_putc.c \
-		srcs/puts/pf_puts.c \
-		srcs/puts/pf_puts_width.c \
-		srcs/putd/pf_putd.c \
-		srcs/putd/pf_putd_minus.c \
-		srcs/putd/pf_putd_zero.c \
-		srcs/pf_putp.c \
-		srcs/putu/pf_putu.c \
-		srcs/putu/pf_putu_minus.c \
-		srcs/putu/pf_putu_zero.c \
-		srcs/putx/pf_putx.c \
-		srcs/putx/pf_putx_precision.c \
-		srcs/putx/pf_putx_minus.c \
+SRCS =		ft_printf.c \
+		pf_checkfunctions.c \
+		pf_checkfunctions_precision.c \
+		pf_ultohex.c \
+		pf_putfunctions.c \
+		pf_putc.c \
+		puts/pf_puts.c \
+		puts/pf_puts_width.c \
+		putd/pf_putd.c \
+		putd/pf_putd_minus.c \
+		putd/pf_putd_zero.c \
+		pf_putp.c \
+		putu/pf_putu.c \
+		putu/pf_putu_minus.c \
+		putu/pf_putu_zero.c \
+		putx/pf_putx.c \
+		putx/pf_putx_precision.c \
+		putx/pf_putx_minus.c \
+
+#---------------------- FILES ------------------------#
+FILES =	$(addprefix $(PRINTF_DIR), $(SRCS))
 
 #---------------------- OBJECTS ----------------------#
-OBJS =		$(SRCS:.c=.o)
+OBJS =		$(FILES:.c=.o)
 
 #---------------------- FLAGS ------------------------#
 C_FLAGS =	-Werror -Wextra -Wall
@@ -53,11 +57,11 @@ test: $(NAME)
 
 $(NAME): $(OBJS)
 	make bonus -C $(LIBFT_DIR)
-	cp srcs/libft/libft.a ./$(NAME)
+	cp libft/libft.a ./$(NAME)
 	ar rcs $@ $(OBJS)
 	ranlib $@
 
-$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
+$(PRINTF_DIR)/%.o: $(PRINTF_DIR)/%.c
 	$(CC) -c $(C_FLAGS) -o $@ $<
 
 clean:
