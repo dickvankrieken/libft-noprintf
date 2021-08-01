@@ -52,7 +52,7 @@ test: $(NAME)
 	./a.out
 
 $(NAME): $(OBJS)
-	make -C $(LIBFT_DIR)
+	make bonus -C $(LIBFT_DIR)
 	cp srcs/libft/libft.a ./$(NAME)
 	ar rcs $@ $(OBJS)
 	ranlib $@
