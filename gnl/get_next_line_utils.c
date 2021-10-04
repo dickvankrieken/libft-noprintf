@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/19 10:31:22 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/01/22 13:58:58 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/10/04 14:28:58 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ char	*find_nl(char *s)
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t i;
-	size_t j;
-	size_t max;
-	size_t srclen;
-	size_t dstlen;
+	size_t	i;
+	size_t	j;
+	size_t	max;
+	size_t	srclen;
+	size_t	dstlen;
 
 	srclen = ft_strlen(src);
 	dstlen = ft_strlen(dst);
@@ -98,7 +98,7 @@ char	*ft_strdup(const char *s1)
 
 size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')

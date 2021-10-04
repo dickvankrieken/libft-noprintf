@@ -6,7 +6,7 @@
 /*   By: dvan-kri <dvan-kri@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/19 10:30:58 by dvan-kri      #+#    #+#                 */
-/*   Updated: 2021/01/22 13:58:42 by dvan-kri      ########   odam.nl         */
+/*   Updated: 2021/10/04 14:28:06 by dvan-kri      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 #include <unistd.h>
 #include "get_next_line.h"
 
-int		free_string(int ret, char *s)
+int	free_string(int ret, char *s)
 {
 	free(s);
 	return (ret);
 }
 
-int		write_to_line(char **line, char *buf, char **str, char *newline)
+int	write_to_line(char **line, char *buf, char **str, char *newline)
 {
-	char *temp;
+	char	*temp;
 
 	if (!*line)
 		return (free_string(-1, *str));
@@ -43,7 +43,7 @@ int		write_to_line(char **line, char *buf, char **str, char *newline)
 	return (1);
 }
 
-int		read_fd(char **line, int fd, char **str)
+int	read_fd(char **line, int fd, char **str)
 {
 	int		read_bytes;
 	char	buf[BUFFER_SIZE + 1];
@@ -71,9 +71,9 @@ int		read_fd(char **line, int fd, char **str)
 	return (-1);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
-	static char *str[FD_SETSIZE];
+	static char	*str[FD_SETSIZE];
 	int			ret;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || !line)
